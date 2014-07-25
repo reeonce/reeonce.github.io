@@ -1,0 +1,12 @@
+# Site settings
+title: "On Reeonce's Move"
+email: reeonce@yahoo.com
+description: "Moving all the time, record it."
+baseurl: ""
+url: "https://reeonce.github.io"
+twitter_username: reeonce
+github_username:  reeonce
+
+# Build settings
+markdown: kramdown
+permalink: pretty
