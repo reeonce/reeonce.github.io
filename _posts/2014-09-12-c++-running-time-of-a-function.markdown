@@ -1,7 +1,16 @@
+---
+layout: post
+title:  "C++ Running Time Of A Function"
+date:   2014-09-12 19:51:46
+categories: C++
+---
+
 There are some ways to measure the executing running time of a function in C++.
 
-1. use `time()` in ctime. However, be aware that clock() measures CPU time, not actual time elapsed (which may be much greater). 
-```
+### 1. time()
+Use `time()` in ctime. However, be aware that clock() measures CPU time, not actual time elapsed (which may be much greater). 
+
+{% highlight c++ %}
 #include <ctime>
 
 void f() {
@@ -13,10 +22,12 @@ void f() {
   clock_t end = clock();
   double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 }
-```
+{% endhighlight %}
 
-2. With C++11 and the help of a class template and lambda functions (when needed) you could abstract the time measuring mechanism. Then each callable would have its run time measured with minimal extra code, just by being called throught the measure structure. Plus, at compile time you can parametrize the time type (milliseconds, nanoseconds etc)
-```
+### 2. chrono
+With C++11 and the help of a class template and lambda functions (when needed) you could abstract the time measuring mechanism. Then each callable would have its run time measured with minimal extra code, just by being called throught the measure structure. Plus, at compile time you can parametrize the time type (milliseconds, nanoseconds etc)
+
+{% highlight c++ %}
 #include <iostream>
 #include <chrono>
 
@@ -46,4 +57,7 @@ int main()
 
     return 0;
 }
-```
+{% endhighlight %}
+
+### Reference: 
+[http://stackoverflow.com/questions/2808398/easily-measure-elapsed-time](http://stackoverflow.com/questions/2808398/easily-measure-elapsed-time)
