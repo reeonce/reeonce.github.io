@@ -8,5 +8,5 @@ twitter_username: reeonce
 github_username:  reeonce
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
