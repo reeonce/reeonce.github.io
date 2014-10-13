@@ -4,8 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+My name is **Reeonce Zeng**, living in Shenzhen, Guangdong, China
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+I have received my bachelor degree in software engineer in *Beihang University*.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I have been working with **Node.js** for more than one year. Although it is a efficient and magic programming language, but I'd like to following TJ's step and leaving for new area ☺.
+
+Now I want to work with the little kid - **mobile**.
+
+

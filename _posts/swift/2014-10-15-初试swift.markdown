@@ -1,0 +1,22 @@
+---
+layout: post
+date: 2014-10-15
+title: 初试 swift
+category: swift
+---
+
+学习iOS开发进入另一个阶段，既然已经对 Objective-C 有了一定了解了，不妨来试试 swift.
+
+还没翻几页《The Swift Programming Language》，**我去！这跟 JavaScript 好像**。
+
+1. 变量使用 var 来声明
+
+	```swift
+	var firstString = "Hello world!";
+	```
+
+2. 函数可以直接作为参数
+
+3. 类中的变量与函数的上下文是类
+
+4. 。。。。
