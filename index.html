@@ -3,21 +3,17 @@ layout: default
 ---
 
 <div class="home">
-
-  <h1>Posts</h1>
-
+  <p>简单地记录，不断地思考。</p>
     {% for category in site.categories %}
-        <h2><a name="{{ category | first }}">{{ category | first }}</a></h2>
-            <ul class="posts">
-            {% for posts in category %}
-                {% for post in posts %}
-                  <li>
-                    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                  </li>
-                {% endfor %}
-            {% endfor %}
-            </ul>
+      {% for page in site.pages %}
+        {% assign categoryName = category | first %}
+        {% if page.category == categoryName %}
+          <h2><a href="/{{ categoryName }}/">{{ page.title }}</a></h2>
+          <div class="category-frame">
+                {{ page.content }}
+          </div>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>

@@ -2,7 +2,8 @@
 layout: post
 date: 2014-10-08 11:00:00
 title: 创建对象的工厂方法
-category: Objective-c与设计模式
+category: objective-c与设计模式
+tags: 设计模式 objective-c 工厂方法
 ---
 
 ## 工厂方法的效果

@@ -15,8 +15,16 @@ category: swift
 	var firstString = "Hello world!";
 	```
 
-2. 函数可以直接作为参数
+2. 函数与闭包可以直接作为参数, 都是**引用类型**
 
 3. 类中的变量与函数的上下文是类
+
+4. 闭包 [https://blog.avoscloud.com/1304/](https://blog.avoscloud.com/1304/)
+
+5. optional type 
+
+>Swift also introduces optional types, which handle the absence of a value. Optionals say either “there is a value, and it equals x” or “there isn’t a value at all”. Optionals are similar to using nil with pointers in Objective-C, but they work for any type, not just classes. Optionals are safer and more expressive than nil pointers in Objective-C and are at the heart of many of Swift’s most powerful features.
+
+Optionals are an example of the fact that Swift is a type safe language. Swift helps you to be clear about the types of values your code can work with. If part of your code expects a String, type safety prevents you from passing it an Int by mistake. This enables you to catch and fix errors as early as possible in the development process.
 
 4. 。。。。

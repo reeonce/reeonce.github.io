@@ -2,7 +2,7 @@
 layout: post
 title:  "addObserver 与观察者模式"
 date:   2014-10-25 08:51:46
-category: Objective-c与设计模式
+category: objective-c与设计模式
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
@@ -29,9 +29,3 @@ def print_hi(name)
 end
 print_hi('Tom')
 ```
-{% for post in site.categories[page.category] %}
-<li>
-    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-</li>
-{% endfor %}

@@ -2,7 +2,7 @@
 layout: post
 title:  "C++ Running Time Of A Function"
 date:   2014-09-12 19:51:46
-categories: C++
+categories: c++
 ---
 
 There are some ways to measure the executing running time of a function in C++.

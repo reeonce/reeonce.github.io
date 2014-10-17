@@ -60,17 +60,48 @@ a:visited { color: #205caa; }
   z-index: 1;
 }
 
+.site-pages {
+  margin-right: 40px;
+}
+
 .site-nav {
+  float: right;
+  line-height: 36px;
+}
+
+.site-top-nav {
   float: right;
   line-height: 56px;
 }
 
 .site-nav .menu-icon { display: none; }
 
-.site-nav .page-link {
+.site-nav .page-link, .site-top-nav .page-link {
   margin-left: 20px;
   color: #727272;
   letter-spacing: -.5px;
+}
+
+.side-nav {
+  float: right;
+  margin-right: 36px;
+}
+.side-nav ul {
+  list-style: none;
+}
+
+.side-nav li {
+  font-size: 20px
+}
+
+.side-nav li .page-link {
+  margin: 10px;
+  color: #727272;
+  letter-spacing: -.5px;
+}
+
+.side-nav-category {
+  margin-bottom: 40px;
 }
 
 /* Site footer */
@@ -138,6 +169,7 @@ a:visited { color: #205caa; }
 .page-content {
   padding: 30px 0;
   background-color: #fff;
+  margin-right: 260px;
 }
 
 
@@ -151,6 +183,7 @@ a:visited { color: #205caa; }
 .posts li { margin-bottom: 30px; }
 
 .posts .post-link {
+  color: #666;
   font-size: 24px;
   letter-spacing: -1px;
   line-height: 1;
@@ -162,6 +195,10 @@ a:visited { color: #205caa; }
   color: #818181;
 }
 
+.category-frame {
+  font-size: 90%;
+  margin-left: 20px;
+}
 
 /* Post styles */
 /* ----------------------------------------------------------*/
@@ -392,6 +429,11 @@ a:visited { color: #205caa; }
     padding: 5px 10px;
     margin: 0;
   }
+  
+  .page-content {
+    margin-right: 0;
+  }
+
 
   .post-header h1 { font-size: 36px; }
   .post-content h2 { font-size: 28px; }

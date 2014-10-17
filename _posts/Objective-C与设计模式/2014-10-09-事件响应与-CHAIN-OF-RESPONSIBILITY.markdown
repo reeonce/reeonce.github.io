@@ -2,7 +2,7 @@
 layout: post
 title:  "CHAIN OF RESPONSIBILITY 处理事件响应"
 date:   2014-10-09 08:51:46
-categories: Objective-c与设计模式
+categories: objective-c与设计模式
 ---
 
 ## CHAIN OF RESPONSIBILITY(职责链)
@@ -32,5 +32,7 @@ CHAIN OF RESPONSIBILITY 的效果
 3. 不保证被接收，该请求很可能一直到链的末端都得不到处理。
 
 ## CHAIN OF RESPONSIBILITY 的做法
+
+1. 
 
 ## Objective-C 中的实现
