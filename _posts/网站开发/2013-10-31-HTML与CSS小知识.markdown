@@ -1,0 +1,60 @@
+---
+layout: post
+categories: 网站开发
+tags: 网站 HTML CSS
+---
+
+### HTML布局
+
+HTML元素在布局时可分为两种， block-level element和inline element。
+
+block-level element的default display是block, 能够定义它的width和height, 并且在该element被创建的时候， 浏览器会创建一个新行用来放置该element. block-level element的标签主要有：&lt;div> &lt;h1>…&lt;h6> &lt;p> &lt;ul> &lt;ol> &lt;dl> &lt;li> &lt;dt> &lt;dd> &lt;table> &lt;blockquote> &lt;pre> &lt;form>等。然而，它们在定位的时候会出现塌陷问题， 见”元素的定位“小节。虽然可以把这些元素的display设置为inline， 使它们象inline elements那样布局， 但有时会出现一些问题， 如将两个段落的设置为inline, 它们是合并成一个段落的， 而不是水平的两个段落。
+
+inline element与block-level element基本相反， default display为inline, 定义的width和height都无效， element被创建时， 简单地将该element放到之前一个element的后面， 不创建新行。 主要标签有：&lt;span> &lt;a> &lt;strong> &lt;em> &lt;img> &lt;br> &lt;input> &lt;abbr> &lt;acronym>等。 Inline element有个问题，就是inline元素之间会有whitespace, 这里的whitespace可以是空格， 制表符， 换行符， 由于浏览器会将多个whitespace合并成为一个， 因此这些elements之间的间隙也就是一个whitespace字符的宽度了。解决办法可以是将字体大小设置为0， 或者当字体确定时，使用”margin-right: -(4)px“也是可以的。将这些element的display设置为block时， 它们就与block-level element没有什么区别了。
+
+我们知道display还可以设置为inline-block， 简单来说它就是inline和block的综合， 即不换行的block-level element。block和inline在display中的值是在css1中就有的， 而inline-block是在CSS2.1中才添加的， 即IE7之后才是标准。 奇怪的是，IE6, IE7是支持inline-block了， 但是解析却与CSS2.1中的标准不同，因此才会看到代码中“*display: inline; *zoom: 1;”这一行对IE作的hack。
+
+### HTML元素定位
+
+会影响元素位置的css属性有margin、padding、border、overflow、position、top、left、bottom、right、vertical-align、float、clear。
+
+margin vs border vs padding, 都会影响元素的位置，默认值都是0。margin 指的是元素的外边距，即元素的外围空间，用于隔开不同元素，且这些区域始终是透明的；border是边框，可以设置边框的形状、线条类型、宽度等，位于margin以里；而padding则是元素的内边距，控制元素与内容之间的空间，颜色为背景色，位于border以里。
+
+在开发过程中遇到最恶心的就是margin的塌陷问题了。塌陷问题主要分为两种情况，一种是相邻元素之间，上面元素的margin-bottom与下边元素的margin-top重合，而水平的重合是不会塌陷的；另一种则是父子元素之间的重合造成的塌陷。不会出现塌陷的有这几种情况：
+
+* 浮动元素。(float为left或者right的元素)
+* position设置为absolute的元素。
+* display: inline-block元素。
+* 设置overflow为非visible的元素不会与孩子元素发生塌陷
+* 孩子元素的clear为非null时，其margin-top将不会与父元素的margin-bottom产生塌陷。
+* 父元素的border设置为非0且可见样式时，不会与子元素产生塌陷。
+* padding设置为非0时，不会与子元素产生塌陷。
+
+我们会发现margin和position设置为relative, 然后再通过top、left、right及bottom，这两种方法都是可以达到对元素定位的目标的。那么什么时候选择什么方法呢？网页的元素在定位时分为两种，一种是在document flow中的(position为static的元素)， 另一种则是position为非static的元素。默认情况下，block元素垂直flow分布，inline元素则是水平分布，而第二种在运用时，通过设置top等参数只是使得元素相对位置偏移了，而元素却还占据着原来的位置。因此，后面的元素的初始位置是不会因其位置的变化而变化的，导致的结果则是如果想实现flow的效果，之后的所有元素都得经过top、left等的计算。但是relative的position在有时候是很有用的，比如block元素希望位于另一元素的正中间，水平可以通过auto的margin来实现，而垂直方面则只能由position为relative来实现了。
+
+那么我想要将元素停靠在左边或者右边时，是用float还是将position设置为absolute呢？position设置为absolute时，那么此元素得位置应该相对于其最近一个拥有非static得position的父元素的位置，而position为static的兄弟元素的位置是不受影响的，很有可能一不小心就将后面的元素覆盖，因此更适合用于overlay中。float则是元素漂浮于父元素空间的左侧或者右侧，float在应用时就简单很多，还能防止 Footer Beneath Sidebar的问题。
+
+对于对齐而言，需要提出的一点是vertical-align默认的值是baseline, 指的是元素的内容的底线，而bottom则是整个元素的底部的对齐，包括padding、border和margin的空间。实际中，我更会用到的会是top和middle。
+
+### id vs class
+
+目前的感受就是，设计网站的过程中，先大体将网页的内容分为单独的某几个模块，这些模块都是不相同的功能的，因此用id来标注。而不是在网页中唯一出现的都可以通过添加class来为其添加css或者js功能。即id是一个唯一标识，而class表示的是该元素具有特定样式或者功能。
+
+### &lt;img /> 标签还是background-image？
+
+如果图片是非常重要的内容，如logo、图表、人物、打印时需要被打印的内容，那么使用&lt;img>是比较好的选择，而其它的情况都使用background-image。需要指出的一点是，ie8及之前的浏览器对background-image的缩放并不是非常理想，可能需要其它css hack去完成一些工作。对于图片的选择，目前应该主要三种格式，大部分图片都是jpg格式的，虽然是有损压缩，但是文件大小在现在的网络中还是很值得考虑的因素；需要透明的图片，使用png的格式，一般会比jpg大两三倍吧；动图？gif是有什么版权问题吗？
+
+
+以下是一些参考资料：
+
+[http://www.hicss.net/](http://www.hicss.net/)
+
+[http://css-discuss.incutio.com/wiki/Absolute_Or_Float_Layout](http://css-discuss.incutio.com/wiki/Absolute_Or_Float_Layout)
+
+[http://www.barelyfitz.com/screencast/html-training/css/positioning/](http://www.barelyfitz.com/screencast/html-training/css/positioning/)
+
+一丝， [inline-block的前世今生](http://ued.taobao.com/blog/2012/08/inline-block/)
+
+[Block-level elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements)
+
+[Inline emelemts](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elemente)
