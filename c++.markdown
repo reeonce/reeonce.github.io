@@ -1,12 +1,11 @@
 ---
-layout:   page
+layout:   post_page
 title:    "C++"
 category: c++
 ---
 
-`C++`一直我想要认真研究的一门语言，从创建到如今，长久不衰。而`C++11`的重大更新，更是添加了不少魅力。因此，重新翻开《C++ Primer Plus》，希望能够对它有更深入的了解。
+`C++`一直我想要认真研究的一门语言，从创建到如今，长久不衰。而`C++11`的重大更新，更是添加了不少魅力。
 
-### 文章如下:
 <ul class="posts">
 {% for post in site.categories.[page.category] reversed %}
       <li>

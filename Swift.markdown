@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post_page
 title:  "Swift"
 category: swift
 ---

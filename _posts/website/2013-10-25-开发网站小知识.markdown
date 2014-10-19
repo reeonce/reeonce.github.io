@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: 网站开发
-tags: 网站
+categories: website
+tags: website
 ---
 
 从软件工程的角度来说， 要做一个网站应该分为五个过程：

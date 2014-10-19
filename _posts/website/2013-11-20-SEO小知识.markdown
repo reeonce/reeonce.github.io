@@ -1,0 +1,9 @@
+---
+layout: post
+categories: website
+tags: website
+---
+
+几点关于网站 SEO 的建议：
+
+### 确保你的网站是能被爬取的

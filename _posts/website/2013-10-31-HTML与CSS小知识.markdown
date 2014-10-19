@@ -1,7 +1,7 @@
 ---
 layout: post
-categories: 网站开发
-tags: 网站 HTML CSS
+categories: website
+tags: website HTML CSS
 ---
 
 ### HTML布局
