@@ -1,12 +1,11 @@
 ---
 layout: post_page
-title:  "网站开发与HTML"
-category: website
+title:  "Common"
+category: common
 ---
 
-怎么说做了一段时间的网站，关于一些网站开发的经历：
-
-<ul class="posts">{% for post in site.categories.[page.category] reversed %}
+<ul class="posts">
+{% for post in site.categories.[page.category] reversed %}
       <li>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>

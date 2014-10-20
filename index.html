@@ -1,20 +1,35 @@
 ---
-layout: default
+layout: post_layout
 ---
 
 <div class="home">
   <p>简单地记录，不断地思考。</p>
-    {% for category in site.categories reversed %}
-      {% for page in site.pages %}
-        {% assign categoryName = category | first %}
+
+  {% assign dateCateList = '' %}
+  {% for category in site.categories reversed %}
+    {% assign latestPost = category | last | sort date | last %}
+    {% assign categoryName = category | first %}
+    {% assign dateAndCategoryName = latestPost.date | append: '---' | append: categoryName %}
+    {% assign dateCateList = dateCateList | append: '+++' | append: dateAndCategoryName %}
+  {% endfor %}
+
+  {% assign dateCateList = dateCateList | split: '+++' %}
+  {% assign dateCateList = dateCateList | sort %}
+
+  {% for ca in dateCateList reversed %}
+  {% assign dateCategory = ca | split: '---' %}
+    {% for page in site.pages %}
+      {% assign categoryName = dateCategory | last %}
+      {% if categoryName %}
         {% if page.category == categoryName %}
           <h2><a href="/Category-{{ categoryName }}/">{{ page.title }}</a></h2>
           <div class="category-frame">
                 {{ page.content }}
           </div>
         {% endif %}
-      {% endfor %}
+      {% endif %}
     {% endfor %}
+  {% endfor %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
