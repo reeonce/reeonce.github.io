@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: website
+categories: Website
 tags: website HTML CSS
 ---
 

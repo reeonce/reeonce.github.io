@@ -2,7 +2,7 @@
 layout: post
 date: 2014-10-15
 title: 初试 swift
-category: swift
+category: Swift
 ---
 
 学习iOS开发进入另一个阶段，既然已经对 Objective-C 有了一定了解了，不妨来试试 swift.

@@ -14,6 +14,11 @@
 		canvasContext.strokeRect(200, 60, 190, 200);
 		
 		canvasContext.fillStyle = "black";
+
+		canvasContext.font = '14px Monaco bold';
+		canvasContext.fillText("Stack",45 ,125);
+		canvasContext.fillText("Heap",280 ,85);
+		canvasContext.font = '12px Monaco, Consolas, "Lucida Console", monospace';
 	}
 	var drawEllipse = function(ctx, x, y, w, h) {
 	  var kappa = .5522848,
@@ -31,44 +36,44 @@
 	  ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
 	  ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
 	  //ctx.closePath(); // not used correctly, see comments (use to close off open path)
-	  ctx.stroke();
+	  ctx.fill();
 	}
 	init();
 	var steps = [];
 
 	steps[0] = function() {
-		canvasContext.fillText("int x = 0",30 ,270); 
+		canvasContext.fillText("int x = 0",15 ,270); 
 	};
 	steps[1] = function() {
-		canvasContext.fillText("int y = 0",30 ,230);
+		canvasContext.fillText("int y = 0",15 ,235);
 	};
 	steps[2] = function() {
 		canvasContext.fillStyle = "#eee";
-		canvasContext.fillRect(20, 200, 85, 40);
+		canvasContext.fillRect(12, 200, 95, 40);
 		canvasContext.fillStyle = "black";
 	};
 	steps[3] = function() {
-		canvasContext.fillText("ClassA a = 0x__",30 ,230);
-		drawEllipse(canvasContext, 220, 80, 80, 30);
+		canvasContext.fillText("ClassA a = 0x__",15 ,235);
+		drawEllipse(canvasContext, 220, 100, 80, 30);
 		canvasContext.beginPath();
 		canvasContext.moveTo(100, 230);
-	  	canvasContext.lineTo(220, 95);
+	  	canvasContext.lineTo(220, 110);
 	  	canvasContext.stroke();
 	};
 	steps[4] = function() {
-		canvasContext.fillText("ClassB b = 0x__",30 ,190);
-		drawEllipse(canvasContext, 300, 130, 80, 30);
+		canvasContext.fillText("ClassB b = 0x__",15 ,200);
+		drawEllipse(canvasContext, 300, 150, 80, 30);
 		canvasContext.beginPath();
 		canvasContext.moveTo(100, 190);
-	  	canvasContext.lineTo(300, 145);
+	  	canvasContext.lineTo(300, 160);
 	  	canvasContext.stroke();
 	};
 	steps[5] = function() {
-		canvasContext.fillText("ClassC c = 0x__",30 ,150);
+		canvasContext.fillText("ClassC c = 0x__",15 ,165);
 		drawEllipse(canvasContext, 220, 200, 80, 30);
 		canvasContext.beginPath();
 		canvasContext.moveTo(100, 150);
-	  	canvasContext.lineTo(220, 215);
+	  	canvasContext.lineTo(220, 210);
 	  	canvasContext.stroke();
 	};
 	steps[6] = function() {

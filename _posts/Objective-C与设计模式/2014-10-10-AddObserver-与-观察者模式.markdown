@@ -2,7 +2,7 @@
 layout: post
 title:  "addObserver 与观察者模式"
 date:   2014-10-25 08:51:46
-category: objective-c与设计模式
+category: Objective-C与设计模式
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: website
+category: Website
 ---
 <div id="main">
 <h1>HTML <span class="color_h1">Canvas</span> Reference</h1>
