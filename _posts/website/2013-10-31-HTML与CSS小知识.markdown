@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: Website
-tags: website HTML CSS
+tags: Website HTML CSS
 ---
 
 ### HTML布局
