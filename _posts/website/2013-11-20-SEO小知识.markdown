@@ -8,7 +8,7 @@ tags: website seo
 
 ### 确保你的网站是能被爬取的
 
-Some Tips:
+#### 建议
 
 * 下拉菜单中的内容是有很大概率不会被抓取的，当你使用它来作你的导航栏时，你需要注意了。然而下拉菜单作为一种让用户找到想要的信息的最好的导航方式，还是很可能使用到的。如果你执意要使用的话，一种比较可取的方法是尽量将这些内容做到一个可见的页面中。
 * Javascript 代码时很可能不会被抓取的。
@@ -20,7 +20,7 @@ Some Tips:
 
 ### 巧妙地选择关键字
 
-some tips:
+#### 建议
 
 * 调研用户是通过搜索什么关键字而到的你的网站
 * 常规的关键字可能有太大的竞争，尝试加点特有的关键字。比如，对于关键字“汽车”，你的网站可能很难竞争得过其他对手而排前列。
@@ -30,7 +30,7 @@ some tips:
 
 ### 频繁且醒目地放置关键字
 
-#### 一些重要的tips:
+#### 建议
 
 * 关键字放在网页的路径中是非常有意义的。
 * 重复关键字但不是让用户发现，比如 title, domain, meta，image alt等。
@@ -40,45 +40,39 @@ some tips:
 * 别浪费时间在通过修改css 来提升排行，这一般都是不值得的，如果被发现是刻意的，还会惹来严重的惩罚。
 *   * Avoid doing content bridges for network integration. The actual html isn't displayed, and therefore can't be crawled for keywords.(content loaded by ajax? e.g., 'more apps'?)
 
-
-#### 注意:
+#### 注意
 
 * 别过多地重复一些关键字，这有可能让用户觉得反感。
 * 不要尝试使用颜色来覆盖一些文字，这有可能带来很低的排名甚至被删除的
 
-### 尽量在别的网站中增加外链指向这个网站
+### 尽量增加外链指向这个网站
 
-There is two parts to this. Your site has a ranking and the pages within your site each have a ranking. The more links you have pointing to a page within your site, the higher the ranking will be for that page, and the higher the overall ranking for your site will be. And in a circular way, the higher overall ranking your site has, the higher the ranking will be for individual pages.
+这包括两个方面。一方面是你的网站内每个页面都会有自己在这个站点的排名，越多的链接指向的页面，在站内的排名也就会更高，同时在搜索引擎中的总排名也会更高。另一方面，如果网站总的排名高了，单个页面的排名也会得到上升。
 
+#### 建议
 
-   * Some important points/tips:
-      * A page can be linked to from outside or within your site. Either one increases that pages ranking, though a link from outside the site is worth more.
-      * The boost your page rank gets from a link will be higher if the referring site is highly ranked (e.g., a link from Amazon is worth more than a link from my mom's home web site).
-      * The boost your page rank gets from links will be higher if the links pointing to your page contain the keywords that page is optimizing for (e.g., if your page is about "Dualit Toasters", it is better that the link says "check out some dualit toasters" rather than "check out some toasters").
-      * A few ways to have other sites link to you:
-         * Make sure your page is listed in DMOZ.org (The Open Directory Project). A lot of sites copy and publish it.
-         * Create linking or affiliate programs with partners and users. The idea is that they'll link to you, and receive something in return (cross-linking, money, etc.). TripAdvisor has a program that illustrates this.
-         * Integrate with other sites in the Yahoo! Network.
+* 你可以从站内或者站外添加链向一个页面的链接。两种都能增加这个页面的排行，但是从站外的效果是更明显的。
+* 如果从一个本身排行就很高的页面中添加链向你的页面的链接，那么你的排行就会得到大大提升。
+* 如果外链的链接说明中包含了你页面的关键字而跳转过来的，你的页面排行就会得到大大提升。比如，你的页面是关于SEO 的，那么外链的文字是“查看更多关于SEO 的内容”，就比“查看更多关于网站开发”的效果要好。
 
+#### 几种从站外添加外链的方式
 
-### Accurately represent your site in search engine results
-
-Getting your page to show up highly in search results is only the first step; the user has to have a reason to select it.
+* 在DMOZ.org 中添加你的页面。
+* 与合作伙伴或者用户互链。
+* 广告
 
 
-   * Some important pints/tips:
-      * Have a clear description of the page in the header. Search engines sometimes pick up the page description from this area.
-      * The title tag's contents are often used as the official title of your web site in search results. Similarly, the meta description is often used to describe your web site. Both should be concise, keyword dense and an accurate description of that particular web page.
+### 提升你的页面在搜索结果中的表现。
 
-   * General Don'ts
+让你的页面在搜索结果中的显示得到提升是第一步，如果让用户在大把结果中点击它也需要不少努力。
 
-      * Don't cloak pages (give a search engine a different view of the page). You might be marked as a spammer.
-      * Don't use link farm services. Once a search engine catches on, they'll penalize you.
-      * 别使用 doorway 页面.
+#### 建议
 
+* 页面head 中的title 标签一般会在搜索结果中作为这个页面的标题。
+* describe 一般也会显示在搜索结果中，简洁地、概括性的描述也会很重要。
 
+#### 注意
 
-cloaked page: 
-     The content presented to search engine spider is different from the content presented to users' browsers.
-deceptive redirects: 
-     If someone click on a link expecting to know about yahoo weather, but instead it redirects a page selling clothes.
+* 别使用Cloaking 页面，这样你可能会被当作垃圾页面的。
+* Don't use link farm services. Once a search engine catches on, they'll penalize you.
+* 别使用 doorway 页面.
