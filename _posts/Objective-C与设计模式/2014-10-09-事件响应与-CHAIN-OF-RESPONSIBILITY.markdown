@@ -2,6 +2,7 @@
 layout: post
 title:  "CHAIN OF RESPONSIBILITY 处理事件响应"
 categories: Objective-C与设计模式
+tags: [CHAIN OF RESPONSIBILITY, 职责链, objective-c, 设计模式]
 ---
 
 ## CHAIN OF RESPONSIBILITY(职责链)

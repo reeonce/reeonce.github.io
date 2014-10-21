@@ -2,6 +2,7 @@
 layout: post
 title: "Css Box Model"
 category: Website
+tags: [box model, box-sizing, css]
 ---
 
 ### Box dimensions

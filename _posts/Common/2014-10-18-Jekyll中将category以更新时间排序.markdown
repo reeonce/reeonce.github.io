@@ -2,6 +2,7 @@
 layout: post
 title: "Jekyll 中将categories 以更新时间排序"
 category: common
+tags: jekyll
 ---
 
 对我的首页进行了修改，最新排版的内容还是每个category 的总结性文章。但是这些categories 却是按照更新的时间顺序进行排序的。由于liquid 的限制，代码有点复杂，不知道有没有更好的实现办法呢？

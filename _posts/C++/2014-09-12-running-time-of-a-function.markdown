@@ -2,6 +2,7 @@
 layout: post
 title:  "C++ Running Time Of A Function"
 categories: c++
+tags: c++ time() chrono
 ---
 
 There are some ways to measure the executing running time of a function in C++.

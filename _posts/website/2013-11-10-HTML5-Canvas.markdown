@@ -1,6 +1,7 @@
 ---
 layout: post
 category: Website
+tags: canvas html5
 ---
 <div id="main">
 <h1>HTML <span class="color_h1">Canvas</span> Reference</h1>
