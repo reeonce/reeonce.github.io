@@ -9,31 +9,30 @@ category: common
 {% raw %}
 ```html
 <div>
-{% assign dateCateList = '' %}
-{% for category in site.categories reversed %}
-	{% assign latestPost = category | last | sort date | last %}
-	{% assign categoryName = category | first %}
-	{% assign dateAndCategoryName = latestPost.date | append: '---' | append: categoryName %}
-	{% assign dateCateList = dateCateList | append: '+++' | append: dateAndCategoryName %}
-{% endfor %}
+  {% assign dateCateList = '' %}
+  {% for category in site.categories reversed %}
+    {% assign latestPost = category | last | sort date | last %}
+    {% assign categoryName = category | first %}
+    {% assign dateAndCategoryName = latestPost.date | append: '---+' | append: categoryName %}
+    {% assign dateCateList = dateCateList | append: '+++_' | append: dateAndCategoryName %}
+  {% endfor %}
+  {% assign dateCateList = dateCateList | split: '+++_' %}
+  {% assign dateCateList = dateCateList | sort %}
 
-{% assign dateCateList = dateCateList | split: '+++' %}
-{% assign dateCateList = dateCateList | sort %}
-
-{% for ca in dateCateList reversed %}
-	{% assign dateCategory = ca | split: '---' %}
-	{% for page in site.pages %}
-	{% assign categoryName = dateCategory | last %}
-		{% if categoryName %}
-			{% if page.category == categoryName %}
-				<h2><a href="/Category-{{ categoryName }}/">{{ page.title }}</a></h2>
-				<div class="category-frame">
-				      {{ page.content }}
-				</div>
-			{% endif %}
-		{% endif %}
-	{% endfor %}
-{% endfor %}]
-<div>
+  {% for ca in dateCateList reversed %}
+  {% assign dateCategory = ca | split: '---+' %}
+    {% for page in site.pages %}
+      {% assign categoryName = dateCategory | last %}
+      {% if categoryName %}
+        {% if page.category == categoryName %}
+          <h2><a href="/Category-{{ categoryName }}/">{{ page.title }}</a></h2>
+          <div class="category-frame">
+                {{ page.content }}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
 ```
 {% endraw %}

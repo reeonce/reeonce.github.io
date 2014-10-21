@@ -30,34 +30,44 @@ The background style of the content, padding, and border areas of a box is speci
 
 ### box-sizing property
 
+#### Summary
+
 The box-sizing CSS property is used to alter the default CSS box model used to calculate widths and heights of elements. It is possible to use this property to emulate the behavior of browsers that do not correctly support the CSS box model specification.
 
 ```
-Initial value: content-box
-Applies to all elements that accept width or height
-Inherited:     no
-Mediavisual
-Computed value:as specified
-Animatable:    no
-Canonical order the unique non-ambiguous order defined by the formal grammar
+Initial value:  content-box
+Applies to:     all elements that accept width or height
+Inherited:      no
+Media:          visual
+Computed value: as specified
+Animatable:     no
+Canonical order:the unique non-ambiguous order defined by the formal grammar
 ```
 
-Values
+#### Values
 
 content-box
 This is the default style as specified by the CSS standard. The width and height properties are measured including only the content, but not the border, margin, or padding.
+
 padding-box
 The width and height properties include the padding size, and do not include the border or margin.
+
 border-box
 The width and height properties include the padding and border, but not the margin. This is the box model used by Internet Explorer when the document is in Quirks mode.
-Examples
-/* support Firefox, WebKit, Opera and IE8+ */
 
-```html
+#### Examples
+
+```css
+/* support Firefox, WebKit, Opera and IE8+ */
 .example {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
 ```
+
+#### Notes
+
+box-sizing is not respected when the height is calculated from window.getComputedStyle(), in Internet Explorer, in Firefox prior to 23, and in Chrome. 
+Note that IE9's proprietary currentStyle property does return the correct value of height.
 
 详见 [http://www.w3.org/TR/CSS2/visudet.html#containing-block-details](http://www.w3.org/TR/CSS2/visudet.html#containing-block-details)

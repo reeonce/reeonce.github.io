@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "addObserver 与观察者模式"
-date:   2014-10-25 08:51:46
 category: Objective-C与设计模式
 ---
 

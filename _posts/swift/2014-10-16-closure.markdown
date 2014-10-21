@@ -1,0 +1,8 @@
+---
+layout: post
+title: "闭包 - closure"
+category: swift
+---
+
+
+闭包 [https://blog.avoscloud.com/1304/](https://blog.avoscloud.com/1304/)

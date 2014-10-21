@@ -9,15 +9,14 @@ layout: post_layout
   {% for category in site.categories reversed %}
     {% assign latestPost = category | last | sort date | last %}
     {% assign categoryName = category | first %}
-    {% assign dateAndCategoryName = latestPost.date | append: '---' | append: categoryName %}
-    {% assign dateCateList = dateCateList | append: '+++' | append: dateAndCategoryName %}
+    {% assign dateAndCategoryName = latestPost.date | append: '---+' | append: categoryName %}
+    {% assign dateCateList = dateCateList | append: '+++_' | append: dateAndCategoryName %}
   {% endfor %}
-
-  {% assign dateCateList = dateCateList | split: '+++' %}
+  {% assign dateCateList = dateCateList | split: '+++_' %}
   {% assign dateCateList = dateCateList | sort %}
 
   {% for ca in dateCateList reversed %}
-  {% assign dateCategory = ca | split: '---' %}
+  {% assign dateCategory = ca | split: '---+' %}
     {% for page in site.pages %}
       {% assign categoryName = dateCategory | last %}
       {% if categoryName %}
