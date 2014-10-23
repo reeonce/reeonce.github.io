@@ -10,5 +10,21 @@
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    {% if page.css %}
+    <link rel='stylesheet' type='text/css' href='{{ page.css }}' />
+    {% endif %}
+    {% if page.csses %}
+    {% for css in page.csses %}
+    <link rel='stylesheet' type='text/css' href='{{ css }}' />
+    {% endfor %}
+    {% endif %}
+    {% if post && post.css %}
+    <link rel='stylesheet' type='text/css' href='{{ post.css }}' />
+    {% endif %}
+    {% if post && post.csses %}
+    {% for css in post.csses %}
+    <link rel='stylesheet' type='text/css' href='{{ css }}' />
+    {% endfor %}
+    {% endif %}
 
 </head>
