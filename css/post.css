@@ -14,7 +14,7 @@
 
 .side-nav {
   float: right;
-  margin-right: 36px;
+  margin-right: 16px;
 }
 .side-nav ul {
   list-style: none;
@@ -40,7 +40,7 @@
 .page-content {
   padding: 30px 0;
   background-color: #fff;
-  margin-right: 260px;
+  margin-right: 270px;
 }
 
 

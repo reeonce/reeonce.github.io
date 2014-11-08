@@ -16,7 +16,7 @@
 
 			<ul>
 			    {% for category in site.categories reversed %}
-			        <li><a href="/Category-{{ category | first }}/" class="page-link">{{ category | first }}({{ category | last | size }})</a></li>
+			        <li><a href="/category/{{ category | first }}/" class="page-link">{{ category | first }}({{ category | last | size }})</a></li>
 			    {% endfor %}
 			</ul>
 		</div>

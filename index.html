@@ -21,7 +21,7 @@ layout: post_layout
       {% assign categoryName = dateCategory | last %}
       {% if categoryName %}
         {% if page.category == categoryName %}
-          <h2><a href="/Category-{{ categoryName }}/">{{ page.title }}</a></h2>
+          <h2><a href="/Category/{{ categoryName }}/">{{ page.title }}</a></h2>
           <div class="category-frame">
                 {{ page.content }}
           </div>

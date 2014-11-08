@@ -136,6 +136,4 @@ swift 还有很多是与Javascript 并不一样的东西。
 3. ### 选择类型
 	>Swift also introduces optional types, which handle the absence of a value. Optionals say either “there is a value, and it equals x” or “there isn’t a value at all”. Optionals are similar to using nil with pointers in Objective-C, but they work for any type, not just classes. Optionals are safer and more expressive than nil pointers in Objective-C and are at the heart of many of Swift’s most powerful features.
 
-	Optionals are an example of the fact that Swift is a type safe language. Swift helps you to be clear about the types of values your code can work with. If part of your code expects a String, type safety prevents you from passing it an Int by mistake. This enables you to catch and fix errors as early as possible in the development process.
-
 	选择类型用于定义可以为空的对象的，用了一下，感觉还是不太适应，在写代码时与没有确定类型比较容易混淆。

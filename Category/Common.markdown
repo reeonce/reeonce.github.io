@@ -1,9 +1,11 @@
 ---
-layout: post_page
+layout: category_page
 title:  "Common"
 category: common
+permalink: /category/common/
 ---
 
+  	
 <ul class="posts">
 {% for post in site.categories.[page.category] reversed %}
       <li>

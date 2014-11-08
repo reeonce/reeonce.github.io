@@ -67,7 +67,7 @@ Now I prefer to working with the exciting area - **iOS** development.
   **CloudKV**
 
 <div id="welcome-overlay">
-  <h1>Reeonce</h1>
+  <a href="/"><h1>Reeonce</h1></a>
   <p id="welcome-alert" style="display: none">Please make sure your browser is HTML5 supported.<p>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

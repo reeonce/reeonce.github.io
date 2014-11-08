@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: category_page
 title:  "Objective-C 与设计模式"
 category: objective-c与设计模式
 ---
@@ -11,7 +11,7 @@ category: objective-c与设计模式
 写着写着，还是发现了不少问题，于是结合 iOS 的开发文档以及《设计模式》这本书对项目进行着改进。
 
 从中学到的一点知识都以此专题来进行总结。
-
+  	
 <ul class="posts">
 {% for post in site.categories.[page.category] reversed %}
       <li>

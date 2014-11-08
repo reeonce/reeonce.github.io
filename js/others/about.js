@@ -164,7 +164,6 @@ d3.selectAll(".career-link").on('click', function(event) {
 	})
 })
 
-
 $(window).on('resize', function(event) {
 	totalWidth = $("#timeline").width();
 	svgWidth = totalWidth - 60;
@@ -183,4 +182,7 @@ if (Modernizr.cssanimations && Modernizr.svg) {
 	}, 1000);
 } else {
 	$("#welcome-alert").show();
+	$(document).bind('touchmove', function(e) {
+		e.preventDefault();
+	});
 }

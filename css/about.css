@@ -1,4 +1,4 @@
-body {
+html, body {
   overflow: hidden;
 }
 
@@ -114,17 +114,18 @@ rect.pane {
     transform: skew(90deg, 90deg);
   }
 }
-#welcome-overlay h1 {
+#welcome-overlay * {
   margin: 0 auto;
   text-align: center;
   position: relative;
-  top: 50%;
+}
+#welcome-overlay a {
+  color: black;
+  display: block;
+  top: 45%;
 }
 
 #welcome-alert {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
   top: 70%;
   color: Red;
 }

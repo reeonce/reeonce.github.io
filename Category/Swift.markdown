@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: category_page
 title:  "Swift"
 category: swift
 ---
@@ -10,7 +10,7 @@ category: swift
 * [Using Swift with Cocoa and Objective-C](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/)
 
 看着看着还是发现不少好东西.
-
+  	
 <ul class="posts">
 {% for post in site.categories.[page.category] reversed %}
       <li>
