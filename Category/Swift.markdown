@@ -2,6 +2,7 @@
 layout: category_page
 title:  "Swift"
 category: swift
+permalink: /category/swift/
 ---
 
 好吧，我还是没有经得起诱惑，看了看这门现代化的iOS编程语言。参考书目

@@ -2,6 +2,7 @@
 layout: category_page
 title:  "网站开发与HTML"
 category: website
+permalink: /category/website/
 ---
 
 怎么说做了一段时间的网站，以下是一些关于网站开发的经历：
