@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Receptionist 模式
+title: RECEPTIONIST 模式
 category: Objective-C与设计模式
-tags: 设计模式 objective-c MEMENTO
+tags: 设计模式 objective-c RECEPTIONIST
 ---
 
 The Receptionist design pattern addresses the general problem of redirecting an event occurring in one execution context of an application to another execution context for handling. It is a hybrid pattern. Although it doesn’t appear in the “Gang of Four” book, it combines elements of the Command, Memo, and Proxy design patterns described in that book. It is also a variant of the Trampoline pattern (which also doesn’t appear in the book); in this pattern, an event initially is received by a trampoline object, so-called because it immediately bounces, or redirects, the event to a target object for handling.
