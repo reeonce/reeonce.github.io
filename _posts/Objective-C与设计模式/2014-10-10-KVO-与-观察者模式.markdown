@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "KVO 与观察者模式"
+category: Objective-C与设计模式
+tags: 观察者 observer objective-c 设计模式 KVO
+---
+
+#### 场景
+
+iOS 应用都遵循着一个基本的设计模式 - MVC，使得应用界面与底下的应用数据分离。这样，定义应用数据的类和负责 UI 的类可以各自独立地复用。然而有时候，一个数据的改变可能需要带来几处界面的同步变动。也就是说，这几处界面都依赖于这个数据对象，数据对象的任何状态改变都应立即通知它们。 为了保证松耦合性，我们是不应该让数据类又反过来依赖视图类的。那么如何才能尽量做最少的改动，而又使 model 类和 view 类继续保持分离状态呢？
+
+#### 解决方案
+
+Observer 模式描述了如何建立这种关系，这一模式中的关键对象是**目标**(subject)和**观察者**(observer)。一个目标可以有任意数目的依赖于它的观察者。一旦目标的状态发生改变，所有的观察者得到通知，每个目标也会在这个通知的响应中得到同步。
+
+结构图如下：
+![](/assets/diagrams/diagram-01.png)
+
+1. 当 ConcreteSubject 对象发生任何可能导致其观察者与其本身状态不一致的改变时，它将通知它的各个观察者。
+2. 在得到一个具体目标的改变通知后，ConcreteObserver 对象可通过 ConcreteSubject 对象的状态进行操作。
+
+#### Objective-C 的实现
+
+在 Objective-C 中，框架提供了KVO(key-value observer) 机制便于开发者使用这一设计模式。你只需要做如下操作即可：
+
+1. 确保观察目标类的目标属性是 [KVC(key-value coding)](https://developer.apple.com/library/ios/DOCUMENTATION/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html#//apple_ref/doc/uid/10000107i) 兼容的。
+2. 在相应的位置通过`addObserver:forKeyPath:options:context:` 方法注册需要观察的对象和对象属性。
+3. 在观察者类中实现`observeValueForKeyPath:ofObject:change:context:` 方法(也就是上图中的 *update()* 方法)。
+4. 可以通过给观察目标发送`removeObserver:forKeyPath:` 消息来移除观察。
+
+
+```objective-c
+
+@implementation DataViewController {
+	Person *_person = [[Person alloc] init];
+}
+
+- (void)viewDidLoad
+{
+	...
+	[_person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+	...
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"name"]) {
+        NSString *text = [change objectForKey:NSKeyValueChangeNewKey];
+    } 
+}
+
+- (void)dealloc {
+    [_person removeObserver:self forKeyPath:@"name"]
+}
+
+```
+
+#### 参考:
+
+[CocoaDesignPatterns](https://developer.apple.com/legacy/library/documentation/Cocoa/Conceptual/CocoaFundamentals/CocoaDesignPatterns/CocoaDesignPatterns.html#//apple_ref/doc/uid/TP40002974-CH6-SW25)
+
+[ios-design-patterns](http://www.raywenderlich.com/46988/ios-design-patterns)

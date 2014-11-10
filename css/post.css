@@ -225,3 +225,7 @@
   .post-content ul,
   .post-content ol { padding-left: 10px; }
 }
+
+.post-content img {
+  width: 100%;
+}

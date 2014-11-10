@@ -5,9 +5,12 @@ category: ios
 tags: [view, window, frame, bound, animation]
 ---
 
-#### window vs view vs layer
+#### 视图的架构
 
-![](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Art/view-layer-store.jpg)
+![](/assets/view-layer-store.jpg)
+
+一般情况，一个应用只有一个窗体(window)。每一个视图都会有相应的 layer 对象，这个对象可以通过视图的 *layer* 属性得到。Behind those layer objects are Core Animation rendering objects and ultimately the hardware buffers used to manage the actual bits on the screen.
+
 
 #### view 的继承与 subview 的管理
 
@@ -106,6 +109,6 @@ the mapping of points in the user coordinate space to pixels in the device coord
 
 * **不要通过在控件中嵌入子视图来定制**。虽然可以通过继承 *UIControl* 类来添加子视图到标准系统控件中。这是不被建议的，因为 control 类已经定义了足够明确且详细的接口来实现这些功能。如果添加子视图可能会使控件在将来的版本中出现问题。
 
-参考: 
-[View Programming Guide for iOS](https://blog.avoscloud.com/1304/)
+#### 参考: 
+[View Programming Guide for iOS](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html)
 
