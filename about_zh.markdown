@@ -1,15 +1,15 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: 关于
+permalink: /about/zh/
 css: "/css/about.css"
 ---
 
 <div id="lang-selector">
-  <a href="/about/zh/">Chinese</a>
+  <a href="/about/">English</a>
 </div>
 
-### Introduction
+### 简单介绍
 
 My name is **Reeonce Zeng**, living in Shenzhen, Guangdong, China
 
@@ -19,7 +19,7 @@ I have been working with **Node.js** for more than one year. Although it is an e
 
 Now I prefer to working with the exciting area - **iOS** development.
 
-### My Career
+### 我的职业生涯
 
 <div id="timeline" class="slideshow">
   <div id="career-timelime" class="slideshow-item">
@@ -78,5 +78,3 @@ Now I prefer to working with the exciting area - **iOS** development.
 <script type="text/javascript" src="/js/d3.v3.min.js"></script>
 <script type="text/javascript" src="/js/modernizr.min.js"></script>
 <script type="text/javascript" src="/js/others/about.js"></script>
-
-
