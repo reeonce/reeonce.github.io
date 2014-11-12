@@ -2,6 +2,7 @@
 .site-nav {
   float: right;
   line-height: 36px;
+  margin-right: 10px;
 }
 
 .site-nav .menu-icon { display: none; }
@@ -14,7 +15,11 @@
 
 .side-nav {
   float: right;
-  margin-right: 16px;
+  margin: 30px 2px 0;
+  width: 268px;
+  height: 980px;
+  overflow: scroll;
+  background-color: #fefefe;
 }
 .side-nav ul {
   list-style: none;
@@ -31,21 +36,33 @@
 }
 
 .side-nav-category {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.side-nav-tag {
+  border: 1px solid #e6e6e6;
+  background-color: white;
+  padding: 0 4px;
 }
 
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
 .page-content {
-  padding: 30px 0;
-  background-color: #fff;
-  margin-right: 270px;
+  margin-right: 280px;
 }
 
 
 /* Home styles */
 /* ----------------------------------------------------------*/
+
+.page-content .wrap {
+  background-color: white;
+  padding: 24px;
+}
 
 .home h1 { margin-bottom: 25px; }
 
@@ -181,7 +198,7 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    border: 1px solid #e8e8e8;
+    border: 1px solid #e6e6e6;
   }
 
   .site-nav .menu-icon {
@@ -227,5 +244,5 @@
 }
 
 .post-content img {
-  width: 100%;
+  max-width: 100%;
 }
