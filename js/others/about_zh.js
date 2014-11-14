@@ -89,10 +89,10 @@ var totalDuration = {
 }
 
 var durations = [
-	{start_time: dateFormat.parse("2009-09"), end_time: dateFormat.parse("2013-06"), text: "Beihang University >", name: "buaa"},
-	{start_time: dateFormat.parse("2013-06"), end_time: dateFormat.parse("2014-07"), text: "YAHOO Beijing R&D >", name: "yahoo"},
-	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-11"), text: "Improvement >", name: "improvement"},
-	{start_time: dateFormat.parse("2014-11"), end_time: a_end_time, text: "You >", name: "you"},
+	{start_time: dateFormat.parse("2009-09"), end_time: dateFormat.parse("2013-06"), text: "北京航空航天大学 >", name: "buaa"},
+	{start_time: dateFormat.parse("2013-06"), end_time: dateFormat.parse("2014-07"), text: "雅虎北京全球研发中心 >", name: "yahoo"},
+	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-11"), text: "闭关进修 >", name: "improvement"},
+	{start_time: dateFormat.parse("2014-11"), end_time: a_end_time, text: "你！>", name: "you"},
 ];
 
 totalDuration.interval = totalDuration.end_time.getTime() - totalDuration.start_time.getTime();
@@ -158,7 +158,7 @@ var updateNodes = function() {
 	addCircles(svg.selectAll("circle"), spaceCircles);
 	addTexts(svg.selectAll(".text1"), dateTextsData);
 	textsData[1].x = textsData[1].x - 60;
-	textsData[2].x = textsData[2].x - 60;
+	textsData[2].x = textsData[2].x - 28;
 	addLinks(svg.selectAll(".career-link"), textsData);
 }
 
@@ -202,4 +202,5 @@ $(window).on('resize', function(event) {
 if (!Modernizr.cssanimations || !Modernizr.svg) {
 	$(".slideshow").removeClass("slideshow");
 	$(".slideshow-item").removeClass("slideshow-item");
-} 
+} else {
+}

@@ -1,5 +1,4 @@
 html, body {
-  overflow: hidden;
 }
 
 .page-content {
@@ -8,13 +7,12 @@ html, body {
 
 #timeline {
   width: 100%;
-  height: 400px;
   background-color: #f2f2f2;
   border-radius: 8px;
 }
 
 .slideshow {
-  position: relative;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -23,11 +21,20 @@ html, body {
   height: 100%;
   position: absolute;
   top: 0;
-  left: 1000px;
+  left: 10000px;
+}
+
+.jsenabled .slideshow {
+  position: relative;
+}
+
+.jsenabled .slideshow-item {
+  position: absolute;
 }
 
 #career-timelime {
   left: 0px;
+  height: 0;
 }
 
 .slideshow-item, #timeline svg {
@@ -70,10 +77,32 @@ html, body {
   to {left: 0px}
 }
 
+.slideshow-item .back-icon {
+  height: 100%;
+  width: 10%;
+  min-width: 40px;
+  display: inline-block;
+  vertical-align: top;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.slideshow-item .back-icon a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ddd no-repeat url("/assets/back-icon.png") top left;
+  background-size: 100% 100%;
+}
+
 .slideshow-item .content {
+  width: 84%;
   max-width: 800px;
-  margin: 80px 40px;
+  margin: 60px 0px;
   font-size: 16px;
+  display: inline-block;
+  height: 280px;
+  overflow: scroll;
 }
 
 svg {
@@ -103,6 +132,10 @@ rect.pane {
   animation-duration: 1s;
   -webkit-animation-timing-function: ease;
   animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
 @-webkit-keyframes fadeOut {
   from {
@@ -116,6 +149,7 @@ rect.pane {
     -ms-transform: skew(90deg,90deg); /* IE 9 */
     -webkit-transform: skew(90deg, 90deg); /* Chrome, Safari, Opera */
     transform: skew(90deg, 90deg);
+    display: none;
   }
 }
 #welcome-overlay * {
