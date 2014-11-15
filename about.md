@@ -11,7 +11,7 @@ css: "/css/about.css"
 
 ### Introduction
 
-My name is **Reeonce Zeng**, living in Shenzhen, Guangdong, China
+My name is **Reeonce Zeng**, {{ 'now' | date: '%Y' | minus: 1991 }} years old, living in Shenzhen, Guangdong, China.
 
 I have received my bachelor's degree on software engineering in *Beihang University*.
 
@@ -74,12 +74,12 @@ Now I prefer to working with the more exciting thing - **iOS** development.
 #### Frontend Engineer
   Familiar with html, css and Javascript. 
 
-  **MYC**, a website based on Mojito(a open source Node.js framework) and YUI3. The website is international and ssl supported.
+  **MYC**. a website based on Mojito(a open source Node.js framework) and YUI3. The website is international and ssl supported.
 
 #### Backend Engineer
   Had been using Node.js for years, and I am familiar with working on linux.
 
-  **CKV**, this project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
+  **CKV**. this project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
 
 ### Hobbies
 Had been liking sports for a very long time, I prefer to reading and cooking these days.
