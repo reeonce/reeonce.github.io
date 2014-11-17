@@ -64,10 +64,10 @@ a:visited { color: #205caa; }
 }
 
 .site-avatar {
-  width: 45px;
-  height: 45px;
+  width: 36px;
+  height: 36px;
   border-radius: 100px;
-  border: 3px solid #886600;
+  border: 3px solid #430;
 }
 
 .site-pages {

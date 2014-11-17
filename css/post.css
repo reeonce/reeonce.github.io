@@ -1,3 +1,12 @@
+h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #222;
+}
+h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  color: #6a6a8a;
+}
+h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: #334;
+}
 
 .site-nav {
   float: right;
