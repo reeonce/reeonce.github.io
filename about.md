@@ -19,7 +19,7 @@ I have been working with **Node.js** for more than one year. Although it is an e
 
 Now I prefer to working with the more exciting thing - **iOS** development.
 
-### My Career
+### My Career of Being a Developer
 
 <div id="timeline" class="">
   <div id="career-timelime" class="">
@@ -42,13 +42,13 @@ Now I prefer to working with the more exciting thing - **iOS** development.
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
       <h3>@Yahoo (2013 ~ 2014)</h3>
-      <p>As a freshman among so many talents at Yahoo, it is very difficult for me to achieve any feats. Luckily, as a tranditional technical company, Yahoo has years of technology deposition, which I could learn much from. More than one years' time, I worked in the scrum team with my teammates, learnt development and CI on the backend, dealt with frontend issues. Two mainly projects have been pushed online, the <em>MYC</em> and <em>CKV</em></p>
+      <p>As a freshman among so many talents at Yahoo, it is very difficult for me to achieve any feats. Luckily, as a traditional technical company, Yahoo has years of technology deposition, which I could learn much from. More than one years' time, I worked in the scrum team with my teammates, learnt development and CI on the backend, dealt with frontend issues. Two mainly projects was pushed online, the <em>MYC</em> and <em>CKV</em></p>
     </div>
   </div>
   <div id="career-improvement" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@Improvement (2014.08 ~ 2014.11)</h3>
+      <h3>@Advancement (2014.08 ~ 2014.11)</h3>
       <p>After completing one life-important event, I need to get my way to the new direction.</p>
       <p>I started to learn iOS development. With reading Apple's docs and some books, I worked on two APPs, the "Password Securer" and "Trap the Dot !".<p>
     </div>
@@ -67,9 +67,9 @@ Now I prefer to working with the more exciting thing - **iOS** development.
 
   Familiar with Objective-C and the main frameworks of iOS. And I know most used design patterns and algorithms.
 
-  [**Passwords Securer**](). I cannot remember so many passwords, but are the passwords keeper apps reliable? I prefer to working on my own passwords management app.
+  [**Passwords Securer**](https://github.com/reeonce/PasswordsSecurer). I cannot remember so many passwords, but are the passwords keeper apps reliable? I prefer to working on my own passwords management app.
 
-  **Trap The Dot**. A very simple game based on SpriteKit.
+  [**Trap The Dot**](https://github.com/reeonce/Circle-The-Dot---iOS). A very simple game based on SpriteKit.
 
 #### Frontend Engineer
   Familiar with html, css and Javascript. 
@@ -82,7 +82,7 @@ Now I prefer to working with the more exciting thing - **iOS** development.
   **CKV**. this project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
 
 ### Hobbies
-Had been liking sports for a very long time, I prefer to reading and cooking these days.
+Having been liking sports for a very long time, I prefer to reading and cooking these days.
 
 <div id="welcome-overlay">
   <a href="/"><h1>Reeonce</h1></a>
