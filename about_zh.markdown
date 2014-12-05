@@ -52,7 +52,7 @@ css: "/css/about.css"
     <div class="content">
       <h3>@闭关进修 (2014)</h3>
       <p>在这四个月的时间，处理完人生中一个重要的事情之后，我需要开始准备踏上新的征程，方向是 iOS 开发。</p>
-      <p>结合书本，Apple 的文档，着力于两个小 APP, "Trap The Dot" 与 "Passwords Securer"。</p>
+      <p>结合书本，Apple 的文档，着力于两个小 APP, "Trap The Dot" 与 "Passwords Safes"。</p>
     </div>
   </div>
   <div id="career-you" class="">
@@ -71,9 +71,9 @@ css: "/css/about.css"
 
   主要项目：
 
-  [**Passwords Securer**]()。密码总是忘记？别人的应用靠谱不？还是自己做一个确保安全的，加密完好的应用吧〜
+  [**Passwords Safes**](https://github.com/reeonce/PasswordsSafes)。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 使得这款能同时在 iPad 和 iPhone 上使用的应用的适配工作少了不少。
 
-  [**Trap The Dot**]()。一款基于SpriteKit 框架的国际化小游戏。
+  [**Trap The Dot !**](https://itunes.apple.com/cn/app/trap-the-dot-!/id922876408?ls=1&mt=8)。一款使用 Objective-C 开发的基于 SpriteKit 框架的“围住神经猫”的游戏。该应用本地化了9个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
 
 #### 前端工程师
   对HTML, CSS, Javascript 都是比较熟悉的。
@@ -95,7 +95,7 @@ css: "/css/about.css"
 
 ### 感慨
 
-因为时间真是太少了。。
+时间你好，时间再见。
 
 
 <div id="welcome-overlay">

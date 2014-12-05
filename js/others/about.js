@@ -91,7 +91,7 @@ var totalDuration = {
 var durations = [
 	{start_time: dateFormat.parse("2009-09"), end_time: dateFormat.parse("2013-06"), text: "Beihang University >", name: "buaa"},
 	{start_time: dateFormat.parse("2013-06"), end_time: dateFormat.parse("2014-07"), text: "YAHOO Beijing R&D >", name: "yahoo"},
-	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-11"), text: "Advancement >", name: "improvement"},
+	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-12"), text: "Advancement >", name: "improvement"},
 	{start_time: dateFormat.parse("2014-11"), end_time: a_end_time, text: "You >", name: "you"},
 ];
 

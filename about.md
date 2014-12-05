@@ -48,9 +48,9 @@ Now I prefer to working with the more exciting thing - **iOS** development.
   <div id="career-improvement" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@Advancement (2014.08 ~ 2014.11)</h3>
+      <h3>@Advancement (2014.08 ~ 2014.12)</h3>
       <p>After completing one life-important event, I need to get my way to the new direction.</p>
-      <p>I started to learn iOS development. With reading Apple's docs and some books, I worked on two APPs, the "Password Securer" and "Trap the Dot !".<p>
+      <p>It is iOS development. With reading Apple's docs and some books, I worked on two APPs, the "Passwords Safes" and "Trap the Dot !".<p>
     </div>
   </div>
   <div id="career-you" class="slideshow-item">
@@ -67,19 +67,19 @@ Now I prefer to working with the more exciting thing - **iOS** development.
 
   Familiar with Objective-C and the main frameworks of iOS. And I know most used design patterns and algorithms.
 
-  [**Passwords Securer**](https://github.com/reeonce/PasswordsSecurer). I cannot remember so many passwords, but are the passwords keeper apps reliable? I prefer to working on my own passwords management app.
+  [**Passwords Safes**](https://github.com/reeonce/PasswordsSafes). An app to manage your passwords which is developed with swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256, meanwhile, all data are managed with Core Data, Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
 
-  [**Trap The Dot**](https://github.com/reeonce/Circle-The-Dot---iOS). A very simple game based on SpriteKit.
+  [**Trap The Dot !**](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8). A game based on SpriteKit using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and UMeng Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
 
 #### Frontend Engineer
   Familiar with html, css and Javascript. 
 
-  **MYC**. a website based on Mojito(a open source Node.js framework) and YUI3. The website is international and ssl supported.
+  **MYC**. A website based on Mojito(a open source Node.js framework) and YUI3. The website is international and ssl supported.
 
 #### Backend Engineer
   Had been using Node.js for years, and I am familiar with working on linux.
 
-  **CKV**. this project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
+  **CKV**. This project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
 
 ### Hobbies
 Having been liking sports for a very long time, I prefer to reading and cooking these days.
