@@ -1,0 +1,129 @@
+---
+layout: post
+title: Core Data 的使用
+category: ios
+tags: [iOS, CoreData]
+date: 2014-12-02
+---
+
+近期在项目中使用到了 Core Data, 在此稍微做下总结。
+
+### Core Data 是什么
+
+Core Data 是 Apple 为 OS X 和 iOS 平台提供的一套管理持久化数据的框架。特点包括:
+
+* 修改的跟踪与返回操作
+
+* 数据之间关系的维护
+
+* faulting
+
+* 属性值的自动校验
+
+* 模式迁移
+
+* 应用 controller 层的集成使得与 UI 的同步异常简单 － NSFetchedResultsController 
+
+* 全面支持 KVC 和 KVO
+
+* 在内存和 UI 中分组、过滤和组织数据
+
+* 自动存储到外部文件中
+
+* 多样的查询方法
+
+* merge 政策 － 版本跟踪与优化的锁定来支持并发冲突
+
+由于支持这么多的功能，通过使用 Core Data 能够几乎比不使用减少 50% 到 75% 的代码。不仅如此，Core Data 的代码质量是得到绝对保证的，性能、安全性与错误处理、内存优化都是经过改善了的。 在 Xcode 中还提供了可视化的模型编辑工具支持。
+
+然而，Core Data 并不是一套关系型数据库，或者数据库管理系统， 尽管Core Data 支持通过 SQLite 来作为永久存储的方案。在我看来，Core Data 是超级框架，它可以通过数据库来存储数据，也可以只是将数据保存在内存当中。
+
+### Core Data 的基本架构
+
+*Document management using the standard Cocoa document architecture*
+
+![Document management using the standard Cocoa document architecture](/assets/CoreData/document_management_2x.png)
+
+
+*Document management using Core Data*
+
+![Document management using Core Data](/assets/CoreData/coredata_doc_management_2x.png)
+
+
+如上图所示，可以将 Core Data 分为三层。
+
+1. 最上层中，Core Data 通过一个 [**managed object context**](#ManagedObejctContext) 提供对 object 操作的大部分功能；
+
+2. 中间一层，通过 [**persistence stack**](#PersistentStoreCoordinator) 连作为 context 与外部存储的媒介；
+
+3. 最底层，[**persistent object stores**](#PersistentStores)， 不管是普通文件还是 SQLite 存储。
+
+
+### Managed Object Model
+<span id="ManagedObejctModel"></span>
+
+为了方便理解，我先从模型入手讲，因为大家都有学习过关系型数据库相关的知识。*Managed Object Model* 就是我们所了解的关系数据的模型，我们很容易将它们联系起来。当我们打开 Xcode 中的某个项目的时候，添加一个 data model 类型的文件后，点击这个文件就可以看到我们熟悉的界面。让我们将它们与数据库对应起来。
+
+* **Entity**（实体），可以看作是数据库的一张表吧
+
+* **Attribute**（属性）， Core Data 中原生支持一些数据类型，都可以从 Xcode 的模型编辑中看到。有一点值得提的是，数据库中的 NULL 与 Objective-C 中的 nil, 0, @"" 都是不相等的。
+
+* **Relationships**（关系）， 可以很容易理解为不同实体之间的关系，一般情况下都是双向的（如 a 是 b 的偶像，那么 b 是 a 的粉丝； a 属于 b， 那么 b 包含 a），可以使 one-to-one, 或者 one-to-many, 或者 many-to-many。
+
+#### 任何对模型中模式的修改都会造成 与之前的版本不兼容的错误
+
+原因是模型定义了数据存入外部文件的结构，一旦修改，那么之前版本的文件都会无法打开而造成不兼容的错误。所以一开始设计模型的时候可能就要考虑得多些了，然而还是很可能会有考虑不周的地方，在添加新功能的时候必须要修改模型，那么需要做到以下几点：
+
+1. 给模型定义版本号，如果之前的没有，给新版本定义就可以了。
+
+2. 在修改模型的模式之前，先创建一个新版本的模型。
+
+3. 修改当前版本的模型，而不动之前的版本。
+
+4. (Optional) 在应用确定不会修改当前版本模型的时候，将模型文件锁定，改为只读。
+
+#### 在运行时访问数据模型
+
+在运行时，你可能需要访问模型中的实体，fetch request template 等，可以通过以下方法获取到一个 *NSManagedObjectModel* 的实例。
+
+```Objective-C
+[[<#A managed object context#> persistentStoreCoordinator] managedObjectModel];
+
+//or
+
+[[<#A managed object#> entity] managedObjectModel];
+```
+
+### Managed Object
+<span id="ManagedObejct"></span>
+**Managed Object** 可以理解为是某种模型的一个实体，同时这个 Managed Object 必须是被某个 managed object context 管理着的。
+
+### Managed Object Context
+<span id="ManagedObejctContext"></span>
+
+你可以把 Managed Object Context 看作是一个智能的画板，当你需要某样东西时，就从 persistent store 里将它拿到这个 context 中，然后对它进行操作，而不需要时，就将它放回去。
+
+### Fetch Request
+<span id="FetchRequest"></span>
+
+当需要从 Managed Object Context 检取某些 obejcts 时，你需要创建一个 **fetch request**。一个 fetch request 包含三个部分。 其中，你必须定义所要检索的实体的名称（每次只能有一种实体），同时，它可能包含一些约束条件和排序描述。
+
+### Persistent Store Coordinator
+<span id="PersistentStoreCoordinator"></span>
+
+使用 FACADE 设计模式，将其上面的 context 与 下层的 Persistent Stores 分离。
+
+### Persistent Stores
+<span id="PersistentStores"></span>
+
+也就是外部存储的文件了。
+
+
+
+
+
+
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/others/coredata.js"></script>
+

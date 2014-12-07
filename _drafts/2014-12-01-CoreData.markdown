@@ -1,8 +1,0 @@
----
-layout: post
-title: CoreData 的使用
-category: ios
-tags: [iOS, CoreData]
-date: 2014-12-01
----
-
