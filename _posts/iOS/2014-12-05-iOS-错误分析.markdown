@@ -1,0 +1,116 @@
+---
+layout: post
+title: IOS Crash Reposts and Analytics
+category: ios
+tags: [iOS, CoreData]
+date: 2014-12-05
+---
+
+#### Crash reports in iTunes Connect
+
+The reports you see in iTunes Connect are send automatically by the iTunes when the user has agreed to send diagnostic reports when they set up their device. This happens automatically, you don't have to configure anything at all. Just go to iTunes Connect and get the crash reports at the bottom of your app page.
+
+However, iTunes Connect crash reports seem a little bit unreliable. If you see them at all it takes almost forever until you see them. Actually, I haven't seen my carsh till now, it always says "Too few reports have been submitted for a report to be shown.". Another culprit is that you have to check for new reports manually.
+
+So most developers switched to a 3rd party service for crash reporting and most of them are completely free to use.
+
+#### Analytics tools
+
+It is necessay for every developer to track the app's data like user behavior and crash reposts. And they are quite easy to integrate.
+
+Some popular ones, like
+
+**[Google Mobile App Analytics](http://www.google.com/analytics/mobile/)**. The free and popular mobile analytics platform offered by Google, measuring everything from downloads to in-app purchases, a safe bet if you’re looking for a robust tool.
+
+**[友盟统计分析](http://www.umeng.com/)**. Umeng Analytics is the leading mobile app analytical platform in China. If your main marketing is in China, it should be a good choice.
+
+**[CrashAnalytics](http://try.crashlytics.com/)**. Provides a solution that helps developers troubleshoot application crashes based on usage data, also provides UDID alternative tracking tool.
+
+and you can see more at [65 Web and Mobile App Analytics Tools](http://autosend.io/blog/analytics-tools-web-mobile/).
+
+#### Crash Reports
+
+You can find your *Error List* if you use one of the above analytics tools. By clicking into one error, you will see the information of time, frequency, device, os version, also the error details like below,
+
+```
+Application received signal SIGSEGV
+(null)
+(
+	0   CoreFoundation                      0x00000001898630b8 <redacted> + 160
+	1   libobjc.A.dylib                     0x00000001957e1d78 objc_exception_throw + 60
+	2   CoreFoundation                      0x0000000189862fdc <redacted> + 0
+	3   Txxx Txx xxx                        0x100017e0c Txxx Txx xxx + 97804
+	4   libsystem_platform.dylib            0x0000000195f43b0c _sigtramp + 56
+	5   SpriteKit                           0x000000018c5e03fc <redacted> + 24
+	6   SpriteKit                           0x000000018c6082c8 <redacted> + 72
+	7   SpriteKit                           0x000000018c607fb0 <redacted> + 20
+	8   SpriteKit                           0x000000018c5de6a8 <redacted> + 64
+	9   SpriteKit                           0x000000018c607718 <redacted> + 76
+	10  SpriteKit                           0x000000018c6210dc <redacted> + 40
+	11  SpriteKit                           0x000000018c621840 <redacted> + 360
+	12  SpriteKit                           0x000000018c621870 <redacted> + 408
+	13  SpriteKit                           0x000000018c621870 <redacted> + 408
+	14  SpriteKit                           0x000000018c5ef648 <redacted> + 128
+	15  SpriteKit                           0x000000018c6021b4 <redacted> + 260
+	16  SpriteKit                           0x000000018c5ffcdc <redacted> + 876
+	17  SpriteKit                           0x000000018c5fd9d0 <redacted> + 76
+	18  SpriteKit                           0x000000018c61cb78 <redacted> + 288
+	19  QuartzCore                          0x000000018c381164 <redacted> + 36
+	20  QuartzCore                          0x000000018c380f70 <redacted> + 300
+	21  IOKit                               0x000000018a7543f8 IODispatchCalloutFromCFMessage + 364
+	22  CoreFoundation                      0x0000000189814a08 <redacted> + 192
+	23  CoreFoundation                      0x0000000189822fc8 <redacted> + 56
+	24  CoreFoundation                      0x0000000189822f28 <redacted> + 444
+	25  CoreFoundation                      0x000000018982114c <redacted> + 1620
+	26  CoreFoundation                      0x0000000189761b38 CFRunLoopRunSpecific + 452
+	27  GraphicsServices                    0x000000018f187830 GSEventRunModal + 168
+	28  UIKit                               0x000000018c7a00e8 UIApplicationMain + 1156
+	29  Txxx Txx xxx                        0x100013280 Txxx Txx xxx + 78464
+	30  libdyld.dylib                       0x0000000195dcbaa0 <redacted> + 4
+)
+
+dSYM UUID: 9659346E-87EE-3B55-B76D-51xxxxxCBD0B
+CPU Type: arm64
+Slide Address: 0x0000000100000000
+Binary Image: Txxx Txx xxx
+Base Address: 0x00000001000f0000
+```
+
+Then you can try to find the dSYM directory of your archives and run `dwarfdump --arch=arm64 --lookup 0x100013280 Txxx\ Txx\ xxx.app.dSYM/`, see the result like this, 
+
+```
+----------------------------------------------------------------------
+ File: Txxx Txx xxx.app.dSYM/Contents/Resources/DWARF/Txxx Txx xxx (arm64)
+----------------------------------------------------------------------
+Looking up address: 0x0000000100013280 in .debug_info... found!
+
+0x00035e24: Compile Unit: length = 0x0000007c  version = 0x0002  abbr_offset = 0x00000000  addr_size = 0x08  (next CU at 0x00035ea4)
+
+0x00035e2f: TAG_compile_unit [1] *
+             AT_producer( "Apple LLVM version 6.0 (clang-600.0.54) (based on LLVM 3.5svn)" )
+             AT_language( DW_LANG_ObjC )
+             AT_name( "/Users/reeonce/projects/Txxx Txx xxx/Txxx Txx xxx - ios/Txxx Txx xxx - ios/main.m" )
+             AT_stmt_list( 0x00009ed4 )
+             AT_comp_dir( "/Users/reeonce/projects/Txxx Txx xxx/Txxx Txx xxx - ios" )
+             AT_APPLE_optimized( 0x01 )
+             AT_APPLE_major_runtime_vers( 0x02 )
+             AT_low_pc( 0x0000000100013224 )
+
+0x00035e4c:     TAG_subprogram [83] *
+                 AT_name( "main" )
+                 AT_decl_file( "/Users/reeonce/projects/Txxx Txx xxx/Txxx Txx xxx - ios/Txxx Txx xxx - ios/main.m" )
+                 AT_decl_line( 12 )
+                 AT_prototyped( 0x01 )
+                 AT_type( {0x00035e8b} ( int ) )
+                 AT_external( 0x01 )
+                 AT_accessibility( DW_ACCESS_public )
+                 AT_low_pc( 0x0000000100013224 )
+                 AT_high_pc( 0x00000001000132a8 )
+                 AT_frame_base( reg29 )
+Line table dir : '/Users/reeonce/projects/Txxx Txx xxx/Txxx Txx xxx - ios/Txxx Txx xxx - ios'
+Line table file: 'main.m' line 14, column 0 with start address 0x0000000100013244
+
+Looking up address: 0x0000000100013280 in .debug_frame... not found.
+```
+
+they are so helpful information for you to fix the bugs.
