@@ -96,7 +96,38 @@ Core Data 是 Apple 为 OS X 和 iOS 平台提供的一套管理持久化数据�
 
 ### Managed Object
 <span id="ManagedObejct"></span>
-**Managed Object** 可以理解为是某种模型的一个实体，同时这个 Managed Object 必须是被某个 managed object context 管理着的。
+
+**Managed Object** 可以理解为是某个实体在执行时的表现（也就是要关联一个 *NSEntityDescription*），它可以是 *NSManagedObject* 类的实例，或者是 *NSManagedObject* 子类的实例。同时这个 Managed Object 必须是被某个 managed object context 管理着的，来表现某条存储的记录。在一个 context 中，每条存储的记录只能有一个相应的 managed object.
+
+#### 自定义 managed object 类
+
+*NSManagedObject* 定制了 *NSObject* 的许多特性来使其更合适地集成到 Core Data 的基础框架中。Core Data 会依赖以下 *NSManagedObject* 方法的实现，包括 *primitiveValueForKey:, setPrimitiveValue:forKey:, isEqual:, hash, superclass, class, self, zone, isProxy, isKindOfClass:, isMemberOfClass:, conformsToProtocol:, respondsToSelector:, managedObjectContext, entity, objectID, isInserted, isUpdated, isDeleted,* 和 *isFault*。 上述这些方法都是不应该被重写的，还有 description 方法及 key-value coding 的方法。
+
+以下方法则是在调用的时候最好先调用父类的相应方法，包括 *awakeFromInsert, awakeFromFetch, validateForUpdate:.* 等。
+
+Core Data 会动态地为属性和关系生成高效的 public 和 primitive 的 get 和 set 访问方法。因此，通常状况下你并不需要自己来写这些访问方法。
+
+```Objective-C
+@interface MyManagedObject : NSManagedObject
+ 
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSDate *date;
+@end
+
+
+@implementation MyManagedObject
+@dynamic title;
+@dynamic date;
+@end
+```
+
+#### managed obejcts 的生命周期
+
+managed obejcts 的生命周期都是由 Core Data 负责的，当它被创建时，它会被初始化以 Entity 的默认值。有时候，可能 Xcode 的模型编辑器中提供的默认值可能并能满足你的需求，如当前时间等。这时候，可以通过重写 *initWithEntity:insertIntoManagedObjectContext:*, *awakeFromInsert*, 或者 *awakeFromFetch* 来实现，而非是 init 方法。而通常情况下，最好不要重写 *initWithEntity:insertIntoManagedObjectContext:* 方法，如果重写可能会造成 undo 和 redo 的集成错误。
+
+* **awakeFromInsert**。is invoked only once in the lifetime of an object—when it is first created.
+awakeFromInsert is invoked immediately after you invoke initWithEntity:insertIntoManagedObjectContext: or insertNewObjectForEntityForName:inManagedObjectContext:. You can use awakeFromInsert to initialize special default property values, such as the creation date of an object, as illustrated in the following example.
+
 
 ### Managed Object Context
 <span id="ManagedObejctContext"></span>
