@@ -59,3 +59,16 @@
   </div>
 
 </footer>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+{% if page.js %}
+{% for js in page.js %}
+<script src='{{ js }}'></script>
+{% endfor %}
+{% endif %}
+{% if post && post.js %}
+{% for js in post.js %}
+<script src='{{ js }}'></script>
+{% endfor %}
+{% endif %}

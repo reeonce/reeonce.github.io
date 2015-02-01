@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: post
 title:  "Common"
 category: common
 permalink: /category/common/

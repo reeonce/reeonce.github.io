@@ -3,7 +3,7 @@ layout: post
 title: Core Data 的使用
 category: ios
 tags: [iOS, CoreData]
-date: 2014-12-02
+date: 2014-12-10
 ---
 
 近期在项目中使用到了 Core Data, 在此稍微做下总结。
@@ -125,9 +125,9 @@ Core Data 会动态地为属性和关系生成高效的 public 和 primitive 的
 
 managed obejcts 的生命周期都是由 Core Data 负责的，当它被创建时，它会被初始化以 Entity 的默认值。有时候，可能 Xcode 的模型编辑器中提供的默认值可能并能满足你的需求，如当前时间等。这时候，可以通过重写 *initWithEntity:insertIntoManagedObjectContext:*, *awakeFromInsert*, 或者 *awakeFromFetch* 来实现，而非是 init 方法。而通常情况下，最好不要重写 *initWithEntity:insertIntoManagedObjectContext:* 方法，如果重写可能会造成 undo 和 redo 的集成错误。
 
-* **awakeFromInsert**。is invoked only once in the lifetime of an object—when it is first created.
-awakeFromInsert is invoked immediately after you invoke initWithEntity:insertIntoManagedObjectContext: or insertNewObjectForEntityForName:inManagedObjectContext:. You can use awakeFromInsert to initialize special default property values, such as the creation date of an object, as illustrated in the following example.
+* **awakeFromInsert**。这个方法只会在 object 第一次被创建的时候调用。 *awakeFromInsert* 会在 *initWithEntity:insertIntoManagedObjectContext:* 或者 *insertNewObjectForEntityForName:inManagedObjectContext:* 之后立马被调用。因此可以在这里给某些属性设置默认的初始化值。
 
+* **awakeFromFetch** 则是在 object 被从永久存储中提取出来的时候会被调用。可以通过重写这个方法来估计 transient values 和其它的缓存。（Change processing is explicitly disabled around awakeFromFetch so that you can conveniently use public set accessor methods without dirtying the object or its context. This does mean, however, that you should not manipulate relationships, as changes will not be properly propagated to the destination object or objects.??)
 
 ### Managed Object Context
 <span id="ManagedObejctContext"></span>
@@ -149,10 +149,23 @@ awakeFromInsert is invoked immediately after you invoke initWithEntity:insertInt
 
 也就是外部存储的文件了。
 
+### 并发操作
 
+The pattern recommended for concurrent programming with Core Data is * thread confinement *: each thread must have its own entirely private managed object context.
 
+There are two possible ways to adopt the pattern:
 
+1. Create a separate managed object context for each thread and share a single persistent store coordinator. This is the typically-recommended approach.
 
+2. Create a separate managed object context and persistent store coordinator for each thread. This approach provides for greater concurrency at the expense of greater complexity (particularly if you need to communicate changes between different contexts) and increased memory usage.
+
+Using thread confinement, you should not pass managed objects or managed object contexts between threads. To “pass” a managed object from one context another across thread boundaries, you either:
+
+* Pass its object ID (objectID) and use objectWithID: or existingObjectWithID:error: on the receiving managed object context.
+
+* The corresponding managed objects must have been saved—you cannot pass the ID of a newly-inserted managed object to another context.
+
+* Execute a fetch on the receiving context.
 
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

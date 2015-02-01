@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: post
 title:  "网站开发与HTML"
 category: website
 permalink: /category/website/

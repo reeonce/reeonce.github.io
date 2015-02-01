@@ -1,5 +1,5 @@
 ---
-layout:   category_page
+layout:   post
 title:    "C++"
 category: c++
 permalink: /category/c++/

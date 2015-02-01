@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: post
 title:  "Swift"
 category: swift
 permalink: /category/swift/

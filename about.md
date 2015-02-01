@@ -15,8 +15,6 @@ My name is **Reeonce Zeng**, {{ 'now' | date: '%Y' | minus: 1991 }} years old, l
 
 I have received my bachelor's degree on software engineering in *Beihang University*.
 
-I have been working with **Node.js** for more than one year. Although it is an efficient and magic programming language, but it seems not energetic as I thought. Therefor, I'd like to leave the area, so as leaving Beijing for Shenzhen.
-
 Now I prefer to working with the more exciting thing - **iOS** development.
 
 ### My Career of Being a Developer
@@ -53,11 +51,11 @@ Now I prefer to working with the more exciting thing - **iOS** development.
       <p>It is iOS development. With reading Apple's docs and some books, I worked on two APPs, the "Passwords Safes" and "Trap the Dot !".<p>
     </div>
   </div>
-  <div id="career-you" class="slideshow-item">
+  <div id="career-xjimi" class="slideshow-item">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@You (now ~ unknown)</h3>
-      <p>Now, I'd like to find a job on <strong>IOS Development</strong> in <em>Shenzhen</em>. Please get in touch with me if you got any suitable ones for me.</p>
+      <h3>@XJIMI (now ~ unknown)</h3>
+      <p>As a iOS developer, I am enjoying my time at xjimi.</p>
     </div>
   </div>
 </div>
@@ -67,9 +65,9 @@ Now I prefer to working with the more exciting thing - **iOS** development.
 
   Familiar with Objective-C and the main frameworks of iOS. And I know most used design patterns and algorithms.
 
-  [**Passwords Safes**](https://github.com/reeonce/PasswordsSafes). An app to manage your passwords which is developed with swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256, meanwhile, all data are managed with Core Data, Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
+  [**Passwords Safes**]. An app to manage your passwords which is developed with swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256, meanwhile, all data are managed with Core Data, Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
 
-  [**Trap The Dot !**](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8). A game based on SpriteKit using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and UMeng Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
+  [**Trap The Dot !**]. A game based on SpriteKit using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and UMeng Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
 
 #### Frontend Engineer
   Familiar with html, css and Javascript. 

@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: post
 title:  "Objective-C 与设计模式"
 category: objective-c与设计模式
 permalink: /category/objective-c与设计模式/

@@ -12,6 +12,7 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   float: right;
   line-height: 36px;
   margin-right: 10px;
+  overflow: scroll;
 }
 
 .site-nav .menu-icon { display: none; }
@@ -26,7 +27,6 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   float: right;
   margin: 30px 2px 0;
   width: 268px;
-  height: 980px;
   overflow: scroll;
   background-color: #fefefe;
 }
@@ -68,14 +68,16 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 /* Home styles */
 /* ----------------------------------------------------------*/
 
-.page-content .wrap {
-  background-color: white;
-  padding: 24px;
+.page-content {
+  padding: 12px;
 }
 
 .home h1 { margin-bottom: 25px; }
 
-.posts { list-style-type: none; }
+.posts { 
+    list-style-type: none; 
+    background-color: white;
+}
 
 .posts li { margin-bottom: 30px; }
 

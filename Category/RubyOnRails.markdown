@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: post
 title:  "Ruby on Rails"
 category: rails
 permalink: /category/rails/

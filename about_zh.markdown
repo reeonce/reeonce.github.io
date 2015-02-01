@@ -15,9 +15,7 @@ css: "/css/about.css"
 
 北航毕业后的日子里，我每天都会奔波在宇宙中心的街道上，我还是蛮骄傲的。
 
-一年多的时间，我以为 **Node.js** 能够实现我的梦想。虽然它很高效快捷，但是它却好像不够那么年轻活力了，于是我选择跟随 TJ 的脚步，放弃了对它的追随。 － 离开北京，前往深圳☺.
-
-现在我要走向一个让我更加兴奋的领域 - **iOS 开发**.
+现在集中精力于 **iOS 开发**。
 
 ### 我的程序员之路
 
@@ -55,11 +53,11 @@ css: "/css/about.css"
       <p>结合书本，Apple 的文档，着力于两个小 APP, "Trap The Dot" 与 "Passwords Safes"。</p>
     </div>
   </div>
-  <div id="career-you" class="">
+  <div id="career-xjimi" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@你! (现在 ~ 未知)</h3>
-      <p>现在，我希望能够在 <em>深圳</em> 找到一份 <strong>IOS 开发工程师</strong> 的职位。如果你有合适的请速联系我哈 :)。</p>
+      <h3>@极觅数据 (2014 ~ 未知)</h3>
+      <p>我在极觅数据非常开心地做我的 iOS 开发工程师啦~</p>
     </div>
   </div>
 </div>
@@ -71,9 +69,9 @@ css: "/css/about.css"
 
   主要项目：
 
-  [**Passwords Safes**](https://github.com/reeonce/PasswordsSafes)。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 使得这款能同时在 iPad 和 iPhone 上使用的应用的适配工作少了不少。
+  [**Passwords Safes**]。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 使得这款能同时在 iPad 和 iPhone 上使用的应用的适配工作少了不少。
 
-  [**Trap The Dot !**](https://itunes.apple.com/cn/app/trap-the-dot-!/id922876408?ls=1&mt=8)。一款使用 Objective-C 开发的基于 SpriteKit 框架的“围住神经猫”的游戏。该应用本地化了9个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
+  [**Trap The Dot !**]。一款使用 Objective-C 开发的基于 SpriteKit 框架的“围住神经猫”的游戏。该应用本地化了9个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
 
 #### 前端工程师
   对HTML, CSS, Javascript 都是比较熟悉的。

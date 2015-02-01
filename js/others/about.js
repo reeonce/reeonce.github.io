@@ -76,7 +76,7 @@ var addLinks = function(group, textsData) {
 var totalWidth = $("#timeline").width();
 var svgWidth = totalWidth - 60;
 var svg = d3.select("#timeline svg");
-	
+
 var nowMonth = new Date();
 nowMonth.setHours(0,0,0,0);
 nowMonth.setDate(0);
@@ -92,7 +92,7 @@ var durations = [
 	{start_time: dateFormat.parse("2009-09"), end_time: dateFormat.parse("2013-06"), text: "Beihang University >", name: "buaa"},
 	{start_time: dateFormat.parse("2013-06"), end_time: dateFormat.parse("2014-07"), text: "YAHOO Beijing R&D >", name: "yahoo"},
 	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-12"), text: "Advancement >", name: "improvement"},
-	{start_time: dateFormat.parse("2014-11"), end_time: a_end_time, text: "You >", name: "you"},
+	{start_time: dateFormat.parse("2014-12"), end_time: a_end_time, text: "XJIMI >", name: "xjimi"},
 ];
 
 totalDuration.interval = totalDuration.end_time.getTime() - totalDuration.start_time.getTime();
@@ -128,7 +128,7 @@ var getSvdData = function() {
 		textsData[index] = {};
 		textsData[index].text = value.text;
 		textsData[index].x = spaceCircles[index] - 20;
-		textsData[index].y = (index * 60 ) % 180 + 220; 
+		textsData[index].y = (index * 60 ) % 180 + 220;
 		textsData[index].name = value.name;
 		textsData[index].class = "career-link";
 		textsData[index]["font-size"] = (10 + svgWidth / 60) + "px";
@@ -202,4 +202,4 @@ $(window).on('resize', function(event) {
 if (!Modernizr.cssanimations || !Modernizr.svg) {
 	$(".slideshow").removeClass("slideshow");
 	$(".slideshow-item").removeClass("slideshow-item");
-} 
+}

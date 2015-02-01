@@ -1,5 +1,5 @@
 ---
-layout:   category_page
+layout:   post
 title:    "iOS"
 category: ios
 permalink: /category/ios/
