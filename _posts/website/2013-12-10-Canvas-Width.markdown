@@ -5,7 +5,7 @@ category: website
 tags: canvas css
 ---
 
-写过网页的同学都知道，直接设置一个HTML 元素的宽度和高度的方法有两种，一种是设置元素的width、height 属性，如
+在网页中，直接设置一个HTML 元素的宽度和高度的方法有两种，一种是设置元素的width、height 属性，如
 
 ```html
 <div width="400px" height="400px"></div>
@@ -54,7 +54,7 @@ ctx.fillRect(20, 20, 200, 200);
 <script type="text/javascript" src="/js/others/canvas-width-01.js"></script>
 <script type="text/javascript">drawRect1();</script>
 
-尺寸不对啊！而且为何这个黑框显得那么劣质？明显有被放大过的痕迹。回到w3school 中的示例:
+尺寸不对，明显有被拉伸过的痕迹。回到w3school 中的示例:
 
 ```html
 <style>
@@ -89,22 +89,19 @@ console.log(ctx.canvas.width);
 console.log(ctx.canvas.height);
 ```
 
-发现分别为300 和 150，通过这个数字，就能够明白原来前面那种情况下，方框的宽放大了4/3 倍，高放大了8/3 倍。为何css 的 width 与元素的width 效果不一样呢，他们有什么区别？css 的width 又是如何工作的呢？
+发现分别为300 和 150，通过这个数字，就能够明白原来前面那种情况下，方框的宽和高都被放大了，而且还是不同的倍数。为何css 的 width 与元素的width 效果不一样呢，他们有什么区别？css 的width 又是如何工作的呢？
 
 > The width property in CSS specifies the width of the element's content area. This "content" area is the portion inside the padding, border, and margin of an element ([the box model](http://www.w3.org/TR/CSS2/box.html)).
 
-但由于引用了bootstrap, 其中`box-sizing: border-box`，因此这个`width: 400px;` 实际为border-left + padding-left + width(content area) + padding-right + border-right 所得的值。也就是说，这个400px 是这个元素在网页中显示框的大小。
+在一般的css 框架中, 都会设置`box-sizing: border-box`，因此这个`width: 400px;` 实际为border-left + padding-left + width(content area) + padding-right + border-right 所得的值。也就是说，这个400px 是这个元素在网页中显示框的大小。
+
+而width 和 height 属性则不一样，他们是这样定义的:
 
 > width: The width of the coordinate space in CSS pixels. Defaults to 300.
 > height: The height of the coordinate space in CSS pixels. Defaults to 150.
 
-这个width 和 height 指的是canvas 的坐标空间（也就是这块画布的绘画空间，也就是说canvas 里面的ppi 与canvas外面的可能是不一致的），默认值分别是300和150。 
+这个width 和 height 指的是canvas 的坐标空间（也就是这块画布的绘画空间，也就是说canvas 里面的ppi 与canvas外面的可能是不一致的），默认值分别是300和150。
 
 当css 的width 没有被设置时，canvas 的坐标空间大小就是它的显示区域大小。 但是一旦css 的width 和height 被设置了，并且与坐标大小不一致的话，那么所绘画的内容就会被进行缩放。也就是我遇到的问题了。
 
-那么为何这两个尺寸不能统一一下呢？ 本来一个将被弃用的属性，在canvas这儿，变成了必须使用，真实让人难以捉摸。
-
-
-
-
-
+由此可以得出，一般的元素中绘画空间和显示框架是1:1 的，而canvas 则是可以通过viewport 来控制的，用于绘画则灵活很多。
