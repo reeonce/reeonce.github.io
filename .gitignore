@@ -2,3 +2,6 @@
 ._.DS_Store
 _site
 node_modules
+bower_components
+css/*.css.map
+.sass-cache
