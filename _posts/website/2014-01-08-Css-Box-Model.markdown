@@ -29,6 +29,8 @@ The dimensions of the content area of a box — the content width and content he
 
 The background style of the content, padding, and border areas of a box is specified by the 'background' property of the generating element. Margin backgrounds are always transparent.
 
+<!-- more -->
+
 ### box-sizing property
 
 #### Summary
@@ -68,7 +70,7 @@ The width and height properties include the padding and border, but not the marg
 
 #### Notes
 
-box-sizing is not respected when the height is calculated from window.getComputedStyle(), in Internet Explorer, in Firefox prior to 23, and in Chrome. 
+box-sizing is not respected when the height is calculated from window.getComputedStyle(), in Internet Explorer, in Firefox prior to 23, and in Chrome.
 Note that IE9's proprietary currentStyle property does return the correct value of height.
 
 详见 [http://www.w3.org/TR/CSS2/visudet.html#containing-block-details](http://www.w3.org/TR/CSS2/visudet.html#containing-block-details)

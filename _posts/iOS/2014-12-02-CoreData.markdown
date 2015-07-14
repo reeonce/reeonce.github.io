@@ -22,7 +22,7 @@ Core Data 是 Apple 为 OS X 和 iOS 平台提供的一套管理持久化数据�
 
 * 模式迁移
 
-* 应用 controller 层的集成使得与 UI 的同步异常简单 － NSFetchedResultsController 
+* 应用 controller 层的集成使得与 UI 的同步异常简单 － NSFetchedResultsController
 
 * 全面支持 KVC 和 KVO
 
@@ -37,6 +37,8 @@ Core Data 是 Apple 为 OS X 和 iOS 平台提供的一套管理持久化数据�
 由于支持这么多的功能，通过使用 Core Data 能够几乎比不使用减少 50% 到 75% 的代码。不仅如此，Core Data 的代码质量是得到绝对保证的，性能、安全性与错误处理、内存优化都是经过改善了的。 在 Xcode 中还提供了可视化的模型编辑工具支持。
 
 然而，Core Data 并不是一套关系型数据库，或者数据库管理系统， 尽管Core Data 支持通过 SQLite 来作为永久存储的方案。在我看来，Core Data 是超级框架，它可以通过数据库来存储数据，也可以只是将数据保存在内存当中。
+
+<!-- more -->
 
 ### Core Data 的基本架构
 
@@ -109,7 +111,7 @@ Core Data 会动态地为属性和关系生成高效的 public 和 primitive 的
 
 ```Objective-C
 @interface MyManagedObject : NSManagedObject
- 
+
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSDate *date;
 @end
@@ -170,4 +172,3 @@ Using thread confinement, you should not pass managed objects or managed object 
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="/js/others/coredata.js"></script>
-

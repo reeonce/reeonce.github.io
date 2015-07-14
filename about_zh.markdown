@@ -13,9 +13,7 @@ css: "/css/about.css"
 
 我的名字叫**曾斌**，今年 {{ 'now' | date: '%Y' | minus: 1991 }} 岁啦，现居广东省深圳市。
 
-北航毕业后的日子里，我每天都会奔波在宇宙中心的街道上，我还是蛮骄傲的。
-
-现在集中精力于 **iOS 开发**。
+毕业于北京航空航天大学，现在集中精力于 **iOS 开发**。
 
 ### 我的程序员之路
 
@@ -48,15 +46,14 @@ css: "/css/about.css"
   <div id="career-improvement" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@闭关进修 (2014)</h3>
-      <p>在这四个月的时间，处理完人生中一个重要的事情之后，我需要开始准备踏上新的征程，方向是 iOS 开发。</p>
-      <p>结合书本，Apple 的文档，着力于两个小 APP, "Trap The Dot" 与 "Passwords Safes"。</p>
+      <h3>@极觅数据 (2014 ~ 2015)</h3>
+      <p>在极觅数据，开心地做着iOS 开发的工作，主要项目是伴旅 这个APP。</p>
     </div>
   </div>
   <div id="career-xjimi" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@极觅数据 (2014 ~ 未知)</h3>
+      <h3>@ (2014 ~ 未知)</h3>
       <p>我在极觅数据非常开心地做我的 iOS 开发工程师啦~</p>
     </div>
   </div>
@@ -103,5 +100,3 @@ css: "/css/about.css"
 <script type="text/javascript" src="/js/d3.v3.min.js"></script>
 <script type="text/javascript" src="/js/modernizr.min.js"></script>
 <script type="text/javascript" src="/js/others/about_zh.js"></script>
-
-

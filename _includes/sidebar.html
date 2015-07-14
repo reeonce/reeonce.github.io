@@ -12,7 +12,7 @@
 	</a>
 	<div class="side-nav trigger">
 		<div class="side-nav-category">
-			<h1>Categories</h1>
+			<h3>Categories</h3>
 
 			<ul>
 			    {% for category in site.categories reversed %}
@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 		<div class="side-nav-tag">
-			<h2>Tags</h2>
+			<h3>Tags</h3>
 			<ul>
 		    {% for tag in site.tags reversed %}
 		        <li><a href="/tags/#{{ tag | first }}" class="page-link">{{ tag | first }}({{ tag | last | size }})</a></li>

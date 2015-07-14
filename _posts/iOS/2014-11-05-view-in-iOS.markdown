@@ -26,6 +26,8 @@ tags: [view, window, frame, bound, animation]
 
 For custom UIView subclasses, you typically override the drawRect: method of your view and use that method to draw your view’s content. There are also other ways to provide a view’s content, such as setting the contents of the underlying layer directly, but overriding the drawRect: method is the most common technique.
 
+<!-- more -->
+
 #### Content Modes
 
 每一个视图都有一个content mode, 当视图的几何体得到改变时，视图通过content mode 来确定如何复用之前的内容。当一个视图第一次被显示的时候，它的内容会像平常一样被映射到一个基本的位图上。之后，并不是所有的对视图几何体的改变都会重新创建这样一个位图，而由 *contentMode* 这个属性来决定这个位图是被放大还是移动到视图的一个角落。
@@ -36,19 +38,19 @@ For custom UIView subclasses, you typically override the drawRect: method of you
 
 #### Stretchable Views
 
-*contentStretch* 属性。Stretchable areas are only used when the content mode would cause the view’s content to be scaled. This means that stretchable views are supported only with the UIViewContentModeScaleToFill, UIViewContentModeScaleAspectFit, and UIViewContentModeScaleAspectFill content modes. 
+*contentStretch* 属性。Stretchable areas are only used when the content mode would cause the view’s content to be scaled. This means that stretchable views are supported only with the UIViewContentModeScaleToFill, UIViewContentModeScaleAspectFit, and UIViewContentModeScaleAspectFill content modes.
 
 Stretchable views are handled entirely in the Core Animation layer, which typically offers better performance.
 
 #### Built-In Animation Support
-Among the properties you can animate on a UIView object are the following: 
-	
-* frame—Use this to animate position and size changes for the view. 
-* bounds—Use this to animate changes to the size of the view. 
+Among the properties you can animate on a UIView object are the following:
+
+* frame—Use this to animate position and size changes for the view.
+* bounds—Use this to animate changes to the size of the view.
 * center—Use this to animate the position of the view.
 * transform—Use this to rotate or scale the view.
-* alpha—Use this to change the transparency of the view. 
-* backgroundColor—Use this to change the background color of the view. 
+* alpha—Use this to change the transparency of the view.
+* backgroundColor—Use this to change the background color of the view.
 * contentStretch—Use this to change how the view’s contents stretch.
 
 Typically, you use a view controller to manage the animations associated with major changes between parts of your user interface. In addition to the animations you create using UIKit classes, you can also create animations using Core Animation layers. Dropping down to the layer level gives you much more control over the timing and properties of your animations.
@@ -80,16 +82,16 @@ Typically, you use a view controller to manage the animations associated with ma
 #### Points vs Pixes
 
 设备           |  屏幕大小(Point)
-:---------| :--------- 
-iphone5及以上 &nbsp; &nbsp; &nbsp; &nbsp; | 320 x 568 
-其它iPhone    | 320x 480 
+:---------| :---------
+iphone5及以上 &nbsp; &nbsp; &nbsp; &nbsp; | 320 x 568
+其它iPhone    | 320x 480
 ipad         | 768 x 1024
 
-The point-based measuring system used for each type of device defines what is known as the user coordinate space. This is the standard coordinate space you use for nearly all of your code. 
+The point-based measuring system used for each type of device defines what is known as the user coordinate space. This is the standard coordinate space you use for nearly all of your code.
 
 One point does not necessarily correspond to one pixel on the screen.
 
-the mapping of points in the user coordinate space to pixels in the device coordinate space is normally handled by the system. 
+the mapping of points in the user coordinate space to pixels in the device coordinate space is normally handled by the system.
 
 #### 视图的运行时交互模型
 
@@ -109,6 +111,5 @@ the mapping of points in the user coordinate space to pixels in the device coord
 
 * **不要通过在控件中嵌入子视图来定制**。虽然可以通过继承 *UIControl* 类来添加子视图到标准系统控件中。这是不被建议的，因为 control 类已经定义了足够明确且详细的接口来实现这些功能。如果添加子视图可能会使控件在将来的版本中出现问题。
 
-#### 参考: 
+#### 参考:
 [View Programming Guide for iOS](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/WindowsandViews/WindowsandViews.html)
-

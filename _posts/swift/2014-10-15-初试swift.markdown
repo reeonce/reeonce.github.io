@@ -6,12 +6,12 @@ tags: swift javascript
 ---
 
 
-翻了翻 *The Swift Programming Language*，**我去！这语言让 JavaScript 开发人员真实熟悉的呀**。
+翻了翻 *The Swift Programming Language*，*我去！这语言让 JavaScript 开发人员真实熟悉的呀*。
 
 1. ### Hello world 语句
 	```swift
 	println("Hello world!")
-	```    
+	```
 	swift 的函数又回到了C 风格了，看起来舒服多啦。语句结束并不需要用封号来标识，只是没有像js 那样的`"use strict";`语句来强制为 *strict mode*，因为这本来就没有必要。
 
 2. ### 变量声明
@@ -66,6 +66,8 @@ tags: swift javascript
 		doSomeOthers()
 	}
 	```
+
+<!-- more -->
 
 5. ### 闭包
 	swift 中的闭包(closure)与Javascript 中的callback 也是极其相似的。不过closure 还集成了lambda 表达式的功能，可谓更加强大。

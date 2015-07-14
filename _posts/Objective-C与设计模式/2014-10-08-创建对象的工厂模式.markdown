@@ -31,6 +31,8 @@ static Person create(String name) {
 
 2. 将工厂方法参数化，根据不同需求创建不同的工厂方法。
 
+<!-- more -->
+
 ## Objective-C 的例子
 
 Cocoa Touch 有大量的例子，`NSNumber` 提供以下工厂方法:
@@ -51,7 +53,7 @@ Cocoa Touch 有大量的例子，`NSNumber` 提供以下工厂方法:
 + (NSNumber *)numberWithBool:(BOOL)value;
 ```
 
-使用工厂方法创建 NSNumber 对象 
+使用工厂方法创建 NSNumber 对象
 
 ```objective-c
 NSNumber *myNumber = [NSNumber numberWithFloat: 1.234];
@@ -62,4 +64,3 @@ NSNumber *myNumber = [NSNumber numberWithFloat: 1.234];
  *
  */
 ```
-

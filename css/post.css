@@ -32,6 +32,7 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 .side-nav ul {
   list-style: none;
+  line-height: 1.2;
 }
 
 .side-nav li {
@@ -74,8 +75,8 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 .home h1 { margin-bottom: 25px; }
 
-.posts { 
-    list-style-type: none; 
+.posts {
+    list-style-type: none;
     background-color: white;
 }
 
@@ -96,7 +97,15 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 
 .category-frame {
   font-size: 90%;
-  margin-left: 20px;
+  margin-bottom: 48px;
+  background-color: #efefff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 2px #999;
+}
+
+.more-details {
+
 }
 
 /* Post styles */
@@ -239,7 +248,7 @@ h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     padding: 5px 10px;
     margin: 0;
   }
-  
+
   .page-content {
     margin-right: 0;
   }

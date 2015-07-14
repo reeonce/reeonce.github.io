@@ -19,6 +19,8 @@ The abstract class NSController and its concrete subclasses in the AppKit framew
 
 Instances of the concrete public controller classes are available from the Interface Builder library and hence are highly reusable. They provide services such as the management of selections and placeholder values. These objects perform the following specific functions:
 
+<!-- more -->
+
 NSObjectController manages a single model object.
 NSArrayController manages an array of model objects and maintains a selection; it also allows you to add objects to and remove objects from the array.
 NSTreeController enables you to add, remove, and manage model objects in a hierarchical tree structure.

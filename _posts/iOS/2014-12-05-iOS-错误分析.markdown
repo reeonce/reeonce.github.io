@@ -28,6 +28,8 @@ Some popular ones, like
 
 and you can see more at [65 Web and Mobile App Analytics Tools](http://autosend.io/blog/analytics-tools-web-mobile/).
 
+<!-- more -->
+
 #### Crash Reports
 
 You can find your *Error List* if you use one of the above analytics tools. By clicking into one error, you will see the information of time, frequency, device, os version, also the error details like below,
@@ -76,7 +78,7 @@ Binary Image: Txxx Txx xxx
 Base Address: 0x00000001000f0000
 ```
 
-Then you can try to find the dSYM directory of your archives and run `dwarfdump --arch=arm64 --lookup 0x100013280 Txxx\ Txx\ xxx.app.dSYM/`, see the result like this, 
+Then you can try to find the dSYM directory of your archives and run `dwarfdump --arch=arm64 --lookup 0x100013280 Txxx\ Txx\ xxx.app.dSYM/`, see the result like this,
 
 ```
 ----------------------------------------------------------------------

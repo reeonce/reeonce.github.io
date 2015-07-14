@@ -46,4 +46,6 @@ int aFunction() {
 }
 ```
 
+<!-- more -->
+
 {% include stack-heap-demo.html %}

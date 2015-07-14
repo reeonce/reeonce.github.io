@@ -5,30 +5,43 @@ layout: post_layout
 <div class="home">
   <p>简单地记录，不断地思考。问题很多，欢迎指正 ~ </p>
 
-  {% assign dateCateList = '' %}
-  {% for category in site.categories reversed %}
-    {% assign latestPost = category | last | sort date | last %}
-    {% assign categoryName = category | first %}
-    {% assign dateAndCategoryName = latestPost.date | append: '---+' | append: categoryName %}
-    {% assign dateCateList = dateCateList | append: '+++_' | append: dateAndCategoryName %}
-  {% endfor %}
-  {% assign dateCateList = dateCateList | split: '+++_' %}
-  {% assign dateCateList = dateCateList | sort %}
-
-  {% for ca in dateCateList reversed %}
-  {% assign dateCategory = ca | split: '---+' %}
-    {% for page in site.pages %}
-      {% assign categoryName = dateCategory | last %}
-      {% if categoryName %}
-        {% if page.category == categoryName %}
-          <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-          <div class="category-frame">
-                {{ page.content }}
-          </div>
-        {% endif %}
-      {% endif %}
+  <!-- This loops through the paginated posts -->
+    {% for post in paginator.posts %}
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p class="author">
+    <span class="date">{{ post.date | date: "%F %r" }}</span>
+    </p>
+    <div class="content post category-frame">
+    {{ post.content | split: '<!-- more -->' | first | append: '<span class="more-details"><a href="' | append: post.url | append:  '">查看全文</a></span>' }}
+    </div>
     {% endfor %}
-  {% endfor %}
+
+    <!-- Pagination links -->
+    {% if paginator.total_pages > 1 %}
+    <ul class="pagination">
+      {% if paginator.previous_page %}
+        <li class="arrow"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a></li>
+      {% else %}
+          <li class="arrow unavailable"><a href="">&laquo;</a></li>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li class="current"><a href="">{{ page }}</a></li>
+        {% elsif page == 1 %}
+          <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+        {% else %}
+          <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <li class="arrow"><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a></li>
+      {% else %}
+        <li class="arrow unavailable"><a href="">&raquo;</a></li>
+      {% endif %}
+    </ul>
+    {% endif %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 

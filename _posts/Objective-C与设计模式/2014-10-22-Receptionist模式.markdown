@@ -15,6 +15,8 @@ The Receptionist Design Pattern in Practice
 
 A KVO notification invokes the observeValueForKeyPath:ofObject:change:context: method implemented by an observer. If the change to the property occurs on a secondary thread, the observeValueForKeyPath:ofObject:change:context: code executes on that same thread. There the central object in this pattern, the receptionist, acts as a thread intermediary. As Figure 4-5 illustrates, a receptionist object is assigned as the observer of a model object’s property. The receptionist implements observeValueForKeyPath:ofObject:change:context: to redirect the notification received on a secondary thread to another execution context—the main operation queue, in this case. When the property changes, the receptionist receives a KVO notification. The receptionist immediately adds a block operation to the main operation queue; the block contains code—specified by the client—that updates the user interface appropriately.
 
+<!-- more -->
+
 Figure 4-5  Bouncing KVO updates to the main operation queue
 
 You define a receptionist class so that it has the elements it needs to add itself as an observer of a property and then convert a KVO notification into an update task. Thus it must know what object it’s observing, the property of the object that it’s observing, what update task to execute, and what queue to execute it on. Listing 4-1 shows the initial declaration of the RCReceptionist class and its instance variables.

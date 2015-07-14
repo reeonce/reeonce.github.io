@@ -19,6 +19,8 @@ Cocoa uses the Decorator pattern in the implementation of several of its classes
 
 Delegation is a mechanism by which a host object embeds a weak reference (weak in the sense that it’s a simple pointer reference, unretained) to another object—its delegate—and periodically sends messages to the delegate when it requires its input for a task. The host object is generally an “off-the-shelf” framework object (such as an NSWindow or NSXMLParser object) that is seeking to accomplish something, but can only do so in a generic fashion. The delegate, which is almost always an instance of a custom class, acts in coordination with the host object, supplying program-specific behavior at certain points in the task (see Figure 4-3). Thus delegation makes it possible to modify or extend the behavior of another object without the need for subclassing.
 
+<!-- more -->
+
 Figure 4-3  Framework object sending a message to its delegate
 ![](/assets/delegation.gif)
 

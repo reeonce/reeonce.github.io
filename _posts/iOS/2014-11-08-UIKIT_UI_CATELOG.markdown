@@ -12,7 +12,7 @@ css: /css/uikit_ui_catelog.css
 
 ![](/assets/UIKIT_UI_CATELOG/uiactionsheet_intro_2x.png)
 
-Action sheets display a set of buttons representing several alternative choices to complete a task initiated by the user. 
+Action sheets display a set of buttons representing several alternative choices to complete a task initiated by the user.
 
 you should include a Cancel button with action sheets displayed on iPhone and with those displayed on iPad over an open popover. Otherwise on iPad, action sheets are displayed within a popover, and the user can cancel the action sheet by tapping outside the popover, in which case you do not need to include a Cancel button.
 
@@ -26,7 +26,7 @@ UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
 
 On iPhone, because the action sheet slides up from the bottom of a view and covers the width of the screen, most apps use `showInView:`. On iPad, however, action sheets appear within a popover whose arrow points to the control the user tapped to invoke the choices presented by the action sheet. So, `showFromRect:inView:animated:` and `showFromBarButtonItem:animated:` are most useful on iPad.
 
-To handle the choices presented by your action sheet, you must designate a delegate to handle the button’s action, and the delegate must conform to the UIActionSheetDelegate protocol. 
+To handle the choices presented by your action sheet, you must designate a delegate to handle the button’s action, and the delegate must conform to the UIActionSheetDelegate protocol.
 
 You designate the delegate with the delegate parameter when you initialize the action sheet object. The delegate must implement the actionSheet:clickedButtonAtIndex: message to respond when the button is tapped.
 
@@ -41,13 +41,15 @@ buttonTitleAtIndex:buttonIndex]);
 
 The layout of action sheets is handled for you. You cannot create Auto Layout constraints between an action sheet and another user interface element.
 
+<!-- more -->
+
 ### <a class="catelog-item" name="UIActivityIndicatorView" href="#UIActivityIndicatorView">Activity Indicators - UIActivityIndicatorView</a>
 
 ![](/assets/UIKIT_UI_CATELOG/uiactivityindicator_intro.png)
 
 An activity indicator is a spinning wheel that indicates a task is in the midst of being processed. If an action takes a noticeable and indeterminate amount of time to process—such as a CPU-intensive task or connecting to a network—you should display an activity indicator to give assurance to the user that your app is not stalled or frozen.
 
-To customize the appearance of all activity indicators in your app, use the appearance proxy (for example, `[UIActivityIndicatorView appearance]`). 
+To customize the appearance of all activity indicators in your app, use the appearance proxy (for example, `[UIActivityIndicatorView appearance]`).
 
 *isAnimating* is unchecked by default; checking it causes the activity indicator to start animating. This is the equivalent of calling the *startAnimating* method. When you call the *startAnimating* and *stopAnimating* methods, the activity indicator automatically shows and hides onscreen. This way, you won’t have to worry about displaying a stationary activity indicator.
 
@@ -77,7 +79,7 @@ UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Title"
 
 ```Objective-C
 - (void)alertView:(UIAlertView *)theAlert clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"The %@ button was tapped.", [theAlert buttonTitleAtIndex:buttonIndex]); 
+	NSLog(@"The %@ button was tapped.", [theAlert buttonTitleAtIndex:buttonIndex]);
 	if (theAlert.alertViewStyle == UIAlertViewStyleLoginAndPasswordInput) {
 	    NSLog(@"The login field says %@, and the password is %@.",
 		[theAlert textFieldAtIndex:0].text, [theAlert textFieldAtIndex:1].text);
@@ -135,7 +137,7 @@ By default, a label is a single line. To create a multiline label, increase the 
 
 *adjustsFontSizeToFitWidth* vs *adjustsLetterSpacingToFitWidth*
 
-The Baselines (baselineAdjustment) field determines how to adjust the position of text in cases when the text must be drawn using a different font size than the one originally specified. 
+The Baselines (baselineAdjustment) field determines how to adjust the position of text in cases when the text must be drawn using a different font size than the one originally specified.
 
 Use the Line Breaks (lineBreakMode) field to specify the technique to use for wrapping and truncating the label’s text if it exceeds a single line. Note that if this property is set to a value that causes text to wrap to another line, do not set the adjustsFontSizeToFitWidth or adjustsLetterSpacingToFitWidth property to YES.
 
@@ -214,12 +216,12 @@ A toolbar usually appears at the bottom of a screen, and displays one or more bu
 
 After you create a toolbar, you need to add items to the bar. Each item is a UIBarButtonItem object, which you can add to the toolbar directly in Interface Builder or in code using the items property. If you want to animate changes to your toolbar items array, use the setItems:animated: method. You can specify the content of a particular bar button item by selecting its identifier. The identifier can either be custom or take on the value of well-know system buttons such as Edit or Done. For a list of system identifiers, see UIBarButtonSystemItem.
 
-A common way to create and manage a toolbar is in conjunction with a navigation controller. The navigation controller displays the toolbar and populates it with items from the currently visible view controller. Using a navigation controller is ideal for an app design where you want to change the contents of the toolbar dynamically. However, you should not use a navigation controller if your app does not have or need a navigation bar. 
+A common way to create and manage a toolbar is in conjunction with a navigation controller. The navigation controller displays the toolbar and populates it with items from the currently visible view controller. Using a navigation controller is ideal for an app design where you want to change the contents of the toolbar dynamically. However, you should not use a navigation controller if your app does not have or need a navigation bar.
 
 
 ### <a class="catelog-item" name="UIWebView" href="#UIWebView">Web Views - UIWebView</a>
 
-To get your web view to display content, you simply create a UIWebView object, attach it to a window, and send it a request to load web content. Use the loadRequest: method to begin loading web content, the stopLoading method to stop loading, and the loading property to find out if a web view is in the process of loading. 
+To get your web view to display content, you simply create a UIWebView object, attach it to a window, and send it a request to load web content. Use the loadRequest: method to begin loading web content, the stopLoading method to stop loading, and the loading property to find out if a web view is in the process of loading.
 
 ## Controls
 
@@ -261,7 +263,7 @@ There are four mode settings: date and time, date only, time only, or countdown 
 
 ![](/assets/UIKIT_UI_CATELOG/uipagecontrol_intro_2x.png)
 
-A page control displays a horizontal series of dots, each of which represents a page or screen in an app. Although a page control doesn’t manage the display of content pages, you can write code that lets users navigate between pages by tapping the control. 
+A page control displays a horizontal series of dots, each of which represents a page or screen in an app. Although a page control doesn’t manage the display of content pages, you can write code that lets users navigate between pages by tapping the control.
 
 Typically, a page control is used with another view—such as a scroll view—that manages the pages and handles scrolling, panning, and zooming of the content. In this scenario, the scroll view usually uses paging mode to display the content, which is divided into separate views or into separate areas of one view.
 

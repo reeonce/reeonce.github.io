@@ -19,6 +19,8 @@ Property List Serialization
 
 A property list is a simple, structured serialization of an object graph that uses only objects of the following classes: NSDictionary, NSArray, NSString, NSData, NSDate, and NSNumber. These objects are commonly referred to as property list objects. Several Cocoa framework classes offer methods to serialize these property list objects and define special formats for the data stream recording the contents of the objects and their hierarchical relationship. The NSPropertyListSerialization class provides class methods that serialize property list objects to and from an XML format or an optimized binary format.
 
+<!-- more -->
+
 Uses and Limitations
 If the objects in an object graph are simple, property list serialization is a flexible, portable, and adequate means to capture and externalize an object and its state. However, this form of serialization has its limitations. It does not preserve the full class identity of objects, only the general kind (array, dictionary, string, and so on). Thus an object restored from a property list might be of a different class than its original class. This is especially an issue when the mutability of an object can vary. Property list serialization also doesn’t keep track of objects that are referenced multiple times in an object, potentially resulting in multiple instances upon deserialization that was a single instance in the original object graph.
 

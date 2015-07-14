@@ -1,0 +1,24 @@
+{
+  "name": "reeonce.github.io",
+  "homepage": "http://reeonce.github.io",
+  "authors": [
+    "reeonce <reeonce@yahoo.com>"
+  ],
+  "description": "reeonce's page",
+  "keywords": [
+    "reeonce"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "_drafts",
+    "_site",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2"
+  }
+}

@@ -28,6 +28,7 @@ Observer 模式描述了如何建立这种关系，这一模式中的关键对�
 3. 在观察者类中实现`observeValueForKeyPath:ofObject:change:context:` 方法(也就是上图中的 *update()* 方法)。
 4. 可以通过给观察目标发送`removeObserver:forKeyPath:` 消息来移除观察。
 
+<!-- more -->
 
 ```objective-c
 
@@ -45,7 +46,7 @@ Observer 模式描述了如何建立这种关系，这一模式中的关键对�
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"name"]) {
         NSString *text = [change objectForKey:NSKeyValueChangeNewKey];
-    } 
+    }
 }
 
 - (void)dealloc {

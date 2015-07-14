@@ -25,10 +25,10 @@ You set the hugging and compression priorities for a UIView instance using setCo
 
 	**Pin**. Create spacing constraints, such as defining the height of a view, or specifying its horizontal distance from another view.
 
-	**Resizing**. Specify how resizing affects constraints . 
+	**Resizing**. Specify how resizing affects constraints .
 
 * Adding Missing or Suggested Constraints
-	
+
 	**Issues**. Resolve layout issues by adding or resetting constraints based on suggestions.
 
 * Editing Constraints
@@ -37,6 +37,8 @@ You set the hugging and compression priorities for a UIView instance using setCo
 
 * Deleting Constraints
 	Delete any constraint at any time by selecting it on the canvas or in the outline view and pressing the Delete key.
+
+<!-- more -->
 
 #### Working with Auto Layout Programmatically
 
@@ -53,12 +55,12 @@ NSArray *constraints =
 Although most of the constraints that are useful in real user interfaces can be expressed using the language, some cannot. One useful constraint that cannot be expressed is a fixed aspect ratio, you can use `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:`.
 
 ```objective-c
-[NSLayoutConstraint constraintWithItem:self.button1 
+[NSLayoutConstraint constraintWithItem:self.button1
 					attribute:NSLayoutAttributeWidth
-					relatedBy:NSLayoutRelationEqual 
+					relatedBy:NSLayoutRelationEqual
 					toItem:self.button1
 					attribute:NSLayoutAttributeHeight
-					multiplier:2.0 
+					multiplier:2.0
 					constant:0.0];
 ```
 

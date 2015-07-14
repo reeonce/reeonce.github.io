@@ -31,9 +31,11 @@ CHAIN OF RESPONSIBILITY 的效果
 
 3. 不保证被接收，该请求很可能一直到链的末端都得不到处理。
 
+<!-- more -->
+
 ## CHAIN OF RESPONSIBILITY 的做法
 
-1. 
+1.
 
 ## Objective-C 中的实现
 
