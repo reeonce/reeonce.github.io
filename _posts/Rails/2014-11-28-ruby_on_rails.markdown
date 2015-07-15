@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Errors of Configuring Ruby on Rails 
+title: Errors when setup Ruby on Rails on EC2
 category: rails
 tags: [Ruby on Rails, passenger, nginx]
 date: 2014-11-28
 ---
 
-Tried to configure Rails run on Nginx. Some errors I met are listed here:
+Tried to setup Rails run on Nginx. Some errors I met are listed here:
 
 1. Missing \`secret_key_base\` for 'production' environment, set this value in \`config/secrets.yml\`
 
@@ -31,7 +31,7 @@ Tried to configure Rails run on Nginx. Some errors I met are listed here:
 
 	Add the following to your Gemfile, version 1.10.1 not woking:
 
-		gem 'multi_json', '1.7.8' 
+		gem 'multi_json', '1.7.8'
 		bundle update multi_json
 
 5. ruby on rails assets not found
@@ -46,4 +46,3 @@ Tried to configure Rails run on Nginx. Some errors I met are listed here:
 
 		gem 'io-console'
 		gem install
-

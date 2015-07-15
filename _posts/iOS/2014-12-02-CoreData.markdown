@@ -6,7 +6,7 @@ tags: [iOS, CoreData]
 date: 2014-12-10
 ---
 
-近期在项目中使用到了 Core Data, 在此稍微做下总结。
+近期在项目中使用到了 Core Data, 网络上有很多争议，然而我只有一句话“真是谁用谁知道的好用”。整个框架非常全面，如果没有特殊原因，这个绝对是最好的选择。在此稍微做下总结。
 
 ### Core Data 是什么
 
@@ -153,22 +153,21 @@ managed obejcts 的生命周期都是由 Core Data 负责的，当它被创建�
 
 ### 并发操作
 
-The pattern recommended for concurrent programming with Core Data is * thread confinement *: each thread must have its own entirely private managed object context.
+使用Core Data 做并行开发的时候，最为推荐的模式是使用 * 线程封闭 *: 每一个线程都必须有一个完整独立的管理对象上下文.
 
-There are two possible ways to adopt the pattern:
+有两种方法来实行这个模式：
 
-1. Create a separate managed object context for each thread and share a single persistent store coordinator. This is the typically-recommended approach.
+1. 为每个线程创建一个分离的managed object context， 但是共享同一个persistent store coordinator。这也是通常被使用的方法。
 
 2. Create a separate managed object context and persistent store coordinator for each thread. This approach provides for greater concurrency at the expense of greater complexity (particularly if you need to communicate changes between different contexts) and increased memory usage.
 
-Using thread confinement, you should not pass managed objects or managed object contexts between threads. To “pass” a managed object from one context another across thread boundaries, you either:
+由于使用线程封闭, 你是不应该在线程之间传递managed objects 和 managed object contexts 的. 但是有别的方法能够达到这个“传递”的目的：
 
-* Pass its object ID (objectID) and use objectWithID: or existingObjectWithID:error: on the receiving managed object context.
+* 传递 object ID (objectID)， 然后在目标线程中使用 `objectWithID:`` 或者 `existingObjectWithID:error:` 来获得相应的对象。
 
 * The corresponding managed objects must have been saved—you cannot pass the ID of a newly-inserted managed object to another context.
 
-* Execute a fetch on the receiving context.
-
+* 在目标的content 中执行一次 fetch 操作。
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="/js/others/coredata.js"></script>
