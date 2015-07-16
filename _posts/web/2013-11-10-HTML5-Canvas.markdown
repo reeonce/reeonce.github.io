@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Website
+category: Web
 tags: canvas html5
 ---
 <div id="main">
@@ -10,14 +10,14 @@ tags: canvas html5
 <hr>
 
 <h2>Description</h2>
-<p>The HTML5 &lt;canvas&gt; tag is used to draw graphics, on the fly, via scripting 
+<p>The HTML5 &lt;canvas&gt; tag is used to draw graphics, on the fly, via scripting
 (usually JavaScript).</p>
-<p>However, the &lt;canvas&gt; element has no drawing abilities of its own (it is only 
+<p>However, the &lt;canvas&gt; element has no drawing abilities of its own (it is only
 a container for graphics) - you must use a script to actually draw the graphics.</p>
-<p>The getContext() method returns an object that provides methods and 
+<p>The getContext() method returns an object that provides methods and
 properties for drawing on the canvas.</p>
-<p>This reference will cover the properties and methods of the getContext("2d") 
-object, which can be used to draw text, lines, boxes, circles, and more - on the 
+<p>This reference will cover the properties and methods of the getContext("2d")
+object, which can be used to draw text, lines, boxes, circles, and more - on the
 canvas.</p>
 <hr>
 
@@ -28,9 +28,9 @@ canvas.</p>
 <img src="http://www.w3schools.com/images/compatible_opera.gif" width="28" height="30" alt="Opera" title="Opera">
 <img src="http://www.w3schools.com/images/compatible_chrome.gif" width="31" height="30" alt="Google Chrome" title="Google Chrome">
 <img src="http://www.w3schools.com/images/compatible_safari.gif" width="28" height="30" alt="Safari" title="Safari"></p>
-<p>Internet Explorer 9, Firefox, Opera, Chrome, and Safari support &lt;canvas&gt; and 
+<p>Internet Explorer 9, Firefox, Opera, Chrome, and Safari support &lt;canvas&gt; and
 its properties and methods.</p>
-<p><b>Note:</b> Internet Explorer 8 and earlier versions, do not support the 
+<p><b>Note:</b> Internet Explorer 8 and earlier versions, do not support the
 &lt;canvas&gt; element.</p>
 <hr>
 
@@ -158,7 +158,7 @@ its properties and methods.</p>
   </tr>
   <tr>
     <td><a href="http://www.w3schools.com/tags/canvas_moveto.asp">moveTo()</a></td>
-    <td>Moves the path to the specified point in the canvas, without creating a 
+    <td>Moves the path to the specified point in the canvas, without creating a
 	line</td>
   </tr>
   <tr>
@@ -167,7 +167,7 @@ its properties and methods.</p>
   </tr>
   <tr>
     <td><a href="http://www.w3schools.com/tags/canvas_lineto.asp">lineTo()</a></td>
-    <td>Adds a new point and creates a line from that point to the last 
+    <td>Adds a new point and creates a line from that point to the last
 	specified point in the canvas</td>
   </tr>
   <tr>
@@ -192,7 +192,7 @@ its properties and methods.</p>
   </tr>
   <tr>
     <td><a href="http://www.w3schools.com/tags/canvas_ispointinpath.asp">isPointInPath()</a></td>
-    <td>Returns true if the specified point is in the current path, otherwise 
+    <td>Returns true if the specified point is in the current path, otherwise
 	false</td>
   </tr>
 </tbody></table>
@@ -277,7 +277,7 @@ its properties and methods.</p>
     <td>Draws an image, canvas, or video onto the canvas</td>
   </tr>
   </tbody></table>
-  
+
 <h2>Pixel Manipulation</h2>
 <table class="reference notranslate">
   <tbody><tr>
@@ -294,7 +294,7 @@ its properties and methods.</p>
     </tr>
 	<tr>
     <td><a href="http://www.w3schools.com/tags/canvas_imagedata_data.asp">data</a></td>
-    <td>Returns an object that contains image data of a specified ImageData 
+    <td>Returns an object that contains image data of a specified ImageData
 	object</td>
     </tr>
 </tbody></table>
@@ -311,16 +311,16 @@ its properties and methods.</p>
   </tr>
   <tr>
     <td><a href="http://www.w3schools.com/tags/canvas_getimagedata.asp">getImageData()</a></td>
-    <td>Returns an ImageData object that copies the pixel data for the specified 
+    <td>Returns an ImageData object that copies the pixel data for the specified
 	rectangle on a canvas</td>
   </tr>
   <tr>
     <td><a href="http://www.w3schools.com/tags/canvas_putimagedata.asp">putImageData()</a></td>
-    <td>Puts the image data (from a specified ImageData object) back onto the 
+    <td>Puts the image data (from a specified ImageData object) back onto the
 	canvas</td>
   </tr>
 </tbody></table>
-  
+
 <h2>Compositing</h2>
 <table class="reference notranslate">
   <tbody><tr>

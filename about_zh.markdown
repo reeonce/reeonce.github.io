@@ -11,7 +11,7 @@ css: "/css/about.css"
 
 ### 简单介绍
 
-我的名字叫**曾斌**，今年 {{ 'now' | date: '%Y' | minus: 1991 }} 岁啦，现居广东省深圳市。
+我的名字叫**曾斌**，一名全栈工程师。今年 {{ 'now' | date: '%Y' | minus: 1991 }} 岁啦，现居广东省深圳市。
 
 毕业于北京航空航天大学，现在集中精力于 **iOS 开发**。
 
@@ -43,18 +43,19 @@ css: "/css/about.css"
       </p>
     </div>
   </div>
-  <div id="career-improvement" class="">
-    <div class="back-icon"><a href=""></a></div>
-    <div class="content">
-      <h3>@极觅数据 (2014 ~ 2015)</h3>
-      <p>在极觅数据，开心地做着iOS 开发的工作，主要项目是伴旅 这个APP。</p>
-    </div>
-  </div>
   <div id="career-xjimi" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@ (2014 ~ 未知)</h3>
-      <p>我在极觅数据非常开心地做我的 iOS 开发工程师啦~</p>
+      <h3>@极觅数据 (2014 ~ 2015)</h3>
+      <p>在极觅数据，开心地做着iOS 开发的工作，主要项目是 <em>伴旅</em> APP。</p>
+      <p>当然，在初创公司还是得帮着做些其它的工作的，包括搭建官网，搭建微信服务号的网页等。</p>
+    </div>
+  </div>
+  <div id="career-you" class="">
+    <div class="back-icon"><a href=""></a></div>
+    <div class="content">
+      <h3>@？ (2015 ~ 未知)</h3>
+      <p>非常希望能够到一个充满激情且专业的团队，大家能够一起讨论技术，偶尔hack 一些有趣的东西。</p>
     </div>
   </div>
 </div>
@@ -62,23 +63,29 @@ css: "/css/about.css"
 ### 主要技能
 #### IOS 开发
 
-  对 Objective-C 和 swift 有一定理解，熟悉 iOS 的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
+  熟悉swift，对 Objective-C 和 swift 有一定理解，熟悉 iOS 的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
 
   主要项目：
 
-  [**Passwords Safes**]。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 使得这款能同时在 iPad 和 iPhone 上使用的应用的适配工作少了不少。
+  **Passwords Safes**。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 是开发应用所必须使用的方式了。
 
-  [**Trap The Dot !**]。一款使用 Objective-C 开发的基于 SpriteKit 框架的“围住神经猫”的游戏。该应用本地化了9个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
+  **Trap The Dot !**。一款使用 Objective-C 开发的基于 SpriteKit 框架的“围住神经猫”的游戏。该应用本地化了9个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
 
-#### 前端工程师
-  对HTML, CSS, Javascript 都是比较熟悉的。
+  **伴旅**。一款基于LBS 的景区服务应用。应用使用了mapbox 来加载地图，cordova 和ionic 来加载游戏副本，sqlite 来管理景区数据资源，alamofire 来处理网络请求。在极觅的工作中，贡献了此工程大部分的代码。
+
+#### 前端开发
+  前端技术是发展非常迅速的，我所了解的npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, 并不足以让我称为一名*专业的前端工程师*。
 
   主要项目：
+
+  **[reeonce.github.io](/)**。
 
   **MYC**。一个基于Mojito(Node.js 的开源框架) + YUI3 的网站，全球化，https，整合其它部分强大服务也是这个网站开发过程的挑战。
 
-#### 后端工程师
-  熟悉Linux 环境，使用了一年多的Node.js, 对PHP, bash 也有一定的使用。
+  **伴旅语音导游**。是极觅数据的一项在景区中提供语音导游的服务，服务设在了微信服务号上，使用了微信的一些JS 接口。
+
+#### 后端开发
+  熟悉Linux 环境，使用了一年多的Node.js, 也使用过PHP, bash, docker, python 进行工作。
 
   主要项目：
 

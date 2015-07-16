@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Css Box Model"
-category: Website
+category: Web
 tags: [box model, box-sizing, css]
 ---
 

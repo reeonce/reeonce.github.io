@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "KVO 与观察者模式"
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: 观察者 observer objective-c 设计模式 KVO
 ---
 

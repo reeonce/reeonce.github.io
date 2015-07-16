@@ -1,7 +1,7 @@
 ---
 layout: post
 title: NSData 中的 FACADE
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: [FACADE, NSImage, objective-c, 设计模式]
 ---
 
@@ -16,4 +16,3 @@ The Facade（外观） design pattern provides a unified interface to a set of i
 <img src="/assets/advanced_persistence_stack_2x.png" style="max-width: 50%" />
 
 This picture shows an example where employees and departments are stored in one file, and customers and companies in another. When you fetch objects, they are automatically retrieved from the appropriate file, and when you save, they are archived to the appropriate file.
-

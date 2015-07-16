@@ -1,7 +1,7 @@
 ---
 layout: post
 title: DECORATOR 模式的使用
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: [DECORATOR, Delegation, objective-c, 设计模式]
 ---
 

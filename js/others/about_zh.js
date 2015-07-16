@@ -91,12 +91,11 @@ var totalDuration = {
 var durations = [
 	{start_time: dateFormat.parse("2009-09"), end_time: dateFormat.parse("2013-06"), text: "北京航空航天大学 >", name: "buaa"},
 	{start_time: dateFormat.parse("2013-06"), end_time: dateFormat.parse("2014-07"), text: "雅虎北京全球研发中心 >", name: "yahoo"},
-	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2014-12"), text: "进修 >", name: "improvement"},
-	{start_time: dateFormat.parse("2014-12"), end_time: a_end_time, text: "极觅数据 >", name: "xjimi"},
+	{start_time: dateFormat.parse("2014-07"), end_time: dateFormat.parse("2015-08"), text: "极觅数据 >", name: "xjimi"},
+	{start_time: dateFormat.parse("2015-08"), end_time: a_end_time, text: "？ >", name: "you"},
 ];
 
 totalDuration.interval = totalDuration.end_time.getTime() - totalDuration.start_time.getTime();
-
 
 var linesData = [];
 var spaceCircles = [];

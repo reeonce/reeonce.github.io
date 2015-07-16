@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "事件响应 - CHAIN OF RESPONSIBILITY"
-categories: Objective-C与设计模式
+categories: OC与设计模式
 tags: [CHAIN OF RESPONSIBILITY, 职责链, objective-c, 设计模式]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: View Controller 与 MEDIATOR 模式
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: 设计模式 objective-c MEDIATOR
 ---
 

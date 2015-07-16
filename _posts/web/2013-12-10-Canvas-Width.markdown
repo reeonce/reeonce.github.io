@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "从Canvas Width 说起 － width 属性 vs css width"
-category: website
+category: Web
 tags: canvas css
 ---
 

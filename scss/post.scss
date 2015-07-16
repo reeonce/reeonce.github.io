@@ -2,7 +2,7 @@
 
 @import "theme";
 
-.site-nav {
+.site-bar {
   position: fixed;
   z-index: 10;
   top: 10px;
@@ -70,9 +70,14 @@
 .side-nav {
   float: right;
   margin: 30px 2px 0;
-  width: 268px;
+  width: $site-bar-width;
   overflow: scroll;
   background-color: #fefefe;
+
+  h3 {
+      margin-left: 12px;
+      color: $primary-color;
+  }
 
   ul {
     list-style: none;
@@ -118,7 +123,7 @@
   }
 
   @media #{$medium-up} {
-    margin-right: 280px;
+    margin-right: $site-bar-width + 12px;
   }
 }
 

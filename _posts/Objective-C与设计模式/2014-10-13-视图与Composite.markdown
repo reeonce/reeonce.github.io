@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 视图与COMPOSITE
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: [COMPOSITE, view, objective-c, 设计模式]
 ---
 

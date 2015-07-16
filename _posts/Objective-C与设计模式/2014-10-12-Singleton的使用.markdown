@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SINGLETON 的使用
-category: Objective-C与设计模式
+category: OC与设计模式
 tags: 设计模式 objective-c SINGLETON
 ---
 
@@ -23,7 +23,7 @@ tags: 设计模式 objective-c SINGLETON
 #import <foundation/Foundation.h>
 
 @interface MyManager : NSObject {
-	
+
 }
 
 @property (nonatomic, retain) NSString *someProperty;
@@ -64,4 +64,3 @@ tags: 设计模式 objective-c SINGLETON
 
 @end
 ```
-
