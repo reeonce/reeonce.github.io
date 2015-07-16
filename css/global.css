@@ -77,7 +77,7 @@ body {
   background: #fff;
   color: #222;
   cursor: auto;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -1438,7 +1438,7 @@ select {
   background: #EFEFEF;
   color: #222222;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 1rem;
   padding: 1rem;
 }
@@ -2009,7 +2009,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -4299,7 +4299,7 @@ kbd {
 
 .label {
   display: inline-block;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-weight: normal;
   line-height: 1;
   margin-bottom: auto;
@@ -4775,7 +4775,7 @@ ul.pagination li {
 .pricing-table .title {
   background-color: #333333;
   color: #EEEEEE;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 1rem;
   font-weight: normal;
   padding: 0.9375rem 1.25rem;
@@ -4784,7 +4784,7 @@ ul.pagination li {
 .pricing-table .price {
   background-color: #F6F6F6;
   color: #333333;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 2rem;
   font-weight: normal;
   padding: 0.9375rem 1.25rem;
@@ -5096,7 +5096,7 @@ ul.pagination li {
 
 .side-nav {
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   list-style-position: outside;
   list-style-type: none;
   margin: 0;
@@ -5122,7 +5122,7 @@ ul.pagination li {
 }
 .side-nav li.active > a:first-child:not(.button) {
   color: #597f98;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-weight: normal;
 }
 .side-nav li.divider {
@@ -5275,7 +5275,7 @@ ul.pagination li {
 .sub-nav li {
   color: #999999;
   float: left;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
   margin-left: 1rem;
@@ -5513,7 +5513,7 @@ table tr td {
   display: block;
   background-color: #EFEFEF;
   color: #222222;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 1rem;
   padding: 1rem 2rem;
 }
@@ -5898,7 +5898,7 @@ meta.foundation-mq-topbar {
 .top-bar-section ul li > a {
   color: #FFFFFF;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-size: 0.8125rem;
   font-weight: normal;
   padding-left: 0.9375rem;
@@ -6614,7 +6614,7 @@ p aside {
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.4;
@@ -7930,72 +7930,38 @@ th.hide-for-touch {
 }
 /* Base */
 /* ----------------------------------------------------------*/
-* {
-  margin: 0;
-  padding: 0;
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #2e424f;
+}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: #597f98;
+}
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  color: #4a6b80;
 }
 
-html, body {
-  height: 100%;
+@media only screen and (max-width: 40em) {
+  p {
+    text-align: justify;
+  }
 }
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 300;
-  background-color: #fbfbfb;
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  zoom: 1;
+  padding: 0 6px;
 }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
+@media only screen and (min-width: 40.0625em) {
+  .wrap {
+    padding: 0;
+  }
 }
-
-a {
-  color: #2a7ae2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #205caa;
-}
-
-/* Utility */
-.wrap:before,
-.wrap:after {
+.wrap:before, .wrap:after {
   content: "";
   display: table;
 }
-
 .wrap:after {
   clear: both;
-}
-
-.wrap {
-  max-width: 960px;
-  padding: 0;
-  margin: 0 auto;
-  zoom: 1;
-}
-
-p {
-  font-weight: 300;
-  margin-bottom: 12px;
-}
-
-table {
-  border-collapse: collapse;
-  border: none;
-}
-
-td {
-  border: solid #aaa 1px;
-  padding: 4px;
 }
 
 /* Layout Styles */
@@ -8011,7 +7977,7 @@ td {
 .site-title:hover,
 .site-title:visited {
   display: block;
-  color: #333;
+  color: #2e424f;
   font-size: 26px;
   letter-spacing: -1px;
   float: left;
@@ -8024,7 +7990,13 @@ td {
   width: 36px;
   height: 36px;
   border-radius: 100px;
-  border: 3px solid #430;
+  border: 3px solid #2e424f;
+  display: none;
+}
+@media only screen and (min-width: 40.0625em) {
+  .site-avatar {
+    display: inline-block;
+  }
 }
 
 .site-pages {
@@ -8045,42 +8017,75 @@ td {
 .footer-heading {
   font-size: 18px;
   font-weight: 300;
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
   margin-bottom: 15px;
 }
 
 .site-footer .column {
-  float: left;
+  float: none;
+  clear: both;
+  width: auto;
   margin-bottom: 15px;
 }
-
-.footer-col-1 {
-  width: 270px;
-  /*fallback*/
-  width: -webkit-calc(35% - 10px);
-  width: -moz-calc(35% - 10px);
-  width: -o-calc(35% - 10px);
-  width: calc(35% - 10px);
+@media only screen and (min-width: 40.0625em) {
+  .site-footer .column {
+    float: left;
+    clear: none;
+  }
+}
+.site-footer .footer-col-1 {
+  width: 50%;
   margin-right: 10px;
 }
-
-.footer-col-2 {
-  width: 175px;
-  /*fallback*/
-  width: -webkit-calc(23.125% - 10px);
-  width: -moz-calc(23.125% - 10px);
-  width: -o-calc(23.125% - 10px);
-  width: calc(23.125% - 10px);
-  margin-right: 10px;
+@media only screen and (min-width: 40.0625em) {
+  .site-footer .footer-col-1 {
+    width: 270px;
+    /*fallback*/
+    width: -webkit-calc(35% - 10px);
+    width: -moz-calc(35% - 10px);
+    width: -o-calc(35% - 10px);
+    width: calc(35% - 10px);
+  }
 }
-
-.footer-col-3 {
-  width: 335px;
+.site-footer .footer-col-2 {
+  width: 45%;
   /*fallback*/
-  width: -webkit-calc(41.875%);
-  width: -moz-calc(41.875%);
-  width: -o-calc(41.875%);
-  width: calc(41.875%);
+  width: -webkit-calc(50% - 10px);
+  width: -moz-calc(50% - 10px);
+  width: -o-calc(50% - 10px);
+  width: calc(50% - 10px);
+  margin-right: 0;
+}
+@media only screen and (min-width: 40.0625em) {
+  .site-footer .footer-col-2 {
+    width: 175px;
+    /*fallback*/
+    width: -webkit-calc(23.125% - 10px);
+    width: -moz-calc(23.125% - 10px);
+    width: -o-calc(23.125% - 10px);
+    width: calc(23.125% - 10px);
+    margin-right: 10px;
+  }
+}
+.site-footer .footer-col-3 {
+  width: auto;
+  clear: both;
+}
+@media only screen and (max-width: 40em) {
+  .site-footer .footer-col-3.column {
+    float: none;
+  }
+}
+@media only screen and (min-width: 40.0625em) {
+  .site-footer .footer-col-3 {
+    clear: none;
+    width: 335px;
+    /*fallback*/
+    width: -webkit-calc(41.875%);
+    width: -moz-calc(41.875%);
+    width: -o-calc(41.875%);
+    width: calc(41.875%);
+  }
 }
 
 .site-footer ul {
@@ -8419,49 +8424,5 @@ td {
 }
 
 /* Literal.Number.Integer.Long */
-/* media queries */
-/* ----------------------------------------------------------*/
-@media screen and (max-width: 750px) {
-  .footer-col-1 {
-    width: 50%;
-  }
-
-  .footer-col-2 {
-    width: 45%;
-    /*fallback*/
-    width: -webkit-calc(50% - 10px);
-    width: -moz-calc(50% - 10px);
-    width: -o-calc(50% - 10px);
-    width: calc(50% - 10px);
-    margin-right: 0;
-  }
-
-  .site-footer .column.footer-col-3 {
-    width: auto;
-    float: none;
-    clear: both;
-  }
-}
-@media screen and (max-width: 600px) {
-  .wrap {
-    padding: 0 6px;
-  }
-
-  .site-footer .column {
-    float: none;
-    clear: both;
-    width: auto;
-    margin: 0 0 15px;
-  }
-}
-@media screen and (max-width: 400px) {
-  p {
-    text-align: justify;
-  }
-
-  .site-avatar {
-    display: none;
-  }
-}
 
 /*# sourceMappingURL=global.css.map */

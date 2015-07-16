@@ -8,7 +8,7 @@ tags: website html css
 
 HTML元素在布局时可分为两种， block-level element和inline element。
 
-block-level element的default display是block, 能够定义它的width和height, 并且在该element被创建的时候， 浏览器会创建一个新行用来放置该element. block-level element的标签主要有：&lt;div> &lt;h1>…&lt;h6> &lt;p> &lt;ul> &lt;ol> &lt;dl> &lt;li> &lt;dt> &lt;dd> &lt;table> &lt;blockquote> &lt;pre> &lt;form>等。然而，它们在定位的时候会出现塌陷问题， 见”元素的定位“小节。虽然可以把这些元素的display设置为inline， 使它们象inline elements那样布局， 但有时会出现一些问题， 如将两个段落的设置为inline, 它们是合并成一个段落的， 而不是水平的两个段落。
+block-level element的default display是block, 能够定义它的width 和height, 并且在该element 被创建的时候， 浏览器会创建一个新行用来放置该element. block-level element的标签主要有：&lt;div> &lt;h1>…&lt;h6> &lt;p> &lt;ul> &lt;ol> &lt;dl> &lt;li> &lt;dt> &lt;dd> &lt;table> &lt;blockquote> &lt;pre> &lt;form>等。然而，它们在定位的时候会出现塌陷问题， 见”元素的定位“小节。虽然可以把这些元素的display设置为inline， 使它们象inline elements那样布局， 但有时会出现一些问题， 如将两个段落的设置为inline, 它们是合并成一个段落的， 而不是水平的两个段落。
 
 inline element与block-level element基本相反， default display为inline, 定义的width和height都无效， element被创建时， 简单地将该element放到之前一个element的后面， 不创建新行。 主要标签有：&lt;span> &lt;a> &lt;strong> &lt;em> &lt;img> &lt;br> &lt;input> &lt;abbr> &lt;acronym>等。 Inline element有个问题，就是inline元素之间会有whitespace, 这里的whitespace可以是空格， 制表符， 换行符， 由于浏览器会将多个whitespace合并成为一个， 因此这些elements之间的间隙也就是一个whitespace字符的宽度了。解决办法可以是将字体大小设置为0， 或者当字体确定时，使用”margin-right: -(4)px“也是可以的。将这些element的display设置为block时， 它们就与block-level element没有什么区别了。
 

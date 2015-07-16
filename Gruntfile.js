@@ -44,14 +44,20 @@ module.exports = function (grunt) {
             sass: {
                 files: "scss/**/*.scss",
                 tasks: "sass:dev"
+            },
+            copy: {
+                files: "scss/**/*.css",
+                tasks: "copy"
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
 
+    grunt.loadNpmTasks('grunt-contrib-copy');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     // Default task(s).
-    grunt.registerTask('default', ['sass:dev']);
-    grunt.registerTask('dist', ['sass:dist']);
+    grunt.registerTask('default', ['sass:dev', 'copy']);
+    grunt.registerTask('dist', ['sass:dist', 'copy']);
 };
