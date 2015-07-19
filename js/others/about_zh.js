@@ -82,7 +82,7 @@ nowMonth.setHours(0,0,0,0);
 nowMonth.setDate(0);
 
 var dateFormat = d3.time.format("%Y-%m");
-var a_end_time = dateFormat.parse("2015-11");
+var a_end_time = dateFormat.parse("2016-05");
 var totalDuration = {
 	start_time: dateFormat.parse("2009-09"),
 	end_time: a_end_time

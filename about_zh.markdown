@@ -63,7 +63,7 @@ css: "/css/about.css"
 ### 主要技能
 #### IOS 开发
 
-  熟悉swift，对 Objective-C 和 swift 有一定理解，熟悉 iOS 的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
+  对swift 很是喜爱，熟悉 Objective-C和 iOS 开发的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
 
   主要项目：
 

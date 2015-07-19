@@ -1,8 +1,10 @@
 @import "foundation/settings";
 
-@import "theme";
+@import "settings";
 
 @import "foundation";
+
+@import "mixins";
 
 /* Base */
 /* ----------------------------------------------------------*/
@@ -18,12 +20,6 @@ h1, h2, h3, h4, h5, h6 {
             color: scale-color($header-link-color, $lightness: 20%);
         }
     }
-}
-
-@media #{$small-only} {
-  p {
-    text-align: justify;
-  }
 }
 
 .wrap {
@@ -52,33 +48,51 @@ h1, h2, h3, h4, h5, h6 {
 /* Site header */
 
 .site-header {
+  height: 406px;
+  width: 100%;
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
   min-height: $header-height;
+  background-color: #dfdfdf;
+  background-image: linear-gradient(to top left, #dfdfdf, #a2a2a2);
+
+  .wrap {
+    position: relative;
+    height: 100%;
+  }
 }
 
-.site-title,
-.site-title:hover,
-.site-title:visited {
+#the-world {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.site-title {
   display: block;
-  color: $primary-color;
   font-size: 26px;
   letter-spacing: -1px;
-  float: left;
   line-height: $header-height;
-  position: relative;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
   z-index: 1;
+
+  &, &:hover, &visited {
+    color: $primary-color;
+  }
 }
 
 .site-avatar {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   border-radius: 100px;
   border: 3px solid  $primary-color;
   display: none;
 
   @media #{$medium-up} {
-    display: inline-block;
+      display: inline-block;
   }
 }
 
@@ -150,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
   .footer-col-3 {
     width: auto;
     clear: both;
-    
+
     @media #{$small-only} {
       &.column {
         float: none;

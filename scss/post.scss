@@ -1,6 +1,4 @@
-@import "foundation/components/global";
-
-@import "theme";
+@import "global";
 
 .site-bar {
   position: fixed;
@@ -57,13 +55,12 @@
   display: block;
   text-align: right;
   line-height: $header-height;
-  padding: 5px 10px;
   margin: 0 50px 0 0;
   color: $primary-color;
   letter-spacing: -.5px;
 
   @media #{$medium-up} {
-    margin-right: 0;
+    margin-right: 12px;
   }
 }
 
@@ -99,13 +96,11 @@
   margin-bottom: 20px;
   border: 1px solid #e6e6e6;
   background-color: white;
-  padding: 0 4px;
 }
 
 .side-nav-tag {
   border: 1px solid #e6e6e6;
   background-color: white;
-  padding: 0 4px;
 }
 
 /* Home styles */

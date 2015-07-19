@@ -62,11 +62,13 @@ Now I prefer to working with the more exciting thing - **iOS** development.
 
 ### Major Skills
 #### iOS development
-  Familiar with Objective-C and the main frameworks of iOS. And I know most used design patterns and algorithms.
+  Love swift language, familiar with Objective-C and the main frameworks of iOS. And I know most used design patterns and algorithms.
 
-  [**Passwords Safes**]. An app to manage your passwords which is developed with swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256, meanwhile, all data are managed with Core Data, Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
+  **Passwords Safes**. An app to manage your passwords which is developed with swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256, meanwhile, all data are managed with Core Data, Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
 
-  [**Trap The Dot !**]. A game based on SpriteKit using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and UMeng Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
+  **Trap The Dot !**. A game based on SpriteKit using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and UMeng Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
+
+  **Banlv**. a major product of xjimi based on LBS and for scenic areas. And I contribute most codes, related to mapbox, alamofire, sqlite, cordova and so on.
 
 #### Frontend programming
   It is unbelievable that the web is growing so fast. npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, what I have learnt are not enough to tile me a "professional web development engineer".

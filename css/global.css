@@ -77,7 +77,7 @@ body {
   background: #fff;
   color: #222;
   cursor: auto;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -1438,7 +1438,7 @@ select {
   background: #EFEFEF;
   color: #222222;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1rem;
   padding: 1rem;
 }
@@ -2009,7 +2009,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -4299,7 +4299,7 @@ kbd {
 
 .label {
   display: inline-block;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
   line-height: 1;
   margin-bottom: auto;
@@ -4775,7 +4775,7 @@ ul.pagination li {
 .pricing-table .title {
   background-color: #333333;
   color: #EEEEEE;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1rem;
   font-weight: normal;
   padding: 0.9375rem 1.25rem;
@@ -4784,7 +4784,7 @@ ul.pagination li {
 .pricing-table .price {
   background-color: #F6F6F6;
   color: #333333;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 2rem;
   font-weight: normal;
   padding: 0.9375rem 1.25rem;
@@ -5096,7 +5096,7 @@ ul.pagination li {
 
 .side-nav {
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   list-style-position: outside;
   list-style-type: none;
   margin: 0;
@@ -5122,7 +5122,7 @@ ul.pagination li {
 }
 .side-nav li.active > a:first-child:not(.button) {
   color: #597f98;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
 }
 .side-nav li.divider {
@@ -5275,7 +5275,7 @@ ul.pagination li {
 .sub-nav li {
   color: #999999;
   float: left;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
   margin-left: 1rem;
@@ -5513,7 +5513,7 @@ table tr td {
   display: block;
   background-color: #EFEFEF;
   color: #222222;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1rem;
   padding: 1rem 2rem;
 }
@@ -5898,7 +5898,7 @@ meta.foundation-mq-topbar {
 .top-bar-section ul li > a {
   color: #FFFFFF;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 0.8125rem;
   font-weight: normal;
   padding-left: 0.9375rem;
@@ -6614,7 +6614,7 @@ p aside {
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.4;
@@ -7940,11 +7940,6 @@ h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visit
   color: #4a6b80;
 }
 
-@media only screen and (max-width: 40em) {
-  p {
-    text-align: justify;
-  }
-}
 .wrap {
   max-width: 960px;
   margin: 0 auto;
@@ -7968,27 +7963,43 @@ h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visit
 /* ----------------------------------------------------------*/
 /* Site header */
 .site-header {
+  height: 406px;
+  width: 100%;
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  background-color: #dfdfdf;
+  background-image: linear-gradient(to top left, #dfdfdf, #a2a2a2);
+}
+.site-header .wrap {
+  position: relative;
+  height: 100%;
 }
 
-.site-title,
-.site-title:hover,
-.site-title:visited {
+#the-world {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+.site-title {
   display: block;
-  color: #2e424f;
   font-size: 26px;
   letter-spacing: -1px;
-  float: left;
   line-height: 56px;
-  position: relative;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
   z-index: 1;
+}
+.site-title, .site-title:hover, .site-titlevisited {
+  color: #2e424f;
 }
 
 .site-avatar {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   border-radius: 100px;
   border: 3px solid #2e424f;
   display: none;
