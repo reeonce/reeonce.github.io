@@ -136,6 +136,5 @@ swift 还有很多是与Javascript 并不一样的东西。
 	这两者里面也可以加入包含函数了，不仅如此，它们还能够继承到接口当中，简直神奇。
 
 3. ### 选择类型
-	>Swift also introduces optional types, which handle the absence of a value. Optionals say either “there is a value, and it equals x” or “there isn’t a value at all”. Optionals are similar to using nil with pointers in Objective-C, but they work for any type, not just classes. Optionals are safer and more expressive than nil pointers in Objective-C and are at the heart of many of Swift’s most powerful features.
 
-	选择类型用于定义可以为空的对象的，减少了空指针引用导致奔溃的问题，在写代码时会比较容易混淆就是了。
+	选择类型是用于定义可以为空的对象的，即 `var woody: Toy?`，表示有一个是选择类型的变量woody, 你可能有这个玩具，那么它是一个Toy 对象，如果没有，那么它是nil. 这使得swift 的类型更加安全，减少了空指针引用导致奔溃的问题，只是在写代码时会比较容易混淆。
