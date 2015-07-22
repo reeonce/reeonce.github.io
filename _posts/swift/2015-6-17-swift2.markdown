@@ -156,6 +156,6 @@ if #available(iOS 9, *) {
 
 如果看了WWDC15 keynote 视频的话，全场最为振奋人心的也就数Craig Federighi 宣布的 *Swift will be open source and made available for Linux later this year.*
 
-对于开发者来说，这绝对是个好消息，想着“以后我将会是一名`swift 全栈工程师`”。再也不用去唠叨那个总是拖慢项目进度、接口一塌糊涂的后端了，直接向老板说一句*给我加点钱，后端的工作我也干了。* 因此，Swift 是否能成为下一个JavaScript 是很是令人期待的一件事。
+对于开发者来说，这绝对是个好消息，想着“以后我将会是一名*swift 全栈工程师*”。再也不用去唠叨那个总是拖慢项目进度、接口一塌糊涂的后端了，直接向老板说一句*给我加点钱，后端的工作我也干了。* 因此，Swift 是否能成为下一个JavaScript 是很是令人期待的一件事。
 
-同时，native vs web 之争还在如火如荼地进行当中，很显然，Apple 是倾向于native app 的，“Safari 的新IE 角色” 和 "开源Swift" 是Apple 在这场战争中的两个重要战术。为了不流失iOS 开发者，他们选择了让web 慢下来，而另一方面他们让swift 更加开放和跨平台化，如果“swift 全栈工程师” 印满各大招聘网站，开发者只会越加地拥护这个生态圈
+同时，native vs web 之争还在如火如荼地进行当中，很显然，Apple 是倾向于native app 的，“Safari 的新IE 角色” 和 "开源Swift" 是Apple 在这场战争中的两个重要战术。为了不流失iOS 开发者，他们选择了让web 慢下来，而另一方面他们让swift 更加开放和跨平台化，如果*swift 全栈工程师* 印满各大招聘网站，开发者只会越加地拥护这个生态圈

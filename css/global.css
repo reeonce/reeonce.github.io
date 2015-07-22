@@ -7945,7 +7945,7 @@ p {
 }
 
 .wrap {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
   zoom: 1;
   padding: 0 6px;
@@ -8439,5 +8439,67 @@ p {
 }
 
 /* Literal.Number.Integer.Long */
+.page-content {
+  margin-right: 0;
+  padding: 12px;
+}
+.page-content img {
+  max-width: 100%;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 40em) {
+  .post-header h1 {
+    font-size: 36px;
+  }
+
+  .post-content h2 {
+    font-size: 28px;
+  }
+
+  .post-content h3 {
+    font-size: 22px;
+  }
+
+  .post-content h4 {
+    font-size: 18px;
+  }
+
+  .post-content blockquote {
+    padding-left: 10px;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    padding-left: 10px;
+  }
+}
+.home h1 {
+  margin-bottom: 25px;
+}
+
+.posts {
+  list-style-type: none;
+  background-color: white;
+}
+
+.posts li {
+  margin-bottom: 30px;
+}
+
+.posts .post-link {
+  color: #666;
+  font-size: 24px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.posts .post-date {
+  display: block;
+  font-size: 15px;
+  color: #818181;
+}
 
 /*# sourceMappingURL=global.css.map */

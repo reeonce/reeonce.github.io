@@ -1,4 +1,6 @@
-html, body {
+@import "global";
+.wrap {
+  max-width: 960px;
 }
 
 .page-content {
@@ -46,34 +48,34 @@ html, body {
 
 @-webkit-keyframes slideOutToLeft {
   from {left: 0px;}
-  to {left: -1000px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  to {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
 }
 @keyframes slideOutToLeft {
   from {left: 0px}
-  to {left: -1000px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  to {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
 }
 @-webkit-keyframes slideOutToRight {
   from {left: 0px}
-  to {left: 1000px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  to {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
 }
 @keyframes slideOutToRight {
   from {left: 0px}
-  to {left: 1000px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  to {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
 }
 @-webkit-keyframes slideInFromLeft {
-  from {left: -1000px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  from {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
   to {left: 0px}
 }
 @keyframes slideInFromLeft {
-  from {left: -1000px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  from {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
   to {left: 0px}
 }
 @-webkit-keyframes slideInFromRight {
-  from {left: 1000px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  from {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
   to {left: 0px}
 }
 @keyframes slideInFromRight {
-  from {left: 1000px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  from {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
   to {left: 0px}
 }
 
@@ -139,7 +141,7 @@ rect.pane {
 }
 @-webkit-keyframes fadeOut {
   from {
-    opacity: 1; 
+    opacity: 1;
   }
   to {
     opacity: 0;
@@ -148,7 +150,7 @@ rect.pane {
 }
 @keyframes fadeOut {
   from {
-    opacity: 1; 
+    opacity: 1;
   }
   to {
     opacity: 0;
