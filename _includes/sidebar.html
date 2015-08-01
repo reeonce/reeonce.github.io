@@ -16,17 +16,18 @@
 
 			<ul>
 			    {% for category in site.categories reversed %}
-			        <li><a href="/categories/#{{ category | first }}" class="page-link">{{ category | first | upcase }}({{ category | last | size }})</a></li>
+					{% assign categoryName = category | first %}
+			        <li><a href="/categories/#{{ category | first }}" class="page-link"><i class="fa {{ site.data.categoryIcons[categoryName] }}"></i> {{ categoryName | upcase }}({{ category | last | size }})</a></li>
 			    {% endfor %}
 			</ul>
 		</div>
 		<div class="side-nav-tag">
 			<h3>Tags</h3>
-			<ul>
+			<div class="container">
 		    {% for tag in site.tags reversed %}
-		        <li><a href="/tags/#{{ tag | first }}" class="page-link">{{ tag | first }}({{ tag | last | size }})</a></li>
+		        <span><a href="/tags/#{{ tag | first }}" class="page-link" style="font-size: {{ tag | last | size | plus: 11 }}px">{{ tag | first }}</a></span>
 		    {% endfor %}
-			</ul>
+		</div>
 		</div>
 	</div>
 </div>

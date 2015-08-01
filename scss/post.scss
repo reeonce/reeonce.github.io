@@ -45,9 +45,14 @@
   }
 
   .page-link {
-    margin-left: 20px;
     color: $primary-color;
     letter-spacing: -.5px;
+
+    i:before {
+        display: inline-block;
+        text-align: left;
+        width: 20px;
+    }
   }
 }
 
@@ -79,6 +84,7 @@
   ul {
     list-style: none;
     line-height: 1.2;
+    margin-left: 0.1rem;
   }
 
   li {
@@ -101,6 +107,14 @@
 .side-nav-tag {
   border: 1px solid #e6e6e6;
   background-color: white;
+
+  .container {
+      padding: 0 8px;
+  }
+
+  .page-link {
+      text-decoration: underline;
+  }
 }
 
 /* Home styles */
@@ -114,11 +128,7 @@
 
 .category-frame {
   font-size: 90%;
-  margin-bottom: 48px;
-  background-color: #efefff;
   padding: 16px;
-  border-radius: 4px;
-  box-shadow: inset 0 0 2px #999;
 }
 
 .more-details {
@@ -190,7 +200,7 @@
 .post pre,
 .post code {
   border: 1px solid #d5d5e9;
-  background-color: #eef;
+  background-color: #efefef;
   padding: 8px 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
