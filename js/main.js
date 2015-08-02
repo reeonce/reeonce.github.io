@@ -261,7 +261,6 @@ $(document).ready(function () {
     var contentHeight = $(".page-content").height();
     $(".site-nav").css("max-height", contentHeight);
 
-
     Two.Resolution = 32;
 
     var world = $('#the-world :first-child')[0];
@@ -294,4 +293,10 @@ $(document).ready(function () {
         }
 
     }).play();
+
+    $( window ).resize(function() {
+        two.width = $('#the-world').width();
+        two.height = $('#the-world').height();
+        Engine.loadLevel(two, 'AbstractLand');
+    });
 });

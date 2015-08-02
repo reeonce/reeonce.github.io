@@ -1,28 +1,35 @@
 @import "global";
 
-.site-bar {
-  position: fixed;
-  z-index: 10;
-  top: 10px;
-  right: 8px;
+.main.row {
+    max-width: none;
+}
+
+.side-bar {
   background-color: white;
-  @include radius(5px);
-  border: 1px solid #e6e6e6;
+
+  .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  &:hover .trigger { display: block; }
 
   @media #{$medium-up} {
     position: static;
     float: right;
     line-height: 36px;
-    margin-right: 10px;
     overflow: scroll;
-    border: 0;
+
+    .trigger {
+      display: block;
+    }
   }
 
   .menu-icon {
     display: block;
     font-size: 24px;
     color: #505050;
-    float: right;
     width: 36px;
     text-align: center;
     line-height: 36px;
@@ -35,13 +42,6 @@
   }
 
   @media #{$small-only} {
-    .trigger {
-      clear: both;
-      margin-bottom: 5px;
-      display: none;
-    }
-
-    &:hover .trigger { display: block; }
   }
 
   .page-link {
@@ -63,16 +63,9 @@
   margin: 0 50px 0 0;
   color: $primary-color;
   letter-spacing: -.5px;
-
-  @media #{$medium-up} {
-    margin-right: 12px;
-  }
 }
 
 .side-nav {
-  float: right;
-  margin: 30px 2px 0;
-  width: $site-bar-width;
   overflow: scroll;
   background-color: #fefefe;
 
@@ -122,7 +115,8 @@
 
 .page-content {
   @media #{$medium-up} {
-    margin-right: $site-bar-width + 12px;
+    max-width: 798px;
+    margin: 0 auto;
   }
 }
 

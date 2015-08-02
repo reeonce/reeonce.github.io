@@ -7948,6 +7948,10 @@ p {
   overflow-x: scroll;
 }
 
+.full-height {
+  height: 100%;
+}
+
 .wrap {
   max-width: 1120px;
   margin: 0 auto;
@@ -7980,22 +7984,17 @@ p {
 .site-header {
   height: 406px;
   width: 100%;
+  position: relative;
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
-  background-color: #dfdfdf;
-  background-image: linear-gradient(to top left, #dfdfdf, #a2a2a2);
-}
-.site-header .wrap {
-  position: relative;
-  height: 100%;
 }
 
 #the-world {
   height: 400px;
   width: 100%;
   position: absolute;
-  z-index: 0;
+  z-index: -1;
 }
 
 .site-title {
@@ -8035,11 +8034,6 @@ p {
 }
 
 /* Site footer */
-.site-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
-}
-
 .footer-heading {
   font-size: 18px;
   font-weight: 300;
@@ -8047,6 +8041,10 @@ p {
   margin-bottom: 15px;
 }
 
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 30px;
+}
 .site-footer .column {
   float: none;
   clear: both;
