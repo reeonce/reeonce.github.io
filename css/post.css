@@ -8523,9 +8523,6 @@ p {
   margin-bottom: 5px;
   display: none;
 }
-.side-bar:hover .trigger {
-  display: block;
-}
 @media only screen and (min-width: 40.0625em) {
   .side-bar {
     position: static;

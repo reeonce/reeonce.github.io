@@ -13,8 +13,6 @@
     display: none;
   }
 
-  &:hover .trigger { display: block; }
-
   @media #{$medium-up} {
     position: static;
     float: right;

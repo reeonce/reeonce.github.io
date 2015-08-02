@@ -299,4 +299,9 @@ $(document).ready(function () {
         two.height = $('#the-world').height();
         Engine.loadLevel(two, 'AbstractLand');
     });
+
+    $('.side-bar .menu-icon').click(function (e) {
+        e.preventDefault();
+        $('.side-bar .trigger').toggle();
+    });
 });

@@ -2,7 +2,7 @@
 layout: post
 title: Swift 2
 category: swift
-tags: [swift]
+tags: swift
 ---
 
 Swift 诞生一年，苹果的WWDC15 上这个语言再度成为焦点－**开源**，**Swift2.0**。在这片文章中，我会先Swift 2.0 的新特性，然后也谈谈对此次开源的看法。
