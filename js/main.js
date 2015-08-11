@@ -294,10 +294,15 @@ $(document).ready(function () {
 
     }).play();
 
-    $( window ).resize(function() {
-        two.width = $('#the-world').width();
-        two.height = $('#the-world').height();
-        Engine.loadLevel(two, 'AbstractLand');
+    var originWidth = $(window).width();
+    $(window).resize(function() {
+        var newWidth = $(window).width();
+        if (originWidth !== newWidth) {
+            originWidth = newWidth;
+            two.width = $('#the-world').width();
+            two.height = $('#the-world').height();
+            Engine.loadLevel(two, 'AbstractLand');
+        }
     });
 
     $('.side-bar .menu-icon').click(function (e) {

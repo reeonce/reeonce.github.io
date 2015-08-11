@@ -2,6 +2,13 @@
 
 .main.row {
     max-width: none;
+
+    .side-bar, .content {
+        @media #{$small-only} {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 .side-bar {
@@ -120,7 +127,7 @@
 
 .category-frame {
   font-size: 90%;
-  padding: 16px;
+  padding: 2px;
 }
 
 .more-details {

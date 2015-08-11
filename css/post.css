@@ -8514,6 +8514,12 @@ p {
 .main.row {
   max-width: none;
 }
+@media only screen and (max-width: 40em) {
+  .main.row .side-bar, .main.row .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 .side-bar {
   background-color: white;
@@ -8620,7 +8626,7 @@ p {
 
 .category-frame {
   font-size: 90%;
-  padding: 16px;
+  padding: 2px;
 }
 
 /* Post styles */
