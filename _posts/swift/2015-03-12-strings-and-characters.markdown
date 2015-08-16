@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "字符串"
-category: swift
+category: Swift
 tags: String swift
 ---
 
 > 注：
 >
-> 本文由 *“The Swift Programming Language”* 中的*Strings and Characters* 一节译得， [Github](https://github.com/numbbbbb/the-swift-programming-language-in-chinese) 上已经有了全文的翻译。但是我还是自己翻译了一下，算是练练手，并加深自己的理解。
+> 本文由 *“The Swift Programming Language”* 中的*Strings and Characters* 一节译得， [Github](https://github.com/numbbbbb/the-swift-programming-language-in-chinese) 上已经有了全书的翻译。但是我还是自己翻译了一下，算是练练手，并加深自己的理解。
 
 *字符串（string）*是一个有序的字符集合，比如 *"Hello, world"* 或者 "信天翁"。Swift 中字符串由 `String` 类型表示，`String` 也表示为一个 `Character` 类型的集合。
 
@@ -41,7 +41,7 @@ let someString = "Some string literals value"
 ```swift
 var emptyString = ""               // empty string literal
 var anotherEmptyString = String()  // initializer syntax
-// these two strings are both empty, and are equivalent to each other”
+// these two strings are both empty, and are equivalent to each other
 ```
 
 为了判断一个字符串是否为空可以通过检查它的 `isEmpty` 属性：
@@ -50,7 +50,7 @@ var anotherEmptyString = String()  // initializer syntax
 if emptyString.isEmpty {
     println("Nothing to see here")
 }
-// prints "Nothing to see here”
+// prints "Nothing to see here
 ```
 
 #### 字符串的可变性
@@ -64,7 +64,7 @@ variableString += " and carriage"
 
 let constantString = "Highlander"
 constantString += " and another Highlander"
-// this reports a compile-time error - a constant string cannot be modified”
+// this reports a compile-time error - a constant string cannot be modified
 ```
 
 > 注:
@@ -95,7 +95,7 @@ for character in "Dog!🐶" {
 // o
 // g
 // !
-// 🐶”
+// 🐶
 ```
 
 或者，你可以通过标注一个单字符字面值为 `Character` 来创建一个独立的 `Character` 变量或常量：
@@ -110,7 +110,7 @@ let exclamationMark: Character = "!"
 let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
 let catString = String(catCharacters)
 println(catString)
-// prints "Cat!🐱”
+// prints "Cat!🐱
 ```
 
 #### 连接字符串和字符
@@ -121,7 +121,7 @@ println(catString)
 let string1 = "hello"
 let string2 = " there"
 var welcome = string1 + string2
-// welcome now equals "hello there”
+// welcome now equals "hello there
 ```
 
 你也可以通过 `+=` 操作符将一个字符串附加到一个已经存在的字符串上:
@@ -129,7 +129,7 @@ var welcome = string1 + string2
 ```swift
 var instruction = "look over"
 instruction += string2
-// instruction now equals "look over there”
+// instruction now equals "look over there
 ```
 
 你还可以通过 `String` 的 `append` 方法将一个 `Character` 值附加到一个 `String` 上：
@@ -137,7 +137,7 @@ instruction += string2
 ```swift
 let exclamationMark: Character = "!"
 welcome.append(exclamationMark)
-// welcome now equals "hello there!”
+// welcome now equals "hello there!
 ```
 
 > 注:
@@ -151,7 +151,7 @@ welcome.append(exclamationMark)
 ```swift
 let multiplier = 3
 let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
-// message is "3 times 2.5 is 7.5”
+// message is "3 times 2.5 is 7.5
 ```
 
 在上述例子中，`multiplier` 的值以 `\(multiplier)` 被插入到了字符串字面值中。当字符串字面值要被作为一个新的 `String` 的值时，这个占位符会被替换成 `multiplier` 的值。
@@ -189,7 +189,7 @@ let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
 // "Imagination is more important than knowledge" - Einstein
 let dollarSign = "\u{24}"        // $,  Unicode scalar U+0024
 let blackHeart = "\u{2665}"      // ♥,  Unicode scalar U+2665
-let sparklingHeart = "\u{1F496}" // 💖, Unicode scalar U+1F496”
+let sparklingHeart = "\u{1F496}" // 💖, Unicode scalar U+1F496
 ```
 
 #### 扩展的字形集群
@@ -203,7 +203,7 @@ Swift 中每一个 `Character` 实例表示的是一个*扩展字形集群*。�
 ```swift
 let eAcute: Character = "\u{E9}"                         // é
 let combinedEAcute: Character = "\u{65}\u{301}"          // e followed by ́
-// eAcute is é, combinedEAcute is é”
+// eAcute is é, combinedEAcute is é
 ```
 
 扩展的字形集群能够很灵活地表示许多复杂的脚本字符，比如韩语字母的韩语音节(Hangul syllables)能够被表示成一个预构的或分解的序列。这两种表示形式都等于一个 `Character` 值:

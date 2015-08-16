@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Swift 中struct vs class
-category: swift
-tags: struct class swift
+title: Swift 中 struct vs class
+category: Swift
+tags: struct class Swift
 ---
 
-### Struct in Swift
+### struct in Swift
 
-Swift 中有太多比Objective-C 更新进的特性，其中最为大家喜欢的之一就是struct 的大幅增强。现在，struct 和class 一样可以拥有属性，方法，协议，扩展和初始化器的功能。下面是一个简单的Toy 结构体：
+Swift 中有太多比Objective-C 更新进的特性，其中最为大家喜欢的之一就是struct 的大幅增强。现在，struct 和 class 一样可以拥有属性，方法，协议，扩展和初始化器的功能。下面是一个简单的Toy 结构体：
 
 ```swift
 protocol Talking {
@@ -86,7 +86,7 @@ print(newWoody.color) // blue
 
 在woody 赋值给newWoody 的时候，只是简单地把woody 的指针赋值给了newWoody（即newWoody 只是一个woody 的别名而已），它们还是指向了同一内存块。因此newWoody 染了色，woody 的外形也变成了蓝色。
 
-在作为函数的参数时，struct 能够保证原始数据的安全，由于传的参数只是一份拷贝，因此无论怎么对这个参数进行修改都不影响原来的变量（实际上，Swift 函数的参数是一个let 的常量，并不允许修改）。而使用class 则经常要注意这个问题，函数中除非是标明的，尽量不要修改参数对象的属性。
+在作为函数的参数时，struct 能够保证原始数据的安全，由于传的参数只是一份拷贝，因此无论怎么对这个参数进行修改都不影响原来的变量。而使用class 则经常要注意这个问题，函数中除非是标明的，尽量不要修改参数对象的属性。
 
 ### 性能
 
