@@ -86,6 +86,10 @@ ga('send', 'pageview');
     };
 
     SquishyMonster.prototype.update = function (time) {
+        var yoffset = $('body').scrollTop();
+        if (yoffset > $('.site-header').height()) {
+            return;
+        }
         if (this.animationTime <= 0.0) {
             if (Math.random() < 0.1) {
                 this.goPfff(this, time);
