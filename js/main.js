@@ -256,6 +256,68 @@ ga('send', 'pageview');
 
 }());
 
+(function () {
+    var root = this;
+    var Cube = root.Cube = function(left, top, length) {
+        this.left = left;
+        this.top = top;
+        this.length = length;
+        this.id = Math.floor(Math.random() * 100000);
+    }
+
+    Cube.prototype.render = function(container) {
+        if ($('#cube-' + this.id).length > 0) {
+            $('#cube-' + this.id).remove();
+        }
+        var cube, aspects = [];
+        var cube = $('<div/>', {
+            id: 'cube-' + this.id,
+            class: 'cube animated infinite'
+        });
+        cube.width(this.length);
+        cube.height(this.length);
+        cube.css('position', 'absolute');
+        cube.css('left', this.left + 'px');
+        cube.css('top', this.top + 'px');
+
+        for(var i=0; i<6; i++) {
+            var aspect = $('<div/>', {
+                class: 'aspect'
+            });
+            aspects.push(aspect);
+            aspect.appendTo(cube);
+        }
+        function setTransform(ele, value) {
+            ele.css('transform', value);
+            ele.css('-webkit-transform', value);
+            ele.css('-moz-transform', value);
+            ele.css('-ms-transform', value);
+        }
+        function setTransformOrigin(ele, value) {
+            ele.css('transform-origin', value);
+            ele.css('-webkit-transform-origin', value);
+            ele.css('-moz-transform-origin', value);
+            ele.css('-ms-transform-origin', value);
+        }
+        var halfLen = this.length / 2;
+        setTransform(aspects[0], 'translateZ(' + halfLen + 'px)');
+        setTransform(aspects[1], 'translateZ(' + -halfLen + 'px)');
+        setTransform(aspects[2], 'translateZ(' + halfLen + 'px) rotateX(-90deg)');
+        setTransformOrigin(aspects[2], 'top');
+        setTransform(aspects[3], 'translateZ(' + halfLen + 'px) rotateX(90deg)');
+        setTransformOrigin(aspects[3], 'bottom');
+        setTransform(aspects[4], 'translateZ(' + halfLen + 'px) rotateY(90deg)');
+        setTransformOrigin(aspects[4], 'left');
+        setTransform(aspects[5], 'translateZ(' + halfLen + 'px) rotateY(-90deg)');
+        setTransformOrigin(aspects[5], 'right');
+
+        cube.appendTo(container);
+        setTimeout(function () {
+            cube.toggleClass('rotation');
+        }, Math.random() * 5000);
+    }
+} ());
+
 $(document).ready(function () {
     'use strict';
     var contentHeight = $(".page-content").height();
@@ -304,6 +366,49 @@ $(document).ready(function () {
             Engine.loadLevel(two, 'AbstractLand');
         }
     });
+
+    function setupCubes() {
+        var cubes = [], timer, maxCubeCount = 6;
+        var container = $('.cube-container');
+        var xCount = Math.floor(container.width() / 360) || 1;
+        var yCount = Math.floor(container.height() / 320) || 1;
+        maxCubeCount = xCount * yCount;
+
+        function createCube(rect) {
+            var length = Math.floor(Math.random()*150) + 50;
+            var left = Math.floor(Math.random() * (rect.width - length)) + rect.x;
+            var topa = Math.floor(Math.random() * (rect.height - length)) + rect.y;
+            var cube = new Cube(left, topa, length);
+            cube.render(container);
+            cubes.push(cube);
+        }
+        var currentRect = {
+            x: 50,
+            y: 50,
+            width: container.width() / xCount,
+            height: container.height() / xCount
+        };
+        createCube(currentRect);
+        timer = setInterval(function () {
+            currentRect.x = cubes.length % xCount * container.width() / xCount;
+            if (cubes.length % xCount == 0) {
+                currentRect.x += 50;
+            } else if (cubes.length % xCount == xCount - 1) {
+                currentRect.x -= 50;
+            }
+            currentRect.y = Math.floor(cubes.length / xCount) * container.height() / yCount;
+            if (Math.floor(cubes.length / xCount) == 0) {
+                currentRect.y += 50;
+            }
+            createCube(currentRect);
+
+            if (cubes.length >= maxCubeCount) {
+                clearInterval(timer);
+            }
+        }, 0);
+    }
+    $('body').append('<div class="cube-container"></div>');
+    setTimeout(setupCubes, 0);
 
     $('.side-bar .menu-icon').click(function (e) {
         e.preventDefault();

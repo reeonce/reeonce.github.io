@@ -12,7 +12,7 @@
 }
 
 .side-bar {
-  background-color: white;
+  background-color: transparent;
 
   .trigger {
     clear: both;
@@ -65,14 +65,14 @@
   display: block;
   text-align: right;
   line-height: $header-height;
-  margin: 0 50px 0 0;
+  margin: 0 8px 0 50px;
   color: $primary-color;
   letter-spacing: -.5px;
 }
 
 .side-nav {
   overflow: scroll;
-  background-color: #fefefe;
+  background-color: rgba(254, 254, 254, 0.7);
 
   h3 {
       margin-left: 12px;
@@ -99,12 +99,12 @@
 .side-nav-category {
   margin-bottom: 20px;
   border: 1px solid #e6e6e6;
-  background-color: white;
+  background-color: transparent;
 }
 
 .side-nav-tag {
   border: 1px solid #e6e6e6;
-  background-color: white;
+  background-color: transparent;
 
   .container {
       padding: 0 8px;
@@ -199,7 +199,7 @@
 .post pre,
 .post code {
   border: 1px solid #d5d5e9;
-  background-color: #efefef;
+  background-color: rgba(249, 249, 249, 0.6);;
   padding: 8px 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;

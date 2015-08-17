@@ -8135,7 +8135,7 @@ p {
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 .highlight {
-  background: #ffffff;
+  background: transparent;
 }
 
 .highlight .c {
@@ -8509,6 +8509,123 @@ p {
   display: block;
   font-size: 15px;
   color: #818181;
+}
+
+.cube-container {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  -webkit-perspective: 1000px;
+  -webkit-perspective-origin: 50% 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.cube {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  opacity: 0.4;
+}
+
+.aspect {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: solid 1px rgba(0, 80, 200, 0.2);
+}
+
+.cube .front {
+  transform: translateZ(150px);
+  -webkit-transform: translateZ(150px);
+}
+
+.cube .back {
+  transform: translateZ(-150px);
+  -webkit-transform: translateZ(-150px);
+}
+
+.cube .top {
+  transform: translateZ(150px) rotateX(-90deg);
+  -webkit-transform: translateZ(150px) rotateX(-90deg);
+  transform-origin: top;
+  -webkit-transform-origin: top;
+}
+
+.cube .bottom {
+  transform: translateZ(150px) rotateX(90deg);
+  -webkit-transform: translateZ(150px) rotateX(90deg);
+  transform-origin: bottom;
+  -webkit-transform-origin: bottom;
+}
+
+.cube .left {
+  transform: translateZ(150px) rotateY(90deg);
+  -webkit-transform: translateZ(150px) rotateY(90deg);
+  transform-origin: left;
+  -webkit-transform-origin: left;
+}
+
+.cube .right {
+  transform: translateZ(150px) rotateY(-90deg);
+  -webkit-transform: translateZ(150px) rotateY(-90deg);
+  transform-origin: right;
+  -webkit-transform-origin: right;
+}
+
+@keyframes rotationsa {
+  0% {
+    transform: rotate3d(0, 0, 0, 360deg);
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+  }
+  60% {
+    transform: rotate3d(0.4, 0.7, 0.2, 360deg);
+    -webkit-transform: rotateX(144deg) rotateY(252deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+@-webkit-keyframes rotationsa {
+  0% {
+    transform: rotate3d(0, 0, 0, 360deg);
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+  }
+  60% {
+    transform: rotate3d(0.4, 0.7, 0.2, 360deg);
+    -webkit-transform: rotateX(144deg) rotateY(252deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, 360deg);
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+.animated {
+  animation-duration: 60s;
+  -webkit-animation-duration: 60s;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.animated.rotation {
+  animation-name: rotationsa;
+  -webkit-animation-name: rotationsa;
 }
 
 /*# sourceMappingURL=global.css.map */
