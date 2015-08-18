@@ -1,0 +1,71 @@
+---
+layout: post
+title: First Five Principles in OOP - SOLID
+category: "design pattern"
+tags: [OOP, SOLID]
+date: 2014-10-22
+---
+
+#### S.O.L.I.D principles
+
+Object Oriented Programming or Functional Programming? People have been debating this for a long time, and will continue for decades. I will not argue for either of them in this post. Just sharing what I have learned.
+
+Having written code with Objective-C and Swift for sometimes, I find that OOP is not so much easy. How to make the codes clear? How to make them more reusable? How to make them easier to maintain? Then I search `oop Best Practice` with [DDG](https://duckduckgo.com/?q=oop+best+practices).
+
+Among the top results, we can see [SOLID]('https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)'). It says:
+
+> In computer programming, SOLID (Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion) is a mnemonic acronym introduced by Michael Feathers for the "first five principles" named by Robert C. Martin in the early 2000s that stands for five basic principles of object-oriented programming and design.
+
+Yes, this really is what I want! After searching more, there are something more interesting.
+
+![SOLID](/assets/solid/SOLID_6EC97F9C.jpg)
+
+> Note: All motivator images are created by [Derick Baley](https://lostechies.com/derickbailey/2009/02/11/solid-development-principles-in-motivational-pictures/).
+
+So here let's talk about them one by one:
+
+#### Single responsibility principle
+
+> In object-oriented programming, the single responsibility principle states that every class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility.
+
+![SRP](/assets/solid/SingleResponsibilityPrinciple2_71060858.jpg)
+
+As an example, consider a module that compiles and prints a report. Such a module can be changed for two reasons. First, the content of the report can change. Second, the format of the report can change. These two things change for very different causes; one substantive, and one cosmetic. The single responsibility principle says that these two aspects of the problem are really two separate responsibilities, and should therefore be in separate classes or modules. It would be a bad design to couple two things that change for different reasons at different times.
+
+#### Open/closed principle
+
+> software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+
+![open/closed prinple](/assets/solid/OpenClosedPrinciple2_2C596E17.jpg)
+
+An entity can allow its behaviour to be extended without modifying its source code. This is especially valuable in a production environment, where changes to source code may necessitate code reviews, unit tests, and other such procedures to qualify it for use in a product: code obeying the principle doesn't change when it is extended, and therefore needs no such effort.
+
+#### Liskov substitution principle
+
+> In a computer program, if S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed, etc.)
+
+![liskov substitution principle](/assets/solid/LiskovSubtitutionPrinciple_52BB5162.jpg)
+
+#### Interface segregation principle
+
+> No client should be forced to depend on methods it does not use.
+
+![interface segregation principle](/assets/solid/InterfaceSegregationPrinciple_60216468.jpg)
+
+ISP splits interfaces which are very large into smaller and more specific ones so that clients will only have to know about the methods that are of interest to them.
+
+#### Dependency inversion principle
+
+> One should “Depend upon Abstractions. Do not depend upon concretions.” The principle states:
+
+> A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+> B. Abstractions should not depend on details. Details should depend on abstractions.
+
+![dependency inversion principle](/assets/solid/DependencyInversionPrinciple_0278F9E2.jpg)
+
+When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are inverted (i.e. reversed), thus rendering high-level modules independent of the low-level module implementation details.
+
+
+
+The principle inverts the way some people may think about object-oriented design, dictating that both high- and low-level objects must depend on the same abstraction.

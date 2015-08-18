@@ -1,6 +1,7 @@
 ios: "fa-apple"
 rails: "fa-diamond"
-common: "fa-leaf"
+others: "fa-leaf"
+"design pattern": "fa-recycle"
 swift: "fa-scissors"
 c++: "fa-plus-circle"
 web: "fa-html5"

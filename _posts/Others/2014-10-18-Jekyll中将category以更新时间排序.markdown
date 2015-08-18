@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll 中将categories 以更新时间排序"
-category: common
+category: others
 tags: jekyll
 ---
 
