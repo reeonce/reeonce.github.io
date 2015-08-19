@@ -1,0 +1,62 @@
+.side-bar {
+  background-color: $primary-background-color;
+
+  line-height: 36px;
+  overflow: scroll;
+
+  .page-link {
+    color: $primary-color;
+    letter-spacing: -.5px;
+
+    i:before {
+        display: inline-block;
+        text-align: left;
+        width: 20px;
+    }
+  }
+}
+
+.side-nav {
+  overflow: scroll;
+  padding-top: 0;
+
+  h3 {
+      margin-left: 12px;
+      color: $primary-color;
+  }
+
+  ul {
+    list-style: none;
+    line-height: 1.2;
+    margin-left: 0.1rem;
+  }
+
+  li {
+    font-size: 20px;
+
+    .page-link {
+        margin: 10px;
+        color: #727272;
+        letter-spacing: -.5px;
+    }
+  }
+}
+
+.side-nav-category {
+  margin-bottom: 20px;
+  border: 1px solid #e6e6e6;
+  background-color: transparent;
+}
+
+.side-nav-tag {
+  border: 1px solid #e6e6e6;
+  background-color: transparent;
+
+  .container {
+      padding: 0 8px;
+  }
+
+  .page-link {
+      text-decoration: underline;
+  }
+}

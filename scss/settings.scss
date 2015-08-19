@@ -1,4 +1,13 @@
-$primary-color: #003366;
+@import "foundation/settings";
+
+$primary-color: #006699;
+$primary-background-color: white;
+$second-background-color: #eaeaf0;
+
+$content-max-width: 920px;
+$off-canvas-width: rem-calc(300) !default;
+
+$tabbar-bg: $primary-color;
 
 $header-link-color: $primary-color;
 

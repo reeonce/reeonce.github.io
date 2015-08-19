@@ -3,6 +3,7 @@ layout: page
 title: 关于 Reeonce
 permalink: /about/zh/
 css: "/css/about.css"
+js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/about.js"]
 ---
 
 <div id="lang-selector">
@@ -103,7 +104,3 @@ css: "/css/about.css"
 <div id="welcome-overlay">
   <a href="/"><h1>Reeonce</h1></a>
 </div>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="/js/d3.v3.min.js"></script>
-<script type="text/javascript" src="/js/modernizr.min.js"></script>
-<script type="text/javascript" src="/js/others/about_zh.js"></script>

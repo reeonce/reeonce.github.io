@@ -1,25 +1,28 @@
 ---
 layout: post_layout
+css: "/css/index.css"
 ---
 
 <div class="home">
-  <p>简单地记录，不断地思考。问题很多，欢迎指正 ~ </p>
-
   <!-- This loops through the paginated posts -->
+  <ul id="all-posts">
     {% for post in paginator.posts %}
-    <div class="category-frame">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <p class="author">
-        <span class="date">{{ post.date | date: "%F %r" }}</span>
-        </p>
-        <div class="content post">
-        {{ post.content | split: '<!-- more -->' | first | append: '<span class="more-details"><a href="' | append: post.url | append:  '">查看全文</a></span>' }}
+    <li>
+        <div class="category-frame">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <p class="author">
+            <span class="date">{{ post.date | date: "%F %r" }}</span>
+            </p>
+            <div class="content post">
+            {{ post.content | split: '<!-- more -->' | first | append: '<span class="more-details"><a href="' | append: post.url | append:  '">查看全文</a></span>' }}
+            </div>
         </div>
-        <div class="separate-line"></div>
-    </div>
+    </li>
     {% endfor %}
+  </ul>
 
-    <!-- Pagination links -->
+  <!-- Pagination links -->
+  <div class="pagination-centered">
     {% if paginator.total_pages > 1 %}
     <ul class="pagination">
       {% if paginator.previous_page %}
@@ -45,7 +48,5 @@ layout: post_layout
       {% endif %}
     </ul>
     {% endif %}
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  </div>
 </div>

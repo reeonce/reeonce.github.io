@@ -251,7 +251,7 @@ ga('send', 'pageview');
 
     var Land = function(two) {
         this.land = two.makeRectangle(two.width / 2.0, two.height / 2.0, two.width, two.height);
-        this.land.fill = '#e0e0e0';
+        this.land.fill = '#cccccc';
         this.land.linewidth = 0;
     };
 
@@ -389,16 +389,14 @@ $(document).ready(function () {
         var currentRect = {
             x: 50,
             y: 50,
-            width: container.width() / xCount,
-            height: container.height() / xCount
+            width: container.width() / xCount - 100,
+            height: container.height() / xCount - 100
         };
         createCube(currentRect);
         timer = setInterval(function () {
             currentRect.x = cubes.length % xCount * container.width() / xCount;
             if (cubes.length % xCount == 0) {
                 currentRect.x += 50;
-            } else if (cubes.length % xCount == xCount - 1) {
-                currentRect.x -= 50;
             }
             currentRect.y = Math.floor(cubes.length / xCount) * container.height() / yCount;
             if (Math.floor(cubes.length / xCount) == 0) {
@@ -414,8 +412,4 @@ $(document).ready(function () {
     $('body').append('<div class="cube-container"></div>');
     setTimeout(setupCubes, 0);
 
-    $('.side-bar .menu-icon').click(function (e) {
-        e.preventDefault();
-        $('.side-bar .trigger').toggle();
-    });
 });
