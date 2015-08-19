@@ -69,7 +69,7 @@ ga('send', 'pageview');
 
     var SquishyMonster = root.SquishyMonster = function (two, x, y) {
         this.blob = two.makeCircle(0, 0, MONSTER_BASE_SIZE);
-        this.blob.fill = 'gray';
+        this.blob.fill = '#003366';
         this.blob.noStroke();
 
         this.rightEye = createEye(two, 30, 0);
@@ -251,7 +251,7 @@ ga('send', 'pageview');
 
     var Land = function(two) {
         this.land = two.makeRectangle(two.width / 2.0, two.height / 2.0, two.width, two.height);
-        this.land.fill = '#dfdfdf';
+        this.land.fill = '#e0e0e0';
         this.land.linewidth = 0;
     };
 
