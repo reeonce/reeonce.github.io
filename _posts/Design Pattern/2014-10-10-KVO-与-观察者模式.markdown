@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "KVO 与观察者模式"
-category: OC与设计模式
-tags: 观察者 observer objective-c 设计模式 KVO
+category: Design Pattern
+tags: [观察者, observer, KVO, Objective-C, 设计模式, Design Pattern]
 ---
 
 #### 场景
@@ -30,8 +30,7 @@ Observer 模式描述了如何建立这种关系，这一模式中的关键对�
 
 <!-- more -->
 
-```objective-c
-
+```Objective-C
 @implementation DataViewController {
 	Person *_person = [[Person alloc] init];
 }
@@ -52,7 +51,6 @@ Observer 模式描述了如何建立这种关系，这一模式中的关键对�
 - (void)dealloc {
     [_person removeObserver:self forKeyPath:@"name"]
 }
-
 ```
 
 #### 参考:

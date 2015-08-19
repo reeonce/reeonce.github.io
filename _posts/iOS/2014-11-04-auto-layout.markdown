@@ -44,7 +44,7 @@ You set the hugging and compression priorities for a UIView instance using setCo
 
 You represent constraints using instances of NSLayoutConstraint. To create constraints, you typically use `constraintsWithVisualFormat:options:metrics:views:`.
 
-```objective-c
+```Objective-C
 NSDictionary *viewsDictionary =
                 NSDictionaryOfVariableBindings(self.button1, self.button2);
 NSArray *constraints =
@@ -54,7 +54,7 @@ NSArray *constraints =
 
 Although most of the constraints that are useful in real user interfaces can be expressed using the language, some cannot. One useful constraint that cannot be expressed is a fixed aspect ratio, you can use `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:`.
 
-```objective-c
+```Objective-C
 [NSLayoutConstraint constraintWithItem:self.button1
 					attribute:NSLayoutAttributeWidth
 					relatedBy:NSLayoutRelationEqual

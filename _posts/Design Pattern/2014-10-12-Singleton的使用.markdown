@@ -1,8 +1,8 @@
 ---
 layout: post
 title: SINGLETON 的使用
-category: OC与设计模式
-tags: 设计模式 objective-c SINGLETON
+category: Design Pattern
+tags: [SINGLETON, Objective-C, 设计模式, Design Pattern]
 ---
 
 ### 场景
@@ -15,8 +15,7 @@ tags: 设计模式 objective-c SINGLETON
 
 ### Objective-C 的应用
 
-在 Cocoa 的框架中有不少的 Singleton 的类子，包括 *NSFileManager, NSWorkspace, NSApplication* 和 *UIApplication*。这些 Singleton 类中返回的共享实例和普通的类实例并没有很大的区别，除了不能对它进行 *copy*，*retain* 和 *release*操作。
-
+在 Cocoa 的框架中有不少的 Singleton 的类子，包括 *NSFileManager, NSWorkspace, NSApplication* 和 UIApplication*。这些 Singleton 类中返回的共享实例和普通的类实例并没有很大的区别，除了不能对它进行 *copy*，*retain* 和 *release* 操作。
 
 ```Objective-C
 //MyManager.h

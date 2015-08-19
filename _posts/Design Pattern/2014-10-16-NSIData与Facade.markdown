@@ -1,8 +1,8 @@
 ---
 layout: post
 title: NSData 中的 FACADE
-category: OC与设计模式
-tags: [FACADE, NSImage, objective-c, 设计模式]
+category: Design Pattern
+tags: [FACADE, NSData, Objective-C, 设计模式, Design Pattern]
 ---
 
 ### 场景

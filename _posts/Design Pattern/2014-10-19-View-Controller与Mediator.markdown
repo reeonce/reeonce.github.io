@@ -1,8 +1,8 @@
 ---
 layout: post
 title: View Controller 与 MEDIATOR 模式
-category: OC与设计模式
-tags: 设计模式 objective-c MEDIATOR
+category: Design Pattern
+tags: [MEDIATOR, Objective-C, 设计模式, Design Pattern]
 ---
 
 The Mediator design pattern defines an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently. These objects can thus remain more reusable.

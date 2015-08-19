@@ -7,7 +7,7 @@
 /* Base */
 /* ----------------------------------------------------------*/
 body {
-    color: #555;
+    color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -106,13 +106,13 @@ p {
   }
 }
 
-.site-pages {
-  margin-left: 20px;
-}
-
 .site-top-nav {
   float: right;
   line-height: $header-height;
+
+  .page-link {
+    margin-right: 16px;
+  }
 }
 
 /* Site footer */

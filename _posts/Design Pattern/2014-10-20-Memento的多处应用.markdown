@@ -1,8 +1,8 @@
 ---
 layout: post
 title: MEMENTO 的多处应用
-category: OC与设计模式
-tags: 设计模式 objective-c MEMENTO
+category: Design Pattern
+tags: [MEMENTO, Objective-C, 设计模式, Design Pattern]
 ---
 
 The Memento pattern captures and externalizes an object’s internal state—without violating encapsulation—so that the object can be restored to this state later. The Memento pattern keeps the important state of a key object external from that object to maintain cohesion.

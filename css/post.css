@@ -7931,7 +7931,7 @@ th.hide-for-touch {
 /* Base */
 /* ----------------------------------------------------------*/
 body {
-  color: #555;
+  color: #333;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -8024,13 +8024,12 @@ p {
   }
 }
 
-.site-pages {
-  margin-left: 20px;
-}
-
 .site-top-nav {
   float: right;
   line-height: 56px;
+}
+.site-top-nav .page-link {
+  margin-right: 16px;
 }
 
 /* Site footer */
@@ -8738,7 +8737,7 @@ p {
 }
 
 .post-content blockquote {
-  border-left: 4px solid #e8e8e8;
+  border-left: 4px solid #aaccee;
   padding-left: 20px;
   font-size: 18px;
   opacity: .6;

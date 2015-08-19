@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 视图与COMPOSITE
-category: OC与设计模式
-tags: [COMPOSITE, view, objective-c, 设计模式]
+title: 视图与 COMPOSITE
+category: Design Pattern
+tags: [COMPOSITE, view, Objective-C, 设计模式, Design Pattern]
 ---
 
 ### 介绍

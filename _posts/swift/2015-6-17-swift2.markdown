@@ -114,7 +114,7 @@ test()
 
 iOS 开发者经常需要面对的一个问题是对iOS 各版本的兼容。比如在iOS 9 中提出了`UIStackView`，如果你在iOS 8 中使用，那么它将会奔溃，尽管Xcode 并没有报任何错误。那么，在以前的时候，你可能会使用OC 的
 
-```objective-c
+```Objective-C
 NSClassFromString(@"UIAlertController") != nil
 ```
 
