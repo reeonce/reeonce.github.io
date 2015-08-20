@@ -17,14 +17,11 @@
 .slideshow {
   height: 400px;
   overflow: hidden;
-}
 
-.slideshow-item {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 10000px;
+  @media print {
+      height: auto;
+      overflow: auto;
+  }
 }
 
 .jsenabled .slideshow {
@@ -33,11 +30,24 @@
 
 .jsenabled .slideshow-item {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 10000px;
+
+  @media print {
+    position: static;
+    height: auto;
+  }
 }
 
 #career-timelime {
   left: 0px;
   height: 0;
+
+  @media print {
+    display: none;
+  }
 }
 
 .slideshow-item, #timeline svg {
@@ -88,6 +98,10 @@
   vertical-align: top;
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
+
+  @media print {
+      display: none;
+  }
 }
 
 .slideshow-item .back-icon a {
@@ -96,6 +110,10 @@
   height: 100%;
   background: #ddd no-repeat url("/assets/back-icon.png") top left;
   background-size: 100% 100%;
+
+  @media print {
+      display: none;
+  }
 }
 
 .slideshow-item .content {
@@ -106,6 +124,17 @@
   display: inline-block;
   height: 280px;
   overflow: scroll;
+
+  @media print {
+      height: auto;
+      margin: 0;
+      width: 100%;
+      max-width: none;
+
+      > ul {
+          margin-bottom: 0.5rem;
+      }
+  }
 }
 
 svg {
@@ -139,6 +168,10 @@ rect.pane {
   animation-fill-mode: forwards;
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
+
+  @media print {
+      display: none;
+  }
 }
 @-webkit-keyframes fadeOut {
   from {
@@ -178,6 +211,10 @@ rect.pane {
   position: absolute;
   top: 10px;
   right: 12px;
+
+  @media print {
+      display: none;
+  }
 }
 
 #lang-selector a {
@@ -189,4 +226,18 @@ rect.pane {
 #lang-selector a:hover {
   color: lighten($second-background-color, 30%);
   background-color: $primary-color;
+}
+
+#contact-me {
+    display: none;
+
+    @media print {
+        display: block;
+    }
+}
+
+@media print {
+  p {
+      margin-bottom: 0.5rem;
+  }
 }

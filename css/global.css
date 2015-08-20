@@ -7988,6 +7988,7 @@ p {
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  overflow: hidden;
 }
 
 #the-world {
@@ -8625,6 +8626,13 @@ p {
 .animated.rotation {
   animation-name: rotationsa;
   -webkit-animation-name: rotationsa;
+}
+
+/* All your print styles go here */
+@media print {
+  header, footer, nav {
+    display: none !important;
+  }
 }
 
 /*# sourceMappingURL=global.css.map */

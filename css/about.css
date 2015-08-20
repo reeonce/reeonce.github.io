@@ -7988,6 +7988,7 @@ p {
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  overflow: hidden;
 }
 
 #the-world {
@@ -8627,6 +8628,12 @@ p {
   -webkit-animation-name: rotationsa;
 }
 
+/* All your print styles go here */
+@media print {
+  header, footer, nav {
+    display: none !important;
+  }
+}
 .wrap {
   max-width: 960px;
 }
@@ -8645,13 +8652,11 @@ p {
   height: 400px;
   overflow: hidden;
 }
-
-.slideshow-item {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 10000px;
+@media print {
+  .slideshow {
+    height: auto;
+    overflow: auto;
+  }
 }
 
 .jsenabled .slideshow {
@@ -8660,11 +8665,26 @@ p {
 
 .jsenabled .slideshow-item {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 10000px;
+}
+@media print {
+  .jsenabled .slideshow-item {
+    position: static;
+    height: auto;
+  }
 }
 
 #career-timelime {
   left: 0px;
   height: 0;
+}
+@media print {
+  #career-timelime {
+    display: none;
+  }
 }
 
 .slideshow-item, #timeline svg {
@@ -8771,6 +8791,11 @@ p {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
 }
+@media print {
+  .slideshow-item .back-icon {
+    display: none;
+  }
+}
 
 .slideshow-item .back-icon a {
   display: block;
@@ -8778,6 +8803,11 @@ p {
   height: 100%;
   background: #ddd no-repeat url("/assets/back-icon.png") top left;
   background-size: 100% 100%;
+}
+@media print {
+  .slideshow-item .back-icon a {
+    display: none;
+  }
 }
 
 .slideshow-item .content {
@@ -8788,6 +8818,17 @@ p {
   display: inline-block;
   height: 280px;
   overflow: scroll;
+}
+@media print {
+  .slideshow-item .content {
+    height: auto;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+  }
+  .slideshow-item .content > ul {
+    margin-bottom: 0.5rem;
+  }
 }
 
 svg {
@@ -8824,6 +8865,11 @@ rect.pane {
   animation-fill-mode: forwards;
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
+}
+@media print {
+  #welcome-overlay {
+    display: none;
+  }
 }
 
 @-webkit-keyframes fadeOut {
@@ -8866,6 +8912,11 @@ rect.pane {
   top: 10px;
   right: 12px;
 }
+@media print {
+  #lang-selector {
+    display: none;
+  }
+}
 
 #lang-selector a {
   border: 1px solid #006699;
@@ -8876,6 +8927,21 @@ rect.pane {
 #lang-selector a:hover {
   color: white;
   background-color: #006699;
+}
+
+#contact-me {
+  display: none;
+}
+@media print {
+  #contact-me {
+    display: block;
+  }
+}
+
+@media print {
+  p {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /*# sourceMappingURL=about.css.map */

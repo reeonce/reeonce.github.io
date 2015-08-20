@@ -86,10 +86,6 @@ ga('send', 'pageview');
     };
 
     SquishyMonster.prototype.update = function (time) {
-        var yoffset = $('body').scrollTop();
-        if (yoffset > $('.site-header').height()) {
-            return;
-        }
         if (this.animationTime <= 0.0) {
             if (Math.random() < 0.1) {
                 this.goPfff(this, time);
@@ -330,7 +326,7 @@ $(document).ready(function () {
     Two.Resolution = 32;
 
     var world = $('#the-world :first-child')[0];
-    var two = new Two({ width: $('#the-world').width(), height: $('#the-world').height() }).appendTo(world);
+    var two = window.two = new Two({ width: $('#the-world').width(), height: $('#the-world').height() }).appendTo(world);
 
     // register levels here
     Engine.addLevel('AbstractLand', AbstractLand);
@@ -360,10 +356,32 @@ $(document).ready(function () {
 
     }).play();
 
+    var bindScroll = function (event) {
+        var yoffset = $(window).scrollTop();
+        var headerHeight = $('.site-header').height()
+        if (yoffset > headerHeight) {
+            two.clear();
+
+            setTimeout(function () {
+                two.pause();
+            }, 0);
+
+            var newHeaderHeight = $('.site-title').height() + 10;
+            $(window).scrollTop(yoffset - headerHeight + newHeaderHeight);
+            $('.site-header').height(newHeaderHeight);
+
+            $(document).off('touchmove');
+            $(document).off('scroll');
+        }
+    };
+
+    $(document).on('touchmove', bindScroll);
+    $(document).on('scroll', bindScroll);
+
     var originWidth = $(window).width();
     $(window).resize(function() {
         var newWidth = $(window).width();
-        if (originWidth !== newWidth) {
+        if (originWidth !== newWidth && two.playing) {
             originWidth = newWidth;
             two.width = $('#the-world').width();
             two.height = $('#the-world').height();
