@@ -8864,19 +8864,18 @@ rect.pane {
 #lang-selector {
   position: absolute;
   top: 10px;
-  right: 30px;
+  right: 12px;
 }
 
 #lang-selector a {
-  color: #565;
-  border: 1px solid;
+  border: 1px solid #006699;
   padding: 4px;
   border-radius: 4px;
 }
 
 #lang-selector a:hover {
-  text-decoration: blink;
-  color: wheat;
+  color: white;
+  background-color: #006699;
 }
 
 /*# sourceMappingURL=about.css.map */

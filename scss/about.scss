@@ -1,4 +1,5 @@
 @import "global";
+
 .wrap {
   max-width: 960px;
 }
@@ -176,17 +177,16 @@ rect.pane {
 #lang-selector {
   position: absolute;
   top: 10px;
-  right: 30px;
+  right: 12px;
 }
 
 #lang-selector a {
-  color: #565;
-  border: 1px solid;
+  border: 1px solid $primary-color;
   padding: 4px;
   border-radius: 4px;
 }
 
 #lang-selector a:hover {
-  text-decoration: blink;
-  color:  wheat;
+  color: lighten($second-background-color, 30%);
+  background-color: $primary-color;
 }
