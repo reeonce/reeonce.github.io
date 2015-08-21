@@ -8000,7 +8000,7 @@ p {
 
 .site-title {
   display: block;
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: -1px;
   line-height: 56px;
   position: absolute;
@@ -8010,6 +8010,11 @@ p {
 }
 .site-title, .site-title:hover, .site-titlevisited {
   color: #006699;
+}
+@media only screen and (min-width: 40.0625em) {
+  .site-title {
+    font-size: 26px;
+  }
 }
 
 .site-avatar {

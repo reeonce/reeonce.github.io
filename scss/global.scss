@@ -82,7 +82,7 @@ p {
 
 .site-title {
   display: block;
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: -1px;
   line-height: $header-height;
   position: absolute;
@@ -92,6 +92,10 @@ p {
 
   &, &:hover, &visited {
     color: $primary-color;
+  }
+
+  @media #{$medium-up} {
+      font-size: 26px;
   }
 }
 
