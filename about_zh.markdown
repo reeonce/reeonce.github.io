@@ -65,7 +65,7 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
 
 ### 主要技能
 #### 基础
-从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。
+从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。现在比较青睐于Swift 所提倡的 protocol-oriented programming.
 
 虽然很久没有刷OJ 了，但是实现基础的数据结构和算法问题应该不大。
 
@@ -80,7 +80,7 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
 
   *Passwords Safes*。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 是开发应用所必须使用的方式了。
 
-  *[围住点点](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。该应用本地化了多个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
+  *[围住点点](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。该应用本地化了多个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。现已使用Swift 2 重构了iOS 9 的[版本](https://github.com/reeonce/Trap-The-Dot)并继承了travis-ci。
 
 #### 前端开发
   前端技术是发展非常迅速的，我所了解的npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, 并不足以让我称为一名*专业的前端工程师*。

@@ -46,13 +46,11 @@ css: "/css/resume.css"
 ### 主要技能
 
 #### 基础
-从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。
+从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。现在比较青睐于Swift 所提倡的 protocol-oriented programming.
 
 虽然很久没有刷OJ 了，但是实现基础的数据结构和算法问题应该不大。
 
 对新技术我总是会充满好奇，业余时间忍不住总是要研究研究的。
-
-<br/>
 
 #### iOS 开发
   喜爱Swift，坚信它能成为一门更加强大的语言，熟悉 Objective-C和 iOS 开发的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
@@ -61,14 +59,12 @@ css: "/css/resume.css"
 
   *伴旅*。一款基于LBS 的景区服务应用。应用使用了mapbox 来加载地图，A 星算法寻路，cordova 和ionic 来加载游戏副本，sqlite 来管理景区数据资源，alamofire 来处理网络请求。在极觅的工作中，贡献了此工程大部分的代码。
 
-  *Passwords Safes*。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 是开发应用所必须使用的方式了。
+  *围住点点*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。该应用本地化了多个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。现已使用Swift 2 重构了iOS 9 的版本并继承了travis-ci。
 
-  *围住点点*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。该应用本地化了多个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。
+  *其他*。在极觅和日常使用的一些工具应用。
 
 #### 前端开发
-  前端技术是发展非常迅速的，我所了解的npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, 然而并不足以让我称为一名*专业的前端工程师*。
-
-  主要项目：
+  前端技术是发展非常迅速的，了解和使用了npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS等。主要项目包括：
 
   *reeonce.github.io*。我的博客网站。
 
@@ -81,7 +77,7 @@ css: "/css/resume.css"
 
   主要项目：
 
-  *CKV*。一个基于express.js 实现 key-value 云存储的解决方案。作为主要的开发人员，与PM 商量需求，准备环境，开发，与用户的协调，集成CI、CD等等。
+  *CKV*。一个使用node.js 实现 key-value 云存储的解决方案。作为主要的开发人员，与PM 商量需求，准备环境，开发，与用户的协调，集成CI、CD等等。
 
 ### 其他兴趣爱好
 

@@ -76,21 +76,21 @@ I have received my bachelor's degree on software engineering in [*Beihang Univer
 
   *Passwords Safes*. An app to manage your passwords which is developed with Swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256. Meanwhile, all data are managed with Core Data. Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
 
-  *[Trap The Dot !](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*. A game using Objective-C. The features are, the app is localized into 9 languages, you can share the game snapshot to your friends with Facebook, and the app has integrated with iAd and Analytics. Of course, the dot is not stupid, be careful to not let it escapes.
+  *[Trap The Dot !](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*.  A game using Objective-C. The app is localized into 9 languages, you can share the game snapshot to your friends with Facebook. Of course, the dot is not stupid, be careful to not let it escapes. Now, it has been refactored for iOS 9 with Swift 2 at [github](https://github.com/reeonce/Trap-The-Dot). What's more, travis-ci has been integrated.
 
 #### Frontend programming
-  It is unbelievable that the web is growing so fast. npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, what I have learnt are not enough to title me a "professional web development engineer"(ok, just I am not a designer?). Projects are showed below:
+  I have used grunt, jQuery, YUI3, less, sass, angularJS in my projects.
 
   *[MYC](https://mobile.yahoo.com/)*. A website based on Mojito(a open source Node.js framework) and YUI3.
 
   *[reeonce.github.io](/)*. My blog page is here.
 
-  *[Banlv voice tourist](http://www_wechat.reeonce.biz/page-test/voice_tour.html)*. A site on mobile to provide voice tourist inside some scenic areas. The link is a demo, as the real service is no longer maintained.
+  *[Banlv voice tourist](http://www_wechat.reeonce.biz/page-test/voice_tour.html)*. A mobile site to provide voice tourist inside some park. The link is a demo, as the real service is no longer maintained.
 
 #### Backend development
   Had been using Node.js for years, and I am familiar with working on linux, docker. Also, sometimes I write some bash, python, php scripts.
 
-  *CKV*. This project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must deal with most of the things by myself, such as preparation for environment, development, CI and CD integration.
+  *CKV*. This project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must prepare for the environments, develop, integrate with CI and CD myself.
 
 ### Other hobbies
 I have not done any sports for a very long time, as time is spent on reading, thinking and cooking.
