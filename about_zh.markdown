@@ -3,7 +3,7 @@ layout: page
 title: 关于 Reeonce
 permalink: /about/zh/
 css: "/css/about.css"
-js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/about.js"]
+js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/about_zh.js"]
 ---
 
 <div id="lang-selector">
@@ -53,34 +53,34 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
       <p>虽然结果是不尽如人意的，但这绝对是宝贵的一番经历。</p>
     </div>
   </div>
-  <div id="career-you" class="">
+  <div id="career-gtzn" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@？ (2015 ~ 未知)</h3>
-      <p>非常希望能够到一个充满激情且专业的团队，大家能够一起讨论技术，hack 一些有趣的东西。</p>
-      <p>iOS 会变得越来越强大，而我也希望能够和你一起做出一款伟大的产品。</p>
+      <h3>广田智能 (2015 ~ 2016)</h3>
+      <p>满怀激情地来到了智能家居领域，希望子能能够在这个领域留下自己的一点痕迹。</p>
+      <p>角色依然时iOS 开发，不过也有做一些其他的。</p>
     </div>
   </div>
 </div>
 
 ### 主要技能
 #### 基础
-从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。现在比较青睐于Swift 所提倡的 protocol-oriented programming.
+从大学开始已经写了数万行代码了，现在的我对如何写出优质代码有了新的认识。现在比较青睐于Swift 所提倡的 [protocol-oriented programming](https://developer.apple.com/videos/wwdc/2015/?id=408). 自从使用了 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)，[functional reactive programming](http://blog.maybeapps.com/post/42894317939/input-and-output) 对数据流的处理颇感震撼。
 
-虽然很久没有刷OJ 了，但是实现基础的数据结构和算法问题应该不大。
+虽然很久没有刷OJ 了，但是实现基础的数据结构和算法问题应该不大。计算机网络和数据安全加密等相关知识也不敢轻忘。
 
 对新技术我总是会充满好奇，业余时间忍不住总是要研究研究的。
 
 #### iOS 开发
-  喜爱Swift，坚信它能成为一门更加强大的语言，熟悉 Objective-C和 iOS 开发的基本框架。熟悉面向对象设计的基本原则，熟悉常用的设计模式及算法。
+  喜爱Swift，坚信它能成为一门更加强大的语言，越来越反感写 Objective-C 代码了。熟悉Cocoa Touch 中的基本框架和使用CocoaPods 来管理组件。
 
   主要项目：
 
-  *[伴旅](https://itunes.apple.com/us/app/ban-lu-gei-ni-yi-ge-wen-nuan/id993592240?ls=1&mt=8)*。一款基于LBS 的景区服务应用。应用使用了mapbox 来加载地图，cordova 和ionic 来加载游戏副本，sqlite 来管理景区数据资源，alamofire 来处理网络请求。在极觅的工作中，贡献了此工程大部分的代码。
+  *[图灵猫](https://itunes.apple.com/cn/app/tu-ling-mao-zhi-neng-jia-ju/id1019413695?l=zh&ls=1&mt=8)*。图灵猫智能家居平台的iOS 客户端（支持iPad 横屏和Apple Watch）。网络使用socket 与服务器进行通讯，
 
-  *Passwords Safes*。一款使用 swift 开发的管理密码的应用。特点是将网站密码存入 Keychain 中，所有信息都使用 AES256 进行加密，数据使用 CoreData 来管理，Auto Layout 是开发应用所必须使用的方式了。
+  *[伴旅](https://itunes.apple.com/us/app/ban-lu-gei-ni-yi-ge-wen-nuan/id993592240?ls=1&mt=8)*。一款基于LBS 的景区服务应用。大部分的代码都是Swift 所写。应用使用了mapbox 来加载地图，cordova 和ionic 来加载游戏副本，sqlite 来管理景区数据资源，alamofire 来处理网络请求。在极觅的工作中，贡献了此工程大部分的代码。
 
-  *[围住点点](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。该应用本地化了多个语言，可以将游戏截图分享到 Facebook 上，并且集成友盟数据统计和 iAd 服务。当然，这可不是一只笨猫，一不留神就可能会逃走喔。现已使用Swift 2 重构了iOS 9 的[版本](https://github.com/reeonce/Trap-The-Dot)并继承了travis-ci。
+  *[围住点点](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*。一款使用 Objective-C 开发的 “围住神经猫” 的游戏。
 
 #### 前端开发
   前端技术是发展非常迅速的，我所了解的npm, bower, grunt, bootstrap, foundation, jQuery, less, sass, angularJS, 并不足以让我称为一名*专业的前端工程师*。
@@ -91,7 +91,7 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
 
   *[MYC](https://mobile.yahoo.com)*。一个基于Mojito(Node.js 的开源框架) + YUI3 的网站，全球化，https，整合其它部分强大服务也是这个网站开发过程的挑战。
 
-  *[伴旅语音导游](http://www_wechat.reeonce.biz/page-test/voice_tour.htm)*。是极觅数据的一项在景区中提供语音导游的服务，服务设在了微信服务号上，使用了微信的一些JS 接口。链接是我搭的一个demo，原本的服务已经不再维护了。
+  *[伴旅语音导游](http://www_wechat.reeonce.biz/page-test/voice_tour.htm)*。是极觅数据的一项在景区中提供语音导游的服务，服务设在了微信服务号上，使用了微信的一些JS 接口。
 
 #### 后端开发
   熟悉Linux 环境，使用了一年多的Node.js, 也使用过PHP, bash, docker, python 进行工作。
@@ -100,9 +100,18 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
 
   *CKV*。一个基于express.js 实现 key-value 云存储的解决方案。作为主要的开发人员，与PM 商量需求，准备环境，开发，与用户的协调，集成CI、CD等等。
 
+#### Kinect 开发
+  熟悉Windows 开发环境。
+
+  主要项目：
+
+  *基于Kinect 的演示框架*，检测肢体动作来控制演示程序并且实现了在屏幕上书写的功能。
+
+  *图灵猫Kinect 控制程序*，检测肢体动作对图灵猫家电进行控制。
+
 ### 其他兴趣爱好
 
-好久没有上球场了，只因烹饪、阅读、看片和思考占用了太多时间呀。
+好久没有上球场了，只因烹饪、阅读、学习和思考占用了太多时间呀。
 
 <div id="contact-me">
   <h3>联系我</h3>
