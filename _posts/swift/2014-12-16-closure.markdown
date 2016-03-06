@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "闭包 - closure"
-category: Swift
+category: swift
 tags: closure swift
 ---
 

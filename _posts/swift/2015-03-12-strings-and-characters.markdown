@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "字符串"
-category: Swift
+category: swift
 tags: String swift
 ---
 

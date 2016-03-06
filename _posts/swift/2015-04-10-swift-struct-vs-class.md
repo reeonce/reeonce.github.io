@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Swift 中 struct vs class
-category: Swift
+category: swift
 tags: struct class Swift
 ---
 

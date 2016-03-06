@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "初试 swift"
-category: Swift
+category: swift
 tags: swift javascript
 ---
 
