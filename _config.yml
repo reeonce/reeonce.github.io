@@ -10,8 +10,6 @@ github_username:  reeonce
 # Build settings
 gems: ['jekyll-paginate']
 markdown: kramdown
-# redcarpet:
-#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", # "with_toc_data"]
 permalink: pretty
 paginate: 5
 paginate_path: "/blog/page:num/"
@@ -23,3 +21,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
+  - Gruntfile.js
+  - bower.json
