@@ -1,4 +1,5 @@
 GEM
+  remote: https://ruby.taobao.org/
   specs:
     colorator (0.1)
     ffi (1.9.10)

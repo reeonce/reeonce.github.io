@@ -1,6 +1,6 @@
 ---
 layout: post
-title: extension Swift2: PROTOCOL-EXTENSIONS
+title: "extension Swift2: PROTOCOL-EXTENSIONS"
 category: swift
 tags: [swift, "PROTOCOL EXTENSIONS", "protocol-oriented programming"]
 ---
