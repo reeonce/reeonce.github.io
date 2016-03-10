@@ -76,7 +76,7 @@ js: ["/js/vendors/d3.v3.min.js", "/js/vendors/modernizr.min.js", "/js/others/abo
 
   主要项目：
 
-  *[图灵猫](https://itunes.apple.com/cn/app/tu-ling-mao-zhi-neng-jia-ju/id1019413695?l=zh&ls=1&mt=8)*。图灵猫智能家居平台的iOS 客户端（支持iPad 横屏和Apple Watch）。网络使用socket 与服务器进行通讯，
+  *[图灵猫](https://itunes.apple.com/cn/app/tu-ling-mao-zhi-neng-jia-ju/id1019413695?l=zh&ls=1&mt=8)*。图灵猫智能家居平台的iOS 客户端（支持iPad 横屏和Apple Watch）。网络使用socket 与服务器进行通讯，Realm 存储数据以及复杂多样的界面。
 
   *[伴旅](https://itunes.apple.com/us/app/ban-lu-gei-ni-yi-ge-wen-nuan/id993592240?ls=1&mt=8)*。一款基于LBS 的景区服务应用。大部分的代码都是Swift 所写。应用使用了mapbox 来加载地图，cordova 和ionic 来加载游戏副本，sqlite 来管理景区数据资源，alamofire 来处理网络请求。在极觅的工作中，贡献了此工程大部分的代码。
 

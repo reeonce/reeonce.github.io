@@ -41,9 +41,16 @@ iOS is more and more powerful, I prefer to following Apple's step.
   <p>In a start-up company, I must do some others, web development, backend maintain, official website, wechat service website, docker and so on</p>
   <p>The result is not acceptable, but the process is meaningful.</p>
 </div>
+<div class="content">
+  <h4>@TuringCat (2015 ~ 2016)</h4>
+  <p>Smart home is a dream, we all looking forward to realizing it.</p>
+  <p>Major in the TuringCat iOS app, also hack some interesting things.</p>
+</div>
 
 ### Major Skills
+
 #### Fundamental
+
   With several years' coding experience and over tens of thousand lines of code, I am getting new understanding on programming.
 
   I can implement most of the fundamental data structures and algorithms.
@@ -51,7 +58,10 @@ iOS is more and more powerful, I prefer to following Apple's step.
   Also, I am always feeling curious on new techniques.
 
 #### iOS development
-  I love swift language and believe it will become better and better. Also I am familiar with Objective-C and the main frameworks of iOS. My projects:
+
+  I love swift language and believe it will become better and better. Also I am familiar with Objective-C, the main frameworks of iOS and the magical tool - CocoaPods. My projects:
+
+  *TuringCat*. The iOS client of TuringCat Smart Home (iPad & Apple Watch supported). A socket is created to connect the APP with the remote servers. Realm is as great as Core Data to do persistence, many table views and collection views and stack views are used to implement the complex UI.
 
   *Banlv*. This is the major product of xjimi, a LBS based app for scenic areas. The APP is built for iOS7 above and with Swift. I had contributed codes for almost every file, which related to mapbox, a star, alamofire, sqlite, cordova and so on.
 
@@ -74,4 +84,4 @@ iOS is more and more powerful, I prefer to following Apple's step.
   *CKV*. This project aims to provide a key-value storage service for yahoo mobile apps. As the major developer, I must prepare for the environments, develop, integrate with CI and CD myself.
 
 ### Other hobbies
-I have not done any sports for a very long time, as time is spent on reading, thinking and cooking.
+I have not done any sports for a very long time, as time is spent on reading, thinking, learning and cooking.

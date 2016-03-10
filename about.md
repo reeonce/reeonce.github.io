@@ -51,17 +51,18 @@ I have received my bachelor's degree on software engineering in [*Beihang Univer
       <p>The result is bad, but the process is meaningful.</p>
     </div>
   </div>
-  <div id="career-you" class="">
+  <div id="career-gtzn" class="">
     <div class="back-icon"><a href=""></a></div>
     <div class="content">
-      <h3>@YOU (2015 ~ unknown)</h3>
-      <p>I'd love to work in a energetic team, whose members are professional or to be professional. We can learn from each other, talk about all the techs, do some hacks.</p>
-      <p>iOS is more and more powerful, I prefer to following apple's step, and building great apps.</p>
+      <h3>@TuringCat (2015 ~ 2016)</h3>
+      <p>Smart home is a dream, we all looking forward to realizing it.</p>
+      <p>Major in the TuringCat iOS app, also hack some interesting things.</p>
     </div>
   </div>
 </div>
 
 ### Major Skills
+
 #### Fundamental
   With several years' coding experience and over tens of thousand lines of code, I am getting new understanding on programming.
 
@@ -70,11 +71,11 @@ I have received my bachelor's degree on software engineering in [*Beihang Univer
   Also, I am always feeling curious on new techniques.
 
 #### iOS development
-  I love swift language and believe it will become better and better. Also I am familiar with Objective-C and the main frameworks of iOS. My projects on iOS are:
+  I love swift language and believe it will become better and better. Also I am familiar with Objective-C, the main frameworks of iOS and the magical tool - CocoaPods. My projects on iOS are:
+
+  *[TuringCat](https://itunes.apple.com/cn/app/tu-ling-mao-zhi-neng-jia-ju/id1019413695?l=zh&ls=1&mt=8)*. The iOS client of TuringCat Smart Home (iPad & Apple Watch supported). A socket is created to connect the APP with the remote servers. Realm is as great as Core Data to do persistence, many table views and collection views and stack views are used to implement the complex UI.
 
   [*Banlv*](https://itunes.apple.com/us/app/ban-lu-gei-ni-yi-ge-wen-nuan/id993592240?ls=1&mt=8). This is the major product of xjimi, which is based on LBS and for scenic areas. The APP is built for iOS7 above and with Swift. I had contributed codes for almost every file, which related to mapbox, a \*, alamofire, sqlite, cordova and so on.
-
-  *Passwords Safes*. An app to manage your passwords which is developed with Swift. Features are the app keeps your Internet passwords into keychain, and all the personal secrets will be encrypted with AES256. Meanwhile, all data are managed with Core Data. Auto Layout also takes efforts much less when making the universal app (both on iPad and iPhone).
 
   *[Trap The Dot !](https://itunes.apple.com/us/app/trap-the-dot-!/id922876408?ls=1&mt=8)*.  A game using Objective-C. The app is localized into 9 languages, you can share the game snapshot to your friends with Facebook. Of course, the dot is not stupid, be careful to not let it escapes. Now, it has been refactored for iOS 9 with Swift 2 at [github](https://github.com/reeonce/Trap-The-Dot). What's more, travis-ci has been integrated.
 
