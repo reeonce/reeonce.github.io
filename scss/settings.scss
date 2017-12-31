@@ -1,0 +1,19 @@
+@import "foundation/settings";
+
+$primary-color: #006699;
+$primary-background-color: white;
+$second-background-color: #eaeaf0;
+
+$content-max-width: 920px;
+$off-canvas-width: rem-calc(300) !default;
+
+$tabbar-bg: $primary-color;
+
+$header-link-color: $primary-color;
+
+$font-family-sans-serif: "rooney-sans", Verdana, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", sans-serif;
+$font-family-serif: "Hiragino Sans GB", "冬青黑体", STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+
+$header-height: 56px;
+$side-bar-min-width: 239px;

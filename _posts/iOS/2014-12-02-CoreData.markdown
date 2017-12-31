@@ -1,0 +1,155 @@
+---
+layout: post
+title: Core Data 的使用
+category: ios
+tags: [iOS, CoreData]
+date: 2014-12-10
+---
+
+近期在项目中使用到了 Core Data, 网络上有很多争议，然而我只有一句话“真是谁用谁知道的好用”。整个框架非常全面，如果没有特殊原因，这个绝对是最好的选择。在此稍微做下总结。
+
+### Core Data 是什么
+
+Core Data 是 Apple 为 OS X 和 iOS 平台提供的一套管理持久化数据的框架。特点包括:
+
+* 修改的跟踪与返回操作
+* 数据之间关系的维护
+* faulting
+* 属性值的自动校验
+* 模式迁移
+* 应用 controller 层的集成使得与 UI 的同步异常简单 － NSFetchedResultsController
+* 全面支持 KVC 和 KVO
+* 在内存和 UI 中分组、过滤和组织数据
+* 自动存储到外部文件中
+* 多样的查询方法
+* merge 政策 － 版本跟踪与优化的锁定来支持并发冲突
+
+由于支持这么多的功能，通过使用 Core Data 能够几乎比不使用减少 50% 到 75% 的代码。不仅如此，Core Data 的代码质量是得到绝对保证的，性能、安全性与错误处理、内存优化都是经过改善了的。 在 Xcode 中还提供了可视化的模型编辑工具支持。
+
+然而，Core Data 并不是一套关系型数据库，或者数据库管理系统， 尽管Core Data 支持通过 SQLite 来作为永久存储的方案。在我看来，Core Data 是超级框架，它可以通过数据库来存储数据，也可以只是将数据保存在内存当中。
+
+<!-- more -->
+
+### Core Data 的基本架构
+
+*Document management using the standard Cocoa document architecture*
+
+![Document management using the standard Cocoa document architecture](/assets/CoreData/document_management_2x.png)
+
+*Document management using Core Data*
+
+![Document management using Core Data](/assets/CoreData/coredata_doc_management_2x.png)
+
+如上图所示，可以将 Core Data 分为三层。
+
+1. 最上层中，Core Data 通过一个 [**managed object context**](#ManagedObejctContext) 提供对 object 操作的大部分功能；
+2. 中间一层，通过 [**persistence stack**](#PersistentStoreCoordinator) 连作为 context 与外部存储的媒介；
+3. 最底层，[**persistent object stores**](#PersistentStores)， 不管是普通文件还是 SQLite 存储。
+
+
+### Managed Object Model
+<span id="ManagedObejctModel"></span>
+
+为了方便理解，我先从模型入手讲，因为大家都有学习过关系型数据库相关的知识。*Managed Object Model* 就是我们所了解的关系数据的模型，我们很容易将它们联系起来。当我们打开 Xcode 中的某个项目的时候，添加一个 data model 类型的文件后，点击这个文件就可以看到我们熟悉的界面。让我们将它们与数据库对应起来。
+
+* **Entity**（实体），可以看作是数据库的一张表吧
+* **Attribute**（属性）， Core Data 中原生支持一些数据类型，都可以从 Xcode 的模型编辑中看到。有一点值得提的是，数据库中的 NULL 与 Objective-C 中的 nil, 0, @"" 都是不相等的。
+* **Relationships**（关系）， 可以很容易理解为不同实体之间的关系，一般情况下都是双向的（如 a 是 b 的偶像，那么 b 是 a 的粉丝； a 属于 b， 那么 b 包含 a），可以使 one-to-one, 或者 one-to-many, 或者 many-to-many。
+
+#### 任何对模型中模式的修改都会造成 与之前的版本不兼容的错误
+
+原因是模型定义了数据存入外部文件的结构，一旦修改，那么之前版本的文件都会无法打开而造成不兼容的错误。所以一开始设计模型的时候可能就要考虑得多些了，然而还是很可能会有考虑不周的地方，在添加新功能的时候必须要修改模型，那么需要做到以下几点：
+
+1. 给模型定义版本号，如果之前的没有，给新版本定义就可以了。
+2. 在修改模型的模式之前，先创建一个新版本的模型。
+3. 修改当前版本的模型，而不动之前的版本。
+4. (Optional) 在应用确定不会修改当前版本模型的时候，将模型文件锁定，改为只读。
+
+#### 在运行时访问数据模型
+
+在运行时，你可能需要访问模型中的实体，fetch request template 等，可以通过以下方法获取到一个 *NSManagedObjectModel* 的实例。
+
+```objc
+[[<#A managed object context#> persistentStoreCoordinator] managedObjectModel];
+
+//or
+
+[[<#A managed object#> entity] managedObjectModel];
+```
+
+### Managed Object
+<span id="ManagedObejct"></span>
+
+**Managed Object** 可以理解为是某个实体在执行时的表现（也就是要关联一个 *NSEntityDescription*），它可以是 *NSManagedObject* 类的实例，或者是 *NSManagedObject* 子类的实例。同时这个 Managed Object 必须是被某个 managed object context 管理着的，来表现某条存储的记录。在一个 context 中，每条存储的记录只能有一个相应的 managed object.
+
+#### 自定义 managed object 类
+
+*NSManagedObject* 定制了 *NSObject* 的许多特性来使其更合适地集成到 Core Data 的基础框架中。Core Data 会依赖以下 *NSManagedObject* 方法的实现，包括 *primitiveValueForKey:, setPrimitiveValue:forKey:, isEqual:, hash, superclass, class, self, zone, isProxy, isKindOfClass:, isMemberOfClass:, conformsToProtocol:, respondsToSelector:, managedObjectContext, entity, objectID, isInserted, isUpdated, isDeleted,* 和 *isFault*。 上述这些方法都是不应该被重写的，还有 description 方法及 key-value coding 的方法。
+
+以下方法则是在调用的时候最好先调用父类的相应方法，包括 *awakeFromInsert, awakeFromFetch, validateForUpdate:.* 等。
+
+Core Data 会动态地为属性和关系生成高效的 public 和 primitive 的 get 和 set 访问方法。因此，通常状况下你并不需要自己来写这些访问方法。
+
+```objc
+@interface MyManagedObject : NSManagedObject
+
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSDate *date;
+@end
+
+
+@implementation MyManagedObject
+@dynamic title;
+@dynamic date;
+@end
+```
+
+#### managed obejcts 的生命周期
+
+managed obejcts 的生命周期都是由 Core Data 负责的，当它被创建时，它会被初始化以 Entity 的默认值。有时候，可能 Xcode 的模型编辑器中提供的默认值可能并能满足你的需求，如当前时间等。这时候，可以通过重写 *initWithEntity:insertIntoManagedObjectContext:*, *awakeFromInsert*, 或者 *awakeFromFetch* 来实现，而非是 init 方法。而通常情况下，最好不要重写 *initWithEntity:insertIntoManagedObjectContext:* 方法，如果重写可能会造成 undo 和 redo 的集成错误。
+
+* **awakeFromInsert**。这个方法只会在 object 第一次被创建的时候调用。 *awakeFromInsert* 会在 *initWithEntity:insertIntoManagedObjectContext:* 或者 *insertNewObjectForEntityForName:inManagedObjectContext:* 之后立马被调用。因此可以在这里给某些属性设置默认的初始化值。
+
+* **awakeFromFetch** 则是在 object 被从永久存储中提取出来的时候会被调用。可以通过重写这个方法来临时值和其它的缓存。在`awakeFromFetch` 中修改object 的值是被明令禁止的。同时，由于object 的关系可能还没有传递到这个object 上，因此访问其关系变量也是不推荐的。
+
+### Managed Object Context
+<span id="ManagedObejctContext"></span>
+
+你可以把 Managed Object Context 看作是一个智能的画板，当你需要某样东西时，就从 persistent store 里将它拿到这个 context 中，然后对它进行操作，而不需要时，就将它放回去。
+
+### Fetch Request
+<span id="FetchRequest"></span>
+
+当需要从 Managed Object Context 检取某些 obejcts 时，你需要创建一个 **fetch request**。一个 fetch request 包含三个部分。 其中，你必须定义所要检索的实体的名称（每次只能有一种实体），同时，它可能包含一些约束条件和排序描述。
+
+### Persistent Store Coordinator
+<span id="PersistentStoreCoordinator"></span>
+
+使用 FACADE 设计模式，将其上面的 context 与 下层的 Persistent Stores 分离。
+关于FACADE 模式可以参考 [Source making](https://sourcemaking.com/design_patterns/facade) 的介绍。
+
+### Persistent Stores
+<span id="PersistentStores"></span>
+
+也就是外部存储的文件了。
+
+### 并发操作
+
+使用Core Data 做并行开发的时候，最为推荐的模式是使用 *线程封闭*: 每一个线程都必须有一个完整独立的管理对象上下文.
+
+有两种方法来实行这个模式：
+
+1. 为每个线程创建一个分离的managed object context， 但是共享同一个persistent store coordinator。这也是通常被使用的方法。
+2. 为每个线程创建一个独立的managed object 和不同的 persistent store coordinator. 这种方案虽然能够获得更加不错的并发性能，但是却增加了复杂性（尤其是不同contexts 之间的交流中）和内存占用。
+
+由于使用线程封闭, 你是不应该在线程之间传递managed objects 和 managed object contexts 的. 但是有别的方法能够达到这个“传递”的目的：
+
+* 传递 object ID (objectID)， 然后在目标线程中使用 `objectWithID:` 或者 `existingObjectWithID:error:` 来获得相应的对象。
+* 在传递一个新添加的managed object 的id 给另一个context 之前，当前的context 必须已经保存了这个新的纪录。
+* 在目标的content 中执行一次 fetch 操作。
+
+## 总结
+Core Data 确实强大，然后只能用于Apple 的平台成为了其最大的缺陷。当需要做跨平台的数据同步时，直接操作sqlite 的方式会是更优的选择。而另一边，更加简单的[Realm](http://realm.io/) 正在占领着越来越多的移动市场。
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/js/others/coredata.js"></script>

@@ -1,0 +1,140 @@
+---
+layout: post
+title: "初试 swift"
+category: swift
+tags: swift javascript
+---
+
+
+翻了翻 *The Swift Programming Language*，只能说*这对JavaScript 开发人员来说真是熟悉呀*。
+
+1. ### Hello world 语句
+	```swift
+	println("Hello world!")
+	```
+	swift 的函数又回到了C 风格了，看起来舒服多了。语句结束并不需要用封号来标识，只是没有像js 那样的`"use strict";`语句来强制为 *strict mode*，因为这本来就没有必要。
+
+2. ### 变量声明
+	变量使用 var 来声明，常量则使用let 来声明。
+
+	```swift
+	var firstString = "Hello ";
+	let secondString = "world!";
+	firstString += secondString;
+	```
+
+	在上面示例中变量类型会由编译器自行判断。但是当声明语句中没有初始化时，则需要在变量后面声明类型，用冒号分割，当然，在有初始化时，也可以显示地在后面加上声明类型。
+
+	```swift
+	var firstString:String
+	let secondString:String = "world!";
+	```
+
+	数组与字典的声明:
+
+	```swift
+	var bookList = []
+	var authorBooks = [:]
+	```
+
+3. ### == 与 ===
+	是的，swift 中也引入了`===`这一条件判断操作符号。
+	但是这两个操作符的意义与JS 还是有些不一样的。`==`可以用于基本类型和对象中，在对象中，表示两个对象的内容相同。而`===`用来判断两个变量是不是指向同一个对象。在*NSObject*中，`==`调用的其实是`isEqual:`方法，如果要达到判断内容相等的目的，则需要重写这个方法。
+
+4. ### 函数
+	这让JS 的使用者也熟悉万分了。首先由`func`来声明，与function 差不多嘛，但是使用->来指定函数的返回值。
+
+	```swift
+	func greet(isMale: Bool, lastName: String) -> String {
+		reuturn isMale? "Hello, Mr. \(lastName)" : "Hello, Ms. \(lastName)"
+	}
+	```
+
+	更为相似的一点是，函数就像变量一样，可以在函数体内声明，当作参数和返回值来使用，如
+
+	```swift
+	func meetSomeBody {
+		func greet(isMale: Bool, lastName: String, #say: () -> ()) -> String {
+			log(isMale? "Hello, Mr. \(lastName)" : "Hello, Ms. \(lastName)")
+		}
+
+		func say(str: String) {
+			println(str)
+		}
+
+		greet(true, "Ree", log)
+		doSomeOthers()
+	}
+	```
+
+<!-- more -->
+
+5. ### 闭包
+	swift 中的闭包(closure)与Javascript 中的callback 也是极其相似的。不过closure 还集成了lambda 表达式的功能，可谓更加强大。
+
+	```swift
+	func log(txt: String, #resolve: () -> (), #reject: () -> ()) {
+		var delta: Int64 = 1 * Int64(NSEC_PER_SEC)
+		var time = dispatch_time(DISPATCH_TIME_NOW, delta)
+
+		dispatch_after(time, dispatch_get_main_queue(), {
+			println("closures are " + txt)
+			resolve()
+		});
+	}
+
+	func resolve() {
+		println("and done")
+	}
+
+	log("not the same as JS closures",
+		resolve: {
+			println("and done")
+		},
+		reject: {
+			// handle errors
+		})
+	```
+
+5. ### 类，
+	在Javascript 中，我们很习惯用使用prototype 来定义类的实例变量和方法。而在swift 中，类的变量与函数的声明更加简单，直接在类里面声明就可以了，这些变量和放大的上下文是就是这个类。
+
+	```swift
+	class Person {
+	  var name: String
+
+	  init(name: String) {
+	    self.name = name
+	  }
+
+	  func speak() -> String {
+	    return "Hey there, my name is \(self.name)"
+	  }
+	}
+
+	var me = Person(name: "Reeonce")
+	me.speak()
+	// Hey there, my name is Reeonce
+	```
+
+
+swift 还有很多是与Javascript 并不一样的东西。
+
+1. ### 控制流
+	```swift
+	let scores = [60, 70, 58, 90];
+	for score in scores {
+		if score < 60 {
+			println("hehe")
+		}
+	}
+	```
+
+	swift 真是简洁得可以， for, if, while 等后面的条件判断和循环语句连括号都可以省。。但是条件判断语句必须是布尔表达式，像 `if score {}` 这种是会让编译器报错的。
+
+2. ### 枚举，结构体
+	这两者里面也可以加入包含函数了，不仅如此，它们还能够继承到接口当中，简直神奇。
+
+3. ### 选择类型
+
+	选择类型是用于定义可以为空的对象的，即 `var woody: Toy?`，表示有一个是选择类型的变量woody, 你可能有这个玩具，那么它是一个Toy 对象，如果没有，那么它是nil. 这使得swift 的类型更加安全，减少了空指针引用导致奔溃的问题，只是在写代码时会比较容易混淆。

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>480</y>
+      <w>40</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>customelement=
+drawRectangleRound(0,0,40,70,5)fg=white lw=1 lt=-
+drawRectangle(3,5,34,50)fg=white bg=black lw=0 lt=-
+drawCircle(20,62,4) bg=white transparency=0 lw=1 fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>260</x>
+      <y>60</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>     
+     Signaling
+       Server
+customelement=
+drawArc(25,0,60,60,30,130,true) bg=white fg=black
+drawArc(0,20,40,40,70,170,true) bg=white fg=black
+drawArc(65,16,40,40,280,180,true) bg=white fg=black
+drawLine(10,56,width * 0.8,height * (1-0.07))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>400</x>
+      <y>60</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>     
+       STUN
+       Server
+customelement=
+drawArc(25,0,60,60,30,130,true) bg=white fg=black
+drawArc(0,20,40,40,70,170,true) bg=white fg=black
+drawArc(65,16,40,40,280,180,true) bg=white fg=black
+drawLine(10,56,width * 0.8,height * (1-0.07))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>520</x>
+      <y>60</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>     
+       TURN
+       Server
+customelement=
+drawArc(25,0,60,60,30,130,true) bg=white fg=black
+drawArc(0,20,40,40,70,170,true) bg=white fg=black
+drawArc(65,16,40,40,280,180,true) bg=white fg=black
+drawLine(10,56,width * 0.8,height * (1-0.07))</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>500</y>
+      <w>40</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>customelement=
+drawRectangleRound(0,0,40,70,5)fg=white lw=1 lt=-
+drawRectangle(3,5,34,50)fg=white bg=black lw=0 lt=-
+drawCircle(20,62,4) bg=white transparency=0 lw=1 fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>250</x>
+      <y>330</y>
+      <w>150</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Router
+customelement=
+drawRectangle(0,20,width,height-20)fg=white bg=gray lw=0 lt=-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>710</x>
+      <y>230</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Router
+customelement=
+drawRectangle(0,20,width,height-20)fg=white bg=gray lw=0 lt=-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>110</y>
+      <w>190</w>
+      <h>390</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+TCP Connection</panel_attributes>
+    <additional_attributes>100.0;10.0;30.0;170.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>100</y>
+      <w>490</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+TCP Connection</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;400.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>100</y>
+      <w>300</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+STUN Binding Request</panel_attributes>
+    <additional_attributes>200.0;10.0;60.0;250.0;10.0;380.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>100</y>
+      <w>370</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+STUN Binding Request</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;160.0;350.0;400.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>110</y>
+      <w>490</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+STUN Binding Response</panel_attributes>
+    <additional_attributes>350.0;390.0;270.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>500</y>
+      <w>610</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ICE to establishing P2P connection</panel_attributes>
+    <additional_attributes>590.0;30.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>270</y>
+      <w>70</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Internet
+  NAT
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>40</x>
+      <y>500</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Mobile Client
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>80</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Cloud
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>110</y>
+      <w>270</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+STUN Binding Response</panel_attributes>
+    <additional_attributes>10.0;400.0;170.0;240.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>170</x>
+      <y>560</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Client A
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>790</x>
+      <y>590</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Client B
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

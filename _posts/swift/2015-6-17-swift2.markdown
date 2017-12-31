@@ -1,0 +1,161 @@
+---
+layout: post
+title: Swift 2
+category: swift
+tags: swift
+---
+
+Swift 诞生一年，苹果的WWDC15 上这个语言再度成为焦点－**开源**，**Swift 2.0**。在这片文章中，我会先介绍Swift 2.0 的新特性，然后也谈谈对此次开源的看法。
+
+### try/catch
+
+这是一个在其它语言都很普遍的功能，然而Swift 和OC 一直都没有这个功能－至少到目前为止它是不存在的。我在这儿并不想去参与到`try/catch` 是否有价值的争辩当中（虽然这个话题确实会像*哪门语言最好*一样引发战争），我只是告诉你在安装完Xcode7 后怎么使用这个新特性。
+
+Swift 中需要通过实现`ErrorType` 协议的枚举类型来表示异常，这个与大部分使用继承于基础异常类的语言是不一样的。这样做有一个好处就是能确保全面地捕获异常，就像是使用`switch` 一样。你可以这样定义一个异常列表：
+
+```swift
+enum MyError: ErrorType {
+    case LocationError
+    case NetworkError
+    case UserError
+}
+```
+
+定义了所有你想要捕获的异常错误之后，你需要使用到另三个关键字`throws`, `try`, `catch`:
+
+```swift
+func uploadMyLocation() throws -> CLLocation? {
+    if let location = getLocation() {
+        upload(location)
+        throw MyError.NetworkError
+
+        return location
+    } else {
+        throw MyError.LocationError
+
+        return nil
+    }
+}
+
+do {
+    try uploadMyLocation()
+    print("Success")
+} catch MyError.LocationError {
+    print("A location error occurred")
+} catch MyError.NetworkError {
+    print("A network error occurred")
+} catch {
+    print("An error occurred")
+}
+```
+
+在这上面的事例中，*Success* 将永远不会得到打印的机会，因为一旦`try` 方法中抛出了异常，执行流将中断并跳转到`catch` 块。
+
+<!-- more -->
+### 自动合成header
+这是一个很小的改动，但是相信我－它一定会很受欢迎。实际的效果你可以通过打开Xcode 7中，*Navigate > Generated Interface* 进行查看。
+
+在Objective-C 的头文件中，列出了暴露给外面的接口－这可以算是对这个类可用方法和属性的一个汇总。而Swift 是没有头文件的，所有的代码都放在一个 *.swift* 的文件中，使省去了更新头文件的烦恼。同时，你使用 `public/private` 来标记哪些方法是该暴露给外面的世界的。然而，由于少了头文件，你很难在一个上千行代码的文件中一眼就看出哪些方法是外部可用的，而具体去深挖这么大一个文件是多么令人不愉快的一件事。
+
+Apple 的解决方式很简单：Xcode 现在能够通过扫描代码来生成一个虚拟头文件，这里面只包含了`public` 的接口汇总，就像我们查看到的Apple 自己的Swift 文件一样。
+
+### `guard` 关键字
+
+我们经常会在某些方法的开头对一些数据进行检测，判断是否满足条件使操作继续。比如，当提交按钮被点击后，可能想要判断用户是否输入了用户名，为了达到这个目的，可以使用`guard` 关键字来实现：
+
+```swift
+func submitTapped() {
+    guard let userName = userNameLabel.text where userName.characters.count > 0 else {
+        return
+    }
+
+    print("Your username is \(userName)")
+}
+```
+
+可以看到，`guard` 和if 是非常相似的。但是，`guard` 使你的意图非常明确：如果条件不满足，执行就不应该继续。因此，这样的代码也是更加可读并且简洁的。
+
+另外，使用`guard` 进行对选择类型开包的变量可以在接下去的语句块中使用，这在使用if 时是不可以的。
+
+### 计算String 长度的方法再度变了
+
+如果你刚才看到`userNameLabel.text.characters.count` 而感到陌生，不要以为自己记忆不好，因为Apple 再度改变了计算String 长度的方法。之前从`countElements()` 到`count()`, 现在他们又都不可以用了（事实上如果你使用`count()` 来计算一个string 的长度，Xcode 将会报错）。取而代之的是，你应该访问String 的`characters` 属性，并且调用它的`count` 来获取到最终的长度。至少你要这样使用直到Apple 再度改变他的主意。
+
+### `defer` 关键字
+
+有一些语言有`try/finally` 的概念，表示*不管发生什么，我希望最后的代码得到执行。* Swift 引入了自己的方式来满足这个需求－`defer`。`defer` 在实践过程中，这项工作将在方法结束前发生，而且不管发生了什么，即使是抛出了异常，它也会得到执行。如下：
+
+```swift
+func test() {
+    print("Checkpoint 1")
+
+    do {
+        try doStuff()
+    } catch {
+        print("Error!")
+    }
+
+    print("Checkpoint 4")
+}
+
+func doStuff() throws {
+    print("Checkpoint 2")
+    defer { print("Do clean up here") }
+    throw MyError.UserError
+    print("Checkpoint 3")
+}
+
+test()
+```
+
+执行以后，你将会看到"Checkpoint 1", "Checkpoint 2", "Checkpoint 3", "Do clean up here", 最后是 "Checkpoint 4"。
+
+### 检测API 的可用性
+
+iOS 开发者经常需要面对的一个问题是对iOS 各版本的兼容。比如在iOS 9 中提出了`UIStackView`，如果你在iOS 8 中使用，那么它将会奔溃，尽管Xcode 并没有报任何错误。那么，在以前的时候，你可能会使用OC 的
+
+```Objective-C
+NSClassFromString(@"UIAlertController") != nil
+```
+
+或者是Swift Class 的某些方法来判断：
+
+```swift
+locationManager.respondsToSelector("requestAlwaysAuthorization")
+```
+
+亦或者通过判断系统版本来针对使用不同的功能：
+
+```swift
+if NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 {
+    UIAlertController()
+} else {
+    UIAlertView()
+}
+```
+
+虽然这些能够工作，但是Xcode 并不知道我们要做什么，它不能给出什么提示，如果我们把上面的UIAlertController 和 UIAlertView 对掉了，同样能够编译通过。在Xcode 7 中，你可以通过以下方式来实现：
+
+```swift
+if #available(iOS 9, *) {
+    // do cool iOS 9 stuff
+    let stackView = UIStackView()
+} else {
+    // this will fail to build
+    let stackView = UIStackView()
+}
+```
+
+`#available` 将判断当前的环境是不是iOS 9 以上，如果是，则运行if 里面的代码。
+
+### 其它
+
+此次更新还包括了其他不少内容，包括可以使用markdown 格式的注释，对未修改却使用var 申明的变量提出警告，对语言性能的很大提升等。
+
+### 开源
+
+如果看了WWDC15 keynote 视频的话，全场最为振奋人心的也就数Craig Federighi 宣布的 *Swift will be open source and made available for Linux later this year.*
+
+对于开发者来说，这绝对是个好消息，想着“以后我将会是一名*Swift 全栈工程师*”。再也不用去唠叨那个总是拖慢项目进度、接口一塌糊涂的后端了，直接向老板说一句*给我加点钱，后端的工作我也干了。* 因此，Swift 是否能成为下一个JavaScript 是很是令人期待的一件事。
+
+同时，native vs web 之争还在如火如荼地进行当中，很显然，Apple 是倾向于native app 的，“Safari 的新IE 角色” 和 "开源Swift" 是Apple 在这场战争中的两个重要战术。为了不流失iOS 开发者，他们选择了让web 慢下来，而另一方面他们让Swift 更加开放和跨平台化，如果*Swift 全栈工程师* 印满各大招聘网站，开发者只会越加地拥护这个生态圈

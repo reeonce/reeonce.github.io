@@ -1,0 +1,37 @@
+---
+layout: post
+title: Apple Pay 中的玄机
+category: ios
+tags: [ios, 安全]
+---
+
+### 传统的银行卡
+
+#### 磁卡
+
+#### 芯片卡
+
+### Apple Pay
+
+apple pay 刷卡流程:
+
+- 手机靠近带有nfc 功能的POS 机（第一次刷NFC）；
+- 用户通过指纹识别授权手机应用支付
+- 手机中的SE 将token 和密文传给商家（第二次刷NFC）；
+- 商家把token 和密文传给银行卡网络（比如银联、VISA），
+- 银行卡网络授权这个token 和密文并转发给发卡银行，发卡银行进行解密成银行卡号，并且授权这次交易；
+- 如需密码，用户需要在这个时候输入密码；
+- 发卡银行从用户账户中扣钱，并返回给商家的合作银行交易成功的记录。
+
+#### secure element
+
+存储银行卡的信息，生成支付交易时使用的一次性密文。
+
+当用户添加一张银行卡的时候，银行卡网络服务商会发送一个token 和一个密文给SE。这个token 是一个与银行卡帐号并不相关的数字。
+
+#### Tokenization
+
+#### NFC
+https://developer.android.com/guide/topics/connectivity/nfc/nfc.html
+
+#### TouchID

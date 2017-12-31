@@ -1,0 +1,243 @@
+@import "global";
+
+.wrap {
+  max-width: 960px;
+}
+
+.page-content {
+  position: relative;
+}
+
+#timeline {
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+}
+
+.slideshow {
+  height: 400px;
+  overflow: hidden;
+
+  @media print {
+      height: auto;
+      overflow: auto;
+  }
+}
+
+.jsenabled .slideshow {
+  position: relative;
+}
+
+.jsenabled .slideshow-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 10000px;
+
+  @media print {
+    position: static;
+    height: auto;
+  }
+}
+
+#career-timelime {
+  left: 0px;
+  height: 0;
+
+  @media print {
+    display: none;
+  }
+}
+
+.slideshow-item, #timeline svg {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes slideOutToLeft {
+  from {left: 0px;}
+  to {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+}
+@keyframes slideOutToLeft {
+  from {left: 0px}
+  to {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+}
+@-webkit-keyframes slideOutToRight {
+  from {left: 0px}
+  to {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+}
+@keyframes slideOutToRight {
+  from {left: 0px}
+  to {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+}
+@-webkit-keyframes slideInFromLeft {
+  from {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  to {left: 0px}
+}
+@keyframes slideInFromLeft {
+  from {left: -1200px; -ms-transform: rotate(-120deg); -webkit-transform: rotate(-120deg); transform: rotate(-120deg);}
+  to {left: 0px}
+}
+@-webkit-keyframes slideInFromRight {
+  from {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  to {left: 0px}
+}
+@keyframes slideInFromRight {
+  from {left: 1200px; -ms-transform: rotate(120deg); -webkit-transform: rotate(120deg); transform: rotate(120deg);}
+  to {left: 0px}
+}
+
+.slideshow-item .back-icon {
+  height: 100%;
+  width: 10%;
+  min-width: 40px;
+  display: inline-block;
+  vertical-align: top;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+
+  @media print {
+      display: none;
+  }
+}
+
+.slideshow-item .back-icon a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ddd no-repeat url("/assets/back-icon.png") top left;
+  background-size: 100% 100%;
+
+  @media print {
+      display: none;
+  }
+}
+
+.slideshow-item .content {
+  width: 84%;
+  max-width: 800px;
+  margin: 60px 0px;
+  font-size: 16px;
+  display: inline-block;
+  height: 280px;
+  overflow: scroll;
+
+  @media print {
+      height: auto;
+      margin: 0;
+      width: 100%;
+      max-width: none;
+
+      > ul {
+          margin-bottom: 0.5rem;
+      }
+  }
+}
+
+svg {
+  font-size: 10px;
+}
+g {
+  overflow: visible;
+}
+text {
+  z-index: 20;
+}
+rect.pane {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+#welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #666;
+  z-index: 10;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+
+  @media print {
+      display: none;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+#welcome-overlay * {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+#welcome-overlay a {
+  color: black;
+  display: block;
+  top: 45%;
+}
+
+#welcome-alert {
+  top: 70%;
+  color: Red;
+}
+
+#lang-selector {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  @media print {
+      display: none;
+  }
+}
+
+#lang-selector a {
+  border: 1px solid $primary-color;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#lang-selector a:hover {
+  color: lighten($second-background-color, 30%);
+  background-color: $primary-color;
+}
+
+#contact-me {
+    display: none;
+
+    @media print {
+        display: block;
+    }
+}
+
+@media print {
+  p {
+      margin-bottom: 0.5rem;
+  }
+}

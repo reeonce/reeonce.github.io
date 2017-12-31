@@ -1,0 +1,41 @@
+@import "foundation/components/global";
+@import "settings";
+
+.post-content {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+
+  .home {
+      margin: 0;
+
+      .pagination {
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }
+  }
+}
+
+#all-posts {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  &> li {
+    ul {
+      margin-bottom: 1.25rem;
+    }
+
+    width: 100%;
+    &:nth-child(odd) {
+      background-color: $second-background-color;
+    }
+
+    .category-frame {
+        margin: 0 auto;
+        font-size: 90%;
+        padding: 12px;
+        border-radius: 2px;
+        max-width: $content-max-width;
+    }
+  }
+}

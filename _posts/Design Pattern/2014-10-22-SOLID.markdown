@@ -1,0 +1,191 @@
+---
+layout: post
+title: First Five Principles in OOP - SOLID
+category: "Design Pattern"
+tags: [OOP, SOLID]
+date: 2015-08-19 08:40:00 +8
+---
+
+#### S.O.L.I.D principles
+
+Object Oriented Programming or Functional Programming? People have been debating this for a long time, and will continue for decades. I will not argue for either of them in this post. Just sharing what I have learned.
+
+Having written code with Objective-C and Swift for sometimes, I find that OOP is not so much easy. How to make the codes clear? How to make them more reusable? How to make them easier to maintain? Then I search `oop Best Practice` with [DDG](https://duckduckgo.com/?q=oop+best+practices).
+
+Among the top results, we can see [SOLID]('https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)'). It says:
+
+> In computer programming, SOLID (Single responsibility, Open-closed, Liskov substitution, Interface segregation and Dependency inversion) is a mnemonic acronym introduced by Michael Feathers for the "first five principles" named by Robert C. Martin in the early 2000s that stands for five basic principles of object-oriented programming and design.
+
+Yes, this really is what I want! After searching more, there are something more interesting.
+
+![SOLID](/assets/solid/SOLID_6EC97F9C.jpg)
+
+> Note: All motivator images are created by [Derick Baley](https://lostechies.com/derickbailey/2009/02/11/solid-development-principles-in-motivational-pictures/).
+
+So here let's talk about them one by one:
+
+#### Single responsibility principle
+
+> Every class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility.
+
+![SRP](/assets/solid/SingleResponsibilityPrinciple2_71060858.jpg)
+
+As an example, consider a Map class that draws the city and navigates in the city. Such a class can be changed for two reasons. First, the view of the map can change, you need to change the draw function. Second, the routes of the map can change. These two things change for very different causes. The single responsibility principle says that these two aspects of the problem are really two separate responsibilities, and should therefore be in separate classes or modules. It would be a bad design to couple two things that change for different reasons at different times.
+
+```Swift
+class Map {
+    func draw() {
+        // do your draw job here
+    }
+
+    func navigate(from: Location, to: Location) {
+        // search in roads
+    }
+}
+```
+
+So, here you should separate the draw job and the navigate job, the code above should be changed to:
+
+```Swift
+class MapView {
+    func draw() {
+        //
+    }
+}
+
+class Navigator {
+    func navigate(from: Location, to: Location) {
+        // search routes
+    }
+}
+```
+
+<!-- more -->
+
+#### Open/closed principle
+
+> software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+
+![open/closed prinple](/assets/solid/OpenClosedPrinciple2_2C596E17.jpg)
+
+An entity can allow its behavior to be extended without modifying its source code. This is especially valuable in a production environment, where changes to source code may necessitate code reviews, unit tests, and other such procedures to qualify it for use in a product: code obeying the principle doesn't change when it is extended, and therefore needs no such effort.
+
+Here is still a map:
+
+```Swift
+class MapView {
+    var annotations = [Annotation]()
+
+    func draw() {
+        for annotation in annotations { drawAnnotation(annotation) }
+    }
+
+    func drawAnnotation(annotation: Annotation) { }
+}
+```
+
+In the MapView class, you have some annotations, like POIs, and you can draw them to the screen. Then the PM says the map should have roads, you and a `polyLines` property in MapView and update the draw function and the unit test. Two days later, The PM tell you the map should have regions, the you add some more codes in MapView and run test. Oh! It fails!! So you try a new solution.
+
+```Swift
+protocol IAnnotation {
+    func draw()
+}
+
+class Annotation: IAnnotation {
+    func draw()
+}
+
+class PolyLine: IAnnotation {
+    func draw()
+}
+
+class MapView {
+    var annotations: [IAnnotation]
+
+    func draw() {
+        for annotation in annotations {
+            annotation.draw()
+        }
+    }
+}
+```
+
+Problem solved. You open the draw function for any Element adopt to IAnnotation.
+
+#### Liskov substitution principle
+
+> In a computer program, if S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed, etc.)
+
+![liskov substitution principle](/assets/solid/LiskovSubtitutionPrinciple_52BB5162.jpg)
+
+You think `PolyLine` may be a subclass of `Annotation`:
+
+```Swift
+class Annotation: IAnnotation {
+    var position: Location
+
+    func draw() {
+        // draw a point of view
+    }
+}
+
+class PolyLine: Annotation {
+    var lines: [Line]
+
+    func draw() {
+        // draw the lines
+    }
+}
+```
+
+Then, you replace all Annotation with PolyLine, you get a mess map or no annotations on the map. You find you are wrong, PolyLine is not a `Annotation` type.
+
+#### Interface segregation principle
+
+> No client should be forced to depend on methods it does not use.
+
+![interface segregation principle](/assets/solid/InterfaceSegregationPrinciple_60216468.jpg)
+
+ISP splits interfaces which are very large into smaller and more specific ones so that clients will only have to know about the methods that are of interest to them.
+
+        If you make the `IAnnotation` like this:
+
+```Swift
+protocol IAnnotation {
+    func draw()
+
+    func like()
+
+    fucn comment()
+}
+```
+
+When you write the Annotation class, you will be confused, what like and comment is?
+
+```Swift
+protocol IAnnotation {
+    func draw()
+}
+
+protocol ISocialElement {
+    func like()
+
+    fucn comment()
+}
+```
+
+#### Dependency inversion principle
+
+> One should “Depend upon Abstractions. Do not depend upon concretions.” The principle states:
+
+> A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+> B. Abstractions should not depend on details. Details should depend on abstractions.
+
+![dependency inversion principle](/assets/solid/DependencyInversionPrinciple_0278F9E2.jpg)
+
+When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are inverted (i.e. reversed), thus rendering high-level modules independent of the low-level module implementation details.
+
+The principle inverts the way some people may think about object-oriented design, dictating that both high- and low-level objects must depend on the same abstraction.
+
+For example, the `MapView` should not depend on the `Annotation` and `PolyLine` classes, it should depend on the `IAnnotation` protocol;

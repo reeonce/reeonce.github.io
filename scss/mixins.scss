@@ -1,0 +1,8 @@
+@mixin vertical-align($align: center) {
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: inline-flex;
+    display: -ms-inline-flexbox;
+
+    align-items: $align;
+}

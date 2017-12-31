@@ -1,0 +1,39 @@
+---
+layout: post
+title: MEMENTO 的多处应用
+category: Design Pattern
+tags: [MEMENTO, Objective-C, 设计模式, Design Pattern]
+---
+
+The Memento pattern captures and externalizes an object’s internal state—without violating encapsulation—so that the object can be restored to this state later. The Memento pattern keeps the important state of a key object external from that object to maintain cohesion.
+
+Archiving
+
+Archiving converts the objects in a program, along with those objects’ properties (attributes and relationships) into an archive that can be stored in the file system or transmitted between processes or across a network. The archive captures the object graph of a program as an architecture-independent stream of bytes that preserves the identity of the objects and the relationships among them. Because an object’s type is stored along with its data, an object decoded from a stream of bytes is normally instantiated using the same class of the object that was originally encoded.
+
+Uses and Limitations
+Generally, you want to archive those objects in your program whose state you want to preserve. Model objects almost always fall into this category. You write an object to an archive by encoding it, and you read that object from an archive by decoding it. Encoding and decoding are operations that you perform using an NSCoder object, preferably using the keyed archiving technique (requiring you to invoke methods of the NSKeyedArchiver and NSKeyedUnarchiver classes). The object being encoded and decoded must conform to the NSCoding protocol; the methods of this protocol are invoked during archiving.
+
+Further Reading: See Archives and Serializations Programming Guide for further information about archiving.
+Property List Serialization
+
+A property list is a simple, structured serialization of an object graph that uses only objects of the following classes: NSDictionary, NSArray, NSString, NSData, NSDate, and NSNumber. These objects are commonly referred to as property list objects. Several Cocoa framework classes offer methods to serialize these property list objects and define special formats for the data stream recording the contents of the objects and their hierarchical relationship. The NSPropertyListSerialization class provides class methods that serialize property list objects to and from an XML format or an optimized binary format.
+
+<!-- more -->
+
+Uses and Limitations
+If the objects in an object graph are simple, property list serialization is a flexible, portable, and adequate means to capture and externalize an object and its state. However, this form of serialization has its limitations. It does not preserve the full class identity of objects, only the general kind (array, dictionary, string, and so on). Thus an object restored from a property list might be of a different class than its original class. This is especially an issue when the mutability of an object can vary. Property list serialization also doesn’t keep track of objects that are referenced multiple times in an object, potentially resulting in multiple instances upon deserialization that was a single instance in the original object graph.
+
+Further Reading: See Archives and Serializations Programming Guide for further information on property list serialization.
+Core Data
+
+Core Data is a Cocoa framework that defines an architecture for managing object graphs and making them persistent. It is this second capability—object persistence—that makes Core Data an adaptation of the Memento pattern.
+
+In the Core Data architecture, a central object called the managed object context manages the various model objects in an application's object graph. Below the managed object context is the persistence stack for that object graph—a collection of framework objects that mediate between the model objects and external data stores, such as XML files or relational databases. The persistence-stack objects map between data in the store and corresponding objects in the managed data context and, when there are multiple data stores, present them to the managed object context as a single aggregate store.
+
+The design of Core Data is also heavily influenced by the Model-View-Controller and object modeling patterns.
+
+Uses and Limitations
+Core Data is particularly useful in the development of enterprise applications where complex graphs of model objects must be defined, managed, and transparently archived and unarchived to and from data stores. The Xcode development environment includes project templates and design tools that reduce the programming effort required to create the two general types of Core Data applications, those that are document-based and those that are not document-based. The Interface Builder application also includes configurable Core Data framework objects in its library.
+
+Further Reading: To learn more about Core Data, read Core Data Programming Guide. The tutorials NSPersistentDocument Core Data Tutorial and Core Data Utility Tutorial step you through the basic procedure for creating document-based and non–document-based Core Data applications.

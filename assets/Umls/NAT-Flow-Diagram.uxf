@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLSequenceAllInOne</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>900</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>title=STUN Flow
+autoTick=false
+obj=STUN Client~a 
+obj=NAT~b 
+obj=STUN Server~c
+a-&gt;&gt;&gt;b : STUN Binding Request\nSource:192.168.0.12:30000;
+tick=
+b-&gt;&gt;&gt;c : STUN Binding Request\nSource:113.110.220.198:40000;
+tick=
+c-&gt;&gt;&gt;b : STUN Binding Response\nDestination:113.110.220.198:40000\nPayload:113.110.220.198:40000;
+tick=
+b-&gt;&gt;&gt;a : STUN Binding Response\nDestination:192.168.0.12:30000\nPayload:113.110.220.198:40000;on=c;
+tick=
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
