@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: 利用gitlab 搭建私有pod repo
 category: ios
 tags: [gitlab, ios, cocoapods]

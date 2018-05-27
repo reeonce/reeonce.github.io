@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: NSData 中的 FACADE
 category: Design Pattern
 tags: [FACADE, NSData, Objective-C, 设计模式, Design Pattern]

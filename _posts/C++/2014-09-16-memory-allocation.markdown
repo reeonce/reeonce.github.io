@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: Stack vs Heap
 categories: c++
 tags: c++ stack heap

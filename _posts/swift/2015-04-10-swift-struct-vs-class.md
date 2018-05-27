@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: Swift 中 struct vs class
 category: swift
 tags: struct class Swift

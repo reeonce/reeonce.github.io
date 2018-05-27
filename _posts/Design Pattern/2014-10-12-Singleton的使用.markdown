@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: SINGLETON 的使用
 category: Design Pattern
 tags: [SINGLETON, Objective-C, 设计模式, Design Pattern]

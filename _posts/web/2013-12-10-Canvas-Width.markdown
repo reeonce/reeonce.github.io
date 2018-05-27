@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: "从Canvas Width 说起 － width 属性 vs css width"
 category: Web
 tags: canvas css

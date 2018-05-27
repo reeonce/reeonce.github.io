@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: IOS Crash Reposts and Analytics
 category: ios
 tags: [iOS, CoreData]

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: View Controller 与 MEDIATOR 模式
 category: Design Pattern
 tags: [MEDIATOR, Objective-C, 设计模式, Design Pattern]

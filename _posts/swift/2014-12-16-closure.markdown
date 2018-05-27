@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: "闭包 - closure"
 category: swift
 tags: closure swift

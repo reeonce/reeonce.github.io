@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: Receptionist Pattern
 category: Design Pattern
 tags: ["设计模式", "Design Pattern", "Objective-C", "Receptionist"]

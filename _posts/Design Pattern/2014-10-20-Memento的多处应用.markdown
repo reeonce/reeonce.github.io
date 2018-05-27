@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: MEMENTO 的多处应用
 category: Design Pattern
 tags: [MEMENTO, Objective-C, 设计模式, Design Pattern]

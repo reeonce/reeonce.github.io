@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: 创建对象的工厂方法
 category: Design Pattern
 tags: ["设计模式", "Design Pattern", "Objective-C", "工厂方法"]

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: STL中基本容器的实现原理
 category: c++
 tags: [c++, stl]

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title:  "C++ Running Time Of A Function"
 categories: c++
 tags: c++ time() chrono

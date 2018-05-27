@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title:  "KVO 与观察者模式"
 category: Design Pattern
 tags: [观察者, observer, KVO, Objective-C, 设计模式, Design Pattern]

@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: DECORATOR 模式的使用
 category: Design Pattern
 tags: [DECORATOR, Delegation, Objective-C, 设计模式, Design Pattern]

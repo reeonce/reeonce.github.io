@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: Errors when setup Ruby on Rails on EC2
 category: rails
 tags: [Ruby on Rails, passenger, nginx]

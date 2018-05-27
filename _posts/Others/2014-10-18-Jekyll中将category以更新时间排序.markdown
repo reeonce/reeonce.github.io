@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: "Jekyll 中将categories 以更新时间排序"
 category: others
 tags: jekyll

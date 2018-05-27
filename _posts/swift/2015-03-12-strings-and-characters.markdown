@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: "字符串"
 category: swift
 tags: String swift

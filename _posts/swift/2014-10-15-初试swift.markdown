@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: "初试 swift"
 category: swift
 tags: swift javascript

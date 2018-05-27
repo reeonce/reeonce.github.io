@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title:  "事件响应 - CHAIN OF RESPONSIBILITY"
 category: Design Pattern
 tags: [CHAIN OF RESPONSIBILITY, 职责链, Objective-C, 设计模式, Design Pattern]

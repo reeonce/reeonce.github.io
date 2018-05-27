@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: SQLite 的主键设计
 category: Database
 tags: [Database, SQLite, AUTOINCREMENT]

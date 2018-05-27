@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: 建立Tunnel 调试MFI 程序
 category: ios
 tags: [ios, MFI, TCP, socket, 802.11]

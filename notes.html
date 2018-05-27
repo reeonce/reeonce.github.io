@@ -1,0 +1,14 @@
+---
+layout: default
+permalink: /notes/
+---
+<div class="blog">
+    <h1></h1>
+    <ul>
+        {% for post in site.notes %}
+        <li>
+            - <a href="{{ post.url }}">{{ post.url | remove_first: "/notes" }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

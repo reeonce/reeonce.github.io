@@ -7,14 +7,35 @@ baseurl: ""
 twitter_username: reeonce
 github_username:  reeonce
 
+nav_items: 
+
+- title: "Blogs"
+  path: "/"
+
+- title: "Notes"
+  path: "/notes/"
+
+- title: "Me"
+  path: "/about/"
+
+disqus:
+  shortname: reeoncesblog
+
 # Build settings
-gems: ['jekyll-paginate']
 markdown: kramdown
 kramdown:
   math_engine: mathjax
 permalink: pretty
-paginate: 5
-paginate_path: "/blog/page:num/"
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+remote_theme: reeonce/modernist.reeonce.github.io
+
+collections:
+  notes:
+    output: true
 
 exclude:
   - tags

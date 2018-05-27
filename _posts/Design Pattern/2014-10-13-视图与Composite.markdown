@@ -1,5 +1,6 @@
 ---
-layout: post
+layout: default
+comments: true
 title: 视图与 COMPOSITE
 category: Design Pattern
 tags: [COMPOSITE, view, Objective-C, 设计模式, Design Pattern]
