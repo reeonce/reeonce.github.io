@@ -1,7 +1,6 @@
 ---
 layout: default
 comments: true
-note: true
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 layout: default
 comments: true
-note: true
 ---
 
 1. 对于简单的项目，可以直接 subl xxx_path
