@@ -19,7 +19,7 @@ tags: opengl graphics
 
 ### OpenGL 中的坐标系
 
-我们在写OpenGL 的shader 的时候，实际上使用到与OpenGL 相关的3D 坐标系只有一个，那就是 Normalized device coordinates (NDCs)，也就是vertices shader 里面gl_Position 中所处的坐标系，x 轴向右，y 轴向上，左下角是(-1, -1), 右上角是(1, 1)。而最为重要的z 轴，默认情况下在glDepthRange 为[0, 1] 时，z 轴指向前方的，那么此时这是一个左手坐标系，0 表示的是near, 1 表示的是far。倘若我们通过调用 `glDepthRange(1, 0)`; 将其设置为1 表示near，0 表示 far，那么NDC 就成为一个右手坐标系了。
+我们在写OpenGL 的shader 的时候，实际上使用到与OpenGL 相关的3D 坐标系只有一个，那就是 Normalized device coordinates (NDCs)，也就是vertex shader 里面gl_Position 中所处的坐标系，x 轴向右，y 轴向上，左下角是(-1, -1), 右上角是(1, 1)。而最为重要的z 轴，默认情况下在glDepthRange 为[0, 1] 时，z 轴指向前方的，那么此时这是一个左手坐标系，0 表示的是near, 1 表示的是far。倘若我们通过调用 `glDepthRange(1, 0)`; 将其设置为1 表示near，0 表示 far，那么NDC 就成为一个右手坐标系了。
 
 
 虽然NDC 默认是左手坐标系，但是我们通常建立的模型、场景是右手坐标系的，这也是大部分3D 软件的共识。那么我们是如何在渲染过程中对这两个坐标系进行转换的呢？大部分情况下，我们并不是通过调用 `glDepthRange` 函数来对应的，而是通过著名的 model-view-projection (MVP) 矩阵。
@@ -56,7 +56,7 @@ std::cout << glm::to_string(V_ndc) << std::endl;
 
 我们在通过OpenGL 渲染第一个texture 的时候，总是会面临纹理上下颠倒的问题，原因是啥？
 
-我们一般理所当然地会把 vertices buffer 定义为:
+我们一般理所当然地会把 vertex buffer 定义为:
 ```
 const float vertices[4][4] = {
     // positions     tex_coord
@@ -89,9 +89,9 @@ const float vertices[4][4] = {
 
 这并不对应呀，y 轴是相反的!!
 
-处理的方式很多，将图片在加载时在cpu 中进行矫正，在设置vbo 的时候，将顶点与texture 坐标对应正确，或者是在vertices shader 中将uv 乘以一个旋转矩阵。
+处理的方式很多，将图片在加载时在cpu 中进行矫正，在设置vbo 的时候，将顶点与texture 坐标对应正确，或者是在vertex shader 中将uv 乘以一个旋转矩阵。
 
 
-references:
+参考:
 
 1. [Coordinate Transformations](https://www.khronos.org/opengl/wiki/Coordinate_Transformations)
