@@ -243,6 +243,8 @@ gl_FragColor = c; //consider using premultiply(c);
 ### gray scale
 
 ```glsl
+float luminance = dot(color, luminanceWeighting);
+color.rgb = vec3(luminance);
 ```
 
 ### pixellate
@@ -380,11 +382,45 @@ gl_FragColor = c; //consider using premultiply(c);
 ```glsl
 ```
 
-### gaussian
+### gaussian blur
 
 ```glsl
-```
+// @input: radius
+// @input: texelWidthOffset = texelSpacingMultiplier / texure.width
+// @input: texelHeightOffset = texelSpacingMultiplier / texure.height
 
+// vertex shader
+out vec2 blurCoordinates[2 * radius + 1];
+
+main {
+    vec2 singleStepOffset = vec2(texelWidthOffset, texelHeightOffset);
+    for i in 0...2 * radius + 1
+        blurCoordinates[i] = uv + singleStepOffset * (i - radius);
+}
+
+
+// fragment shader
+// weights[radius + 1];
+// weights[i] = (1.0 / sqrt(2.0 * M_PI * pow(sigma, 2.0))) * exp(-pow(i, 2.0) / (2.0 * pow(sigma, 2.0)))
+// weights[i] /= sum_of_weights
+
+for i in 0...2 * radius + 1
+    sum += texture(tex, blurCoordinates[i]) * weights[abs(i - radius)];
+
+
+// optimized
+// numberOfOptimizedOffsets = MIN(radius / 2 + radius % 2, 7);
+
+// vertex shader
+// out vec2 blurCoordinates[2 * numberOfOptimizedOffsets + 1];
+
+// fragment shader
+sum += texture(tex, blurCoordinates[0]) * weights[0];
+for i in 0...2 * numberOfOptimizedOffsets
+    weight = weights[i * 2 + 1] + weights[i * 2 + 2];
+    sum += texture(tex, blurCoordinates[i * 2 + 1]) * weight;
+    sum += texture(tex, blurCoordinates[i * 2 + 2]) * weight;
+```
 
 ### gaussian selective
 
