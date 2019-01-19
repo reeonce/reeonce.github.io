@@ -55,3 +55,14 @@ I-帧的编码技术与 jpeg 编码十分相似。
 ### MPEG-4 Part 10 / H.264 / AVC
 
 ### H.265 / HEVC
+
+1. Coding tree unit
+
+2. Parallel processing tools
+
+    2.1 tiles, Tiles can be independently decoded and can even allow for random access to specific regions of a picture in a video stream.
+
+3. Entropy coding, a context-adaptive binary arithmetic coding (CABAC) algorithm that is fundamentally similar to CABAC in H.264/MPEG-4 AVC.
+
+4. Intra prediction, HEVC specifies 33 directional modes for intra prediction compared with the 8 directional modes for intra prediction specified by H.264/MPEG-4 AVC.
+

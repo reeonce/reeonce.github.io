@@ -38,6 +38,48 @@ jpeg 文件由一序列的**段**组成，每一个段以一个**marker**开头�
 
 JPEG 不仅是一种文件格式，同时JFIF 还定义了 "jpeg" 压缩算法。
 
+DCT
+```c++
+float G[8][8];
+
+for (int u = 0; u < 8; ++u) {
+    for (int v = 0; v < 8; ++v) {
+        float au = u == 0 ? 1 / sqrt(2.0) : 1;
+        float av = v == 0 ? 1 / sqrt(2.0) : 1;
+
+        float s = 0.0;
+        for (int x = 0; x < 8; ++x) {
+            for (int y = 0; y < 8; ++y) {
+                s += g[x][y] * cos(((2 * x + 1) * u * M_PI) / 16.0) * cos(((2 * y + 1) * v * M_PI) / 16.0);
+            }
+        }
+        G[u][v] = s / 4 * au * av;
+    }
+}
+```
+游程编码,
+霍夫曼编码,
+
+IDCT
+```c++
+float g[8][8];
+
+for (int x = 0; x < 8; ++x) {
+    for (int y = 0; y < 8; ++y) {
+        float s = 0.0;
+
+        for (int u = 0; u < 8; ++u) {
+            for (int v = 0; v < 8; ++v) {
+                float au = u == 0 ? 1 / sqrt(2.0) : 1;
+                float av = v == 0 ? 1 / sqrt(2.0) : 1;
+                s += au * av * G[u][v] * cos(((2 * x + 1) * u * M_PI) / 16.0) * cos(((2 * y + 1) * v * M_PI) / 16.0);
+            }
+        }
+        g[x][y] = s / 4;
+    }
+}
+```
+
 ### png
 
 #### 解析
