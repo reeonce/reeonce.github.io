@@ -18,6 +18,7 @@ nav_items:
 - title: "Me"
   path: "/about/"
 
+google_analytics: UA-65501306-1
 disqus:
   shortname: reeoncesblog
 
