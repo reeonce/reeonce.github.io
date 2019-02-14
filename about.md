@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Reeonce
+title: About Ree
 permalink: /about/
 ---
 

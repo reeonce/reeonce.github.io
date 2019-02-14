@@ -1,5 +1,5 @@
 # Site settings
-title: "On The Movement"
+title: "Ree's Movements"
 email: reeonce@gmail.com
 description: "Moving all the time, capture it."
 timezone: Asia/Hong_Kong
@@ -8,9 +8,6 @@ twitter_username: reeonce
 github_username:  reeonce
 
 nav_items: 
-
-- title: "Blogs"
-  path: "/"
 
 - title: "Notes"
   path: "/notes/"
