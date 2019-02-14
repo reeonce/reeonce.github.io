@@ -6,7 +6,7 @@ categories: Media
 tags: image media
 ---
 
-如果说 JPEG 是影像领域图像格式的一哥, 那 PNG 绝对可以算是互联网图片的一哥。平日的截图, 各种logo 等图像编辑产生的资源, 我们一般都会首选png 格式作为其存储方式。
+如果说 JPEG 是影像领域图像格式的“一哥”, 那 PNG 绝对可以算是互联网图片的“一姐”, 平日的截图、各种logo 等图像编辑产生的资源, 我们一般都会首选png 格式作为其存储方式。
 
 PNG 是一种高效的无损压缩格式, 在针对有规律的图片时, 压缩率可以非常高, 而对于相机拍摄的无规律的自然场景，压缩率往往是非常低的。
 
@@ -44,6 +44,109 @@ PNG 采用的是 DEFLATE，一种混合 LZ77 算法与霍夫曼编码的无损�
 LZ77 是PNG 能够提高压缩率的关键所在。对于有规律重复的数据，它可以像游程编码一样，用非常简单的数据来描述这些原始图像数据。
 
 而通过霍夫曼编码，又进一步提高了压缩率。
+
+通过zlib 来解码的大致逻辑为：
+
+```cpp
+while (true) {
+	ctx->strm.zalloc = Z_NULL;
+    ctx->strm.zfree = Z_NULL;
+    ctx->strm.opaque = Z_NULL;
+    ctx->strm.avail_in = 0;
+    ctx->strm.next_in = Z_NULL;
+    int ret = inflateInit(&ctx->strm);
+    assert(ret == 0);
+
+	Chunk c = ReadChunk(ctx->source);
+	switch (c.type) {
+	case 'IHDT':
+		ParseMetadata(c, ctx);
+		break;
+	case 'IDAT':
+		ctx->strm.next_in = const_cast<uint8_t *>(chunk.data);
+		ctx->strm.avail_in = size;
+
+		uint8_t outChunk[32768];
+
+		ctx->strm.next_out = outChunk;
+		ctx->strm.avail_out = sizeof(outChunk);
+		int ret = inflate(&ctx->strm, Z_NO_FLUSH);
+		assert(ret != Z_STREAM_ERROR);  /* state not clobbered */
+		switch (ret) {
+		    case Z_NEED_DICT:
+		        ret = Z_DATA_ERROR;     /* and fall through */
+		    case Z_DATA_ERROR:
+		    case Z_MEM_ERROR:
+		        assert(false);
+		}
+
+		size_t outSize = sizeof(outChunk) - ctx->strm.avail_out;
+		ctx->outData.insert(ctx->color.end(), outChunk, outChunk + outSize); 
+
+		if (ret == Z_STREAM_END) {
+		    inflateEnd(&ctx->strm);
+		}
+		break;
+	case 'IEND':
+		ctx->done = true;
+	}
+	if (ctx->error) {
+		inflateEnd(&ctx->strm);
+	}
+}
+```
+
+### Filter
+
+为了获取更好的压缩效果, png 还可以通过将图像的原始数据进行过滤处理, 从而得到更利于压缩的数据。
+
+png 实际采用的filter 算法并不是由 `IHDT` chunk 里的filter type 指定的, 在png 的格式定义中, `IHDT` 里的filter type 应该始终为0。 而实际使用的filter 算法则是存储在每行数据的首个字节。比如一张 `width = 58, height = 50, colorspace = RGBA, depth = 8` 的图片，通过上述步骤得到的 ctx->outData.size() 为11650, 11650 / 50 = 233, 而非 58 * 4 = 232，因为每行的首个字节为实际的filter 算法类型。
+
+PNG 中filter 类型可以为
+
+```
+0       None
+1       Sub
+2       Up
+3       Average
+4       Paeth
+```
+
+这五种类型。
+
+以Sub 为例, 将deflate 解码得到的结果转为图像数据的过程为:
+
+```cpp
+int components = kComponents[ctx->colorType];
+size_t bpp = (components * ctx->depth + 7) / 8;
+std::vector<uint8_t> data(ctx->width * ctx->height * components);
+
+size_t stride = (ctx->width * ctx->depth * components + 7) / 8 + 1;
+assert(stride * ctx->height == ctx->outData.size());
+for (int row = 0; row < ctx->height; ++row) {
+    auto bufferBeign = ctx->outData.data() + row * stride;
+    ree::io::BigEndianRLSBBuffer buffer(bufferBeign, stride);
+    int filter = buffer.ReadBits(8);
+
+    size_t dataBeginIndex = row * ctx->width * components;
+    for (int i = 0; i < components; ++i) {
+        data[dataBeginIndex + i] = buffer.ReadBits(ctx->depth);
+    }
+    for (int col = 1; col < ctx->width; ++col) {
+        for (int i = 0; i < components; ++i) {
+            uint32_t value = buffer.ReadBits(ctx->depth);
+            switch (filter) {
+            case 0:
+                break;
+            case 1:
+                value += data[dataBeginIndex + col * 4 + i - bpp];
+                break;
+            }
+            data[dataBeginIndex + col * 4 + i] = value;
+        }
+    }
+}
+```
 
 ### 引用：
 
