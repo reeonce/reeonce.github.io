@@ -28,5 +28,5 @@ tags: image media
 
 | 格式 | 发布年份 | 魔法数字 | 颜色空间 | 压缩比 |
 |------|------|---------|----------|-------|
-|JPEG | 1992 | ff d8 ff | Y′CBCR, RGB | 10:1~100:1 |
+|JPEG | 1992 | ff d8 ff | GRAY, Y′CBCR, CMYK | 10:1~100:1 |
 |PNG | 1996 | 89 50 4e 47 | GRAY, RGB, RGBA, GrayAlpha| 1:1~n:1 |
