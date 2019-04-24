@@ -136,29 +136,33 @@ gl_FragColor = c; //consider using premultiply(c);
 ### sepia
 
 ```glsl
+mat4 mat = {
+    {0.3588, 0.7044, 0.1368, 0.0},
+    {0.2990, 0.5870, 0.1140, 0.0},
+    {0.2392, 0.4696, 0.0912 ,0.0},
+    {0,0,0,1.0},
+};
+gl_FragColor = mat * color;
+
 ```
 
 ### amatorka
 
-```glsl
-```
+lookup filter with lookup_amatorka.png.
 
 ### missetikate
 
-```glsl
-```
-
+lookup filter with lookup_miss_etikate.png.
 
 ### softelegance
 
-```glsl
-```
+lookup filter with lookup_soft_elegance_1.png and lookup_soft_elegance_2.png.
 
 ### color invert
 
 ```glsl
+gl_FragColor = vec4((1.0 - color.rgb), color.a);
 ```
-
 
 ### histogram
 
@@ -169,14 +173,15 @@ gl_FragColor = c; //consider using premultiply(c);
 ### average color
 
 ```glsl
+color = 0.25 * (upperLeftColor + upperRightColor + lowerLeftColor + lowerRightColor);
 ```
-
 
 ### luminosity
 
 ```glsl
+luminosity = 0.25 * (upperLeftLuminance + upperRightLuminance + lowerLeftLuminance + lowerRightLuminance);
+color = vec4(luminosity, luminosity, luminosity, 1.0);
 ```
-
 
 ### threshold
 
@@ -225,19 +230,29 @@ gl_FragColor = c; //consider using premultiply(c);
 ```
 
 
-### low pass
+### low pass (slow-down the movements)
 
 ```glsl
+color = mix(color, bufferColor, alpha);
+bufferColor = color;
 ```
 
-### high pass
+### high pass (high-light the movements)
 
 ```glsl
+color = abs(color - lowpassColor);
 ```
 
 ### motion detector
 
 ```glsl
+vec3 currentImageColor = texture2D(inputImageTexture, textureCoordinate).rgb;
+vec3 lowPassImageColor = texture2D(inputImageTexture2, textureCoordinate2).rgb;
+
+float colorDistance = distance(currentImageColor, lowPassImageColor); // * 0.57735
+float movementThreshold = step(0.2, colorDistance);
+
+gl_FragColor = movementThreshold * vec4(textureCoordinate2.x, textureCoordinate2.y, 1.0, 1.0);
 ```
 
 ### gray scale
@@ -250,12 +265,35 @@ color.rgb = vec3(luminance);
 ### pixellate
 
 ```glsl
+vec2 sampleDivisor = vec2(fractionalWidthOfPixel, fractionalWidthOfPixel / aspectRatio);
+
+vec2 samplePos = textureCoordinate - mod(textureCoordinate, sampleDivisor) + 0.5 * sampleDivisor;
+gl_FragColor = texture2D(inputImageTexture, samplePos );
 ```
 
 
 ### polar pixellate
 
 ```glsl
+vec2 normCoord = 2.0 * textureCoordinate - 1.0;
+vec2 normCenter = 2.0 * center - 1.0;
+
+normCoord -= normCenter;
+
+float r = length(normCoord); // to polar coords
+float phi = atan(normCoord.y, normCoord.x); // to polar coords
+
+r = r - mod(r, pixelSize.x) + 0.03;
+phi = phi - mod(phi, pixelSize.y);
+
+normCoord.x = r * cos(phi);
+normCoord.y = r * sin(phi);
+
+normCoord += normCenter;
+
+vec2 textureCoordinateToUse = normCoord / 2.0 + 0.5;
+
+gl_FragColor = texture2D(inputImageTexture, textureCoordinateToUse );
 ```
 
 ### pixellate position
@@ -460,6 +498,20 @@ for i in 0...2 * numberOfOptimizedOffsets
 ### swirl
 
 ```glsl
+vec2 textureCoordinateToUse = textureCoordinate;
+float dist = distance(center, textureCoordinate);
+if (dist < radius)
+{
+    textureCoordinateToUse -= center;
+    float percent = (radius - dist) / radius;
+    float theta = percent * percent * angle * 8.0;
+    float s = sin(theta);
+    float c = cos(theta);
+    textureCoordinateToUse = vec2(dot(textureCoordinateToUse, vec2(c, -s)), dot(textureCoordinateToUse, vec2(s, c)));
+    textureCoordinateToUse += center;
+}
+
+gl_FragColor = texture2D(inputImageTexture, textureCoordinateToUse );
 ```
 
 ### bulge
@@ -475,16 +527,67 @@ for i in 0...2 * numberOfOptimizedOffsets
 ### sphere refraction
 
 ```glsl
-```
+vec2 textureCoordinateToUse = vec2(textureCoordinate.x, (textureCoordinate.y * aspectRatio + 0.5 - 0.5 * aspectRatio));
+float distanceFromCenter = distance(center, textureCoordinateToUse);
+float checkForPresenceWithinSphere = step(distanceFromCenter, radius);
 
-### sphere refraction
+distanceFromCenter = distanceFromCenter / radius;
 
-```glsl
+float normalizedDepth = radius * sqrt(1.0 - distanceFromCenter * distanceFromCenter);
+vec3 sphereNormal = normalize(vec3(textureCoordinateToUse - center, normalizedDepth));
+
+vec3 refractedVector = refract(vec3(0.0, 0.0, -1.0), sphereNormal, refractiveIndex);
+
+gl_FragColor = texture2D(inputImageTexture, (refractedVector.xy + 1.0) * 0.5) * checkForPresenceWithinSphere;
 ```
 
 ### glass sphere
 
+```glsl
+vec2 textureCoordinateToUse = vec2(textureCoordinate.x, (textureCoordinate.y * aspectRatio + 0.5 - 0.5 * aspectRatio));
+float distanceFromCenter = distance(center, textureCoordinateToUse);
+float checkForPresenceWithinSphere = step(distanceFromCenter, radius);
+
+distanceFromCenter = distanceFromCenter / radius;
+
+float normalizedDepth = radius * sqrt(1.0 - distanceFromCenter * distanceFromCenter);
+vec3 sphereNormal = normalize(vec3(textureCoordinateToUse - center, normalizedDepth));
+
+vec3 refractedVector = 2.0 * refract(vec3(0.0, 0.0, -1.0), sphereNormal, refractiveIndex);
+refractedVector.xy = -refractedVector.xy;
+
+vec3 finalSphereColor = texture2D(inputImageTexture, (refractedVector.xy + 1.0) * 0.5).rgb;
+
+// Grazing angle lighting
+float lightingIntensity = 2.5 * (1.0 - pow(clamp(dot(ambientLightPosition, sphereNormal), 0.0, 1.0), 0.25));
+finalSphereColor += lightingIntensity;
+
+// Specular lighting
+lightingIntensity  = clamp(dot(normalize(lightPosition), sphereNormal), 0.0, 1.0);
+lightingIntensity  = pow(lightingIntensity, 15.0);
+finalSphereColor += vec3(0.8, 0.8, 0.8) * lightingIntensity;
+
+gl_FragColor = vec4(finalSphereColor, 1.0) * checkForPresenceWithinSphere;
+```
+
 ### stretch
+
+```glsl
+vec2 normCoord = 2.0 * textureCoordinate - 1.0;
+vec2 normCenter = 2.0 * center - 1.0;
+
+normCoord -= normCenter;
+vec2 s = sign(normCoord);
+normCoord = abs(normCoord);
+normCoord = 0.5 * normCoord + 0.5 * smoothstep(0.25, 0.5, normCoord) * normCoord;
+normCoord = s * normCoord;
+
+normCoord += normCenter;
+
+vec2 textureCoordinateToUse = normCoord / 2.0 + 0.5;
+
+gl_FragColor = texture2D(inputImageTexture, textureCoordinateToUse);
+```
 
 ### dilation
 
@@ -496,23 +599,100 @@ for i in 0...2 * numberOfOptimizedOffsets
 
 ### dissolve blend
 
+```glsl
+color = mix(color1, color2, mixturePercent);
+```
+
 ### perlin noise
 
 ### voronoi
 
 ### mosaic
 
+```glsl
+vec2 xy = textureCoordinate;
+xy = xy - mod(xy, displayTileSize);
+
+vec4 lumcoeff = vec4(0.299,0.587,0.114,0.0);
+
+vec4 inputColor = texture2D(inputImageTexture2, xy);
+float lum = dot(inputColor,lumcoeff);
+lum = 1.0 - lum;
+
+float stepsize = 1.0 / numTiles;
+float lumStep = (lum - mod(lum, stepsize)) / stepsize; 
+
+float rowStep = 1.0 / inputTileSize.x;
+float x = mod(lumStep, rowStep);
+float y = floor(lumStep / rowStep);
+
+vec2 startCoord = vec2(float(x) *  inputTileSize.x, float(y) * inputTileSize.y);
+vec2 finalCoord = startCoord + ((textureCoordinate - xy) * (inputTileSize / displayTileSize));
+
+color = texture2D(inputImageTexture, finalCoord);
+```
+
 ### local binaray pattern
+
+```glsl
+float centerIntensity = texture2D(inputImageTexture, textureCoordinate).r;
+float bottomLeftIntensity = texture2D(inputImageTexture, bottomLeftTextureCoordinate).r;
+float topRightIntensity = texture2D(inputImageTexture, topRightTextureCoordinate).r;
+float topLeftIntensity = texture2D(inputImageTexture, topLeftTextureCoordinate).r;
+float bottomRightIntensity = texture2D(inputImageTexture, bottomRightTextureCoordinate).r;
+float leftIntensity = texture2D(inputImageTexture, leftTextureCoordinate).r;
+float rightIntensity = texture2D(inputImageTexture, rightTextureCoordinate).r;
+float bottomIntensity = texture2D(inputImageTexture, bottomTextureCoordinate).r;
+float topIntensity = texture2D(inputImageTexture, topTextureCoordinate).r;
+
+float byteTally = 1.0 / 255.0 * step(centerIntensity, topRightIntensity);
+byteTally += 2.0 / 255.0 * step(centerIntensity, topIntensity);
+byteTally += 4.0 / 255.0 * step(centerIntensity, topLeftIntensity);
+byteTally += 8.0 / 255.0 * step(centerIntensity, leftIntensity);
+byteTally += 16.0 / 255.0 * step(centerIntensity, bottomLeftIntensity);
+byteTally += 32.0 / 255.0 * step(centerIntensity, bottomIntensity);
+byteTally += 64.0 / 255.0 * step(centerIntensity, bottomRightIntensity);
+byteTally += 128.0 / 255.0 * step(centerIntensity, rightIntensity);
+
+// TODO: Replace the above with a dot product and two vec4s
+// TODO: Apply step to a matrix, rather than individually
+
+gl_FragColor = vec4(byteTally, byteTally, byteTally, 1.0);
+```
 
 ### chroma key blend
 
 ### add blend
 
+```glsl
+color.rgb = overlay.rgb + base.rgb;
+color.a = overlay.a + base.a - overlay.a * base.a;
+```
+
 ### divide blend
+
+```glsl
+ra = overlay.a * base.a + overlay.r * (1.0 - base.a) + base.r * (1.0 - overlay.a);
+rg...
+gb...
+a = overlay.a + base.a - overlay.a * base.a;
+```
 
 ### multiple blend
 
+```glsl
+color = overlayer * base + overlayer * (1.0 - base.a) + base * (1.0 - overlayer.a);
+```
+
 ### overlay blend
+
+```glsl
+if (2.0 * base.r < base.a) {
+    ra = 2.0 * overlay.r * base.r + overlay.r * (1.0 - base.a) + base.r * (1.0 - overlay.a);
+} else {
+    ra = overlay.a * base.a - 2.0 * (base.a - base.r) * (overlay.a - overlay.r) + overlay.r * (1.0 - base.a) + base.r * (1.0 - overlay.a);
+}
+```
 
 ### lighten blend
 
@@ -568,8 +748,6 @@ color.a = color1.a;
 ### saturation blend
 
 ### luminosity blend
-
-
 
 ### normal blend
 
