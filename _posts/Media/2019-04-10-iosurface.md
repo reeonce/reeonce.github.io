@@ -1,7 +1,7 @@
 ---
 layout: default
 comments: true
-title: IOSurface
+title: IOSurface - 加速图像处理的魔法糖
 categories: Media
 tags: media
 ---
@@ -87,18 +87,34 @@ CVPixelBufferRef ReadFrame() {
 
 ### CVPixelBuffer 背后的IOSurface
 
-CVPixelBuffer 有一个 `CVPixelBufferGetIOSurface()` 的方法，对于硬解出来的CVPixelBuffer, 
+对于硬解出来的CVPixelBuffer, 可以通过 `CVPixelBufferGetIOSurface()` 来获取到一个非空的 IOSurface 对象。
 
-什么是IOSurface? 苹果官方文档对其的描述是:
+什么是IOSurface? 网络上关于IOSurface 具体实现的讨论并不是很多, 还好在WWDC 2010 中, 有一场专门针对IOSurface 的讲解。
+
+先来看看苹果官方文档对其的描述是:
 
 > Share hardware-accelerated buffer data (framebuffers and textures) across multiple processes. Manage image memory more efficiently.
 
 这句话的重点应该是 **Share** 与 "Manage", 也就是 IOSurface 是一套可以跨多进程进行**共享和管理**硬件加速的内存数据的框架。
 
+#### 共享
+
+一个IOSurface 对象管理着一块系统共享的内存, 比如一张YUV 图像的数据。通过IOSurface 的接口, 电脑的各个模块可以同时访问这一块共享的内存, CPU 可以访问它并进行读写操作, GPU 可以通过OpenGL 或者 Metal 访问它, 外置的GPU 也可以通过不同版本的OpenGL 来访问这一块内存。 不仅如此, 不同的进程也可以通过IOSurface 来共享资源。
+
+#### 管理
+
+为了让 IOSurface 能够支持如此多模块的访问, IOSurface 本身提供了各个模块的访问接口, 大大简化各模块之间对这些资源的管理逻辑。
+
+虽然IOSurface 提供了这么强大的服务, 开发者还是要理清各个模块的访问冲突, 做好同步操作。比如, 在CPU 进行操作是, 需要调用`IOSurfaceLock()` 来锁定这一块资源, 当结束读写操作时, 调用`IOSurfaceUnlock()` 来解除锁定, 如果进行了写操作, IOSurface 还负责将CPU 中的内存通过到 IOSurface 中原始的内存。而在进行GPU 操作时, 通过合理地利用 `glFlush()` 和 `glFinish()` 来进行同步也是有必要的。
+
 ### 进阶：通过 CVPixelBuffer 来混合Metal 与OpenGL 的渲染
 
-苹果自 iOS 9 和 OSX 10.11 提出Metal 以后, 就非常希望开发者能够
+苹果自 iOS 9 和 OSX 10.11 提出Metal 以后, 就非常希望开发者能够将OpenGL(ES) 的代码移植到Metal。然而对于稍大一点的工程而言, 完全移植到新平台并非易事, IOSurface 在这个时候就可以作为桥梁, 连接 OpenGL(ES) 与 Metal 的图像资源。
 
-[Mixing Metal and OpenGL Rendering in a View](https://developer.apple.com/documentation/metal/mixing_metal_and_opengl_rendering_in_a_view?language=objc)
+之前的代码介绍了如何通过CoreVideo 的API 分别将CVPixelBuffer 与Opengl(ES) 的texture 和 MTLTexture 进行关联, 在这里, 我们将一个CVPixelBuffer 同时绑定到 Opengl(ES) 的texture 和 MTLTexture 中。那么, 在 Opengl(ES) 对这个texture 作出写操作之后, Metal 可以读取到修改后的图像; 同样, 在 Metal 对其MTLTexture 写操作之后, Opengl(ES) 可以读取到修改后的图像。
+
+引用:
 
 [Taking Advantage of Multiple GPUs (WWDC 2010 session 422)](https://asciiwwdc.com/2010/sessions/422)
+
+[Mixing Metal and OpenGL Rendering in a View](https://developer.apple.com/documentation/metal/mixing_metal_and_opengl_rendering_in_a_view?language=objc)
