@@ -95,7 +95,7 @@ CVPixelBufferRef ReadFrame() {
 
 > Share hardware-accelerated buffer data (framebuffers and textures) across multiple processes. Manage image memory more efficiently.
 
-这句话的重点应该是 **Share** 与 "Manage", 也就是 IOSurface 是一套可以跨多进程进行**共享和管理**硬件加速的内存数据的框架。
+这句话的重点应该是 **Share** 与 **Manage**, 也就是 IOSurface 是一套可以跨多进程进行**共享和管理**硬件加速的内存数据的框架。
 
 #### 共享
 
