@@ -13,30 +13,30 @@ tags: media
 1. 获取 CVPixelBuffer 在CPU 上的内存地址，然后通过`glTexImage2D()`将其上传到 OpenGL(ES) 或者 通过 Metal 的接口上传到MTLTexture 上。需要注意的是, 在上传的时候需要通过 `CVPixelBufferLockBaseAddress()` 方法 *锁定* 这个CVPixelBuffer, 否则显示的图像很可能是不对的。这种方法很好理解，然而十分耗时。
 
 2. 对于Metal 和 OpenGL(ES) 开发, CoreVideo 框架提供了更加快速的方式。代码也非常简单:
-```swift
-CVMetalTextureCacheCreate()
-CVMetalTextureCacheCreateTextureFromImage()
-_metalTexture = CVMetalTextureGetTexture(_CVMTLTexture);
-```
+    ```swift
+    CVMetalTextureCacheCreate()
+    CVMetalTextureCacheCreateTextureFromImage()
+    _metalTexture = CVMetalTextureGetTexture(_CVMTLTexture);
+    ```
 
 3. 如果是在MacOS 平台, 第2种方法只能上传RGBA 格式的CVPixelBuffer, 对于NV12 或者是 I420 的格式则需要使用另一种方法:
-```c++
-void LoadFrame(CVImageBufferRef pixelBuffer, OpenGLNv12TextureFrame *nv12TextureFrame) {
-    CGLContextObj ctx = (CGLContextObj)[[NSOpenGLContext currentContext] CGLContextObj];
-    IOSurfaceRef surface = CVPixelBufferGetIOSurface(pixelBuffer);
+    ```c++
+    void LoadFrame(CVImageBufferRef pixelBuffer, OpenGLNv12TextureFrame *nv12TextureFrame) {
+        CGLContextObj ctx = (CGLContextObj)[[NSOpenGLContext currentContext] CGLContextObj];
+        IOSurfaceRef surface = CVPixelBufferGetIOSurface(pixelBuffer);
 
-    std::vector<GLuint> &textures = nv12TextureFrame->GetNativeTextures();
-    
-    glBindTexture(GL_TEXTURE_RECTANGLE, textures[0]);
-    CGLTexImageIOSurface2D(ctx, GL_TEXTURE_RECTANGLE, GL_R8, width, height, 
-        GL_RED, GL_UNSIGNED_BYTE, surface, 0);
+        std::vector<GLuint> &textures = nv12TextureFrame->GetNativeTextures();
+        
+        glBindTexture(GL_TEXTURE_RECTANGLE, textures[0]);
+        CGLTexImageIOSurface2D(ctx, GL_TEXTURE_RECTANGLE, GL_R8, width, height, 
+            GL_RED, GL_UNSIGNED_BYTE, surface, 0);
 
-    glBindTexture(GL_TEXTURE_RECTANGLE, textures[1]);
-    CGLTexImageIOSurface2D(ctx, GL_TEXTURE_RECTANGLE, GL_RG8, width / 2, 
-        height / 2, GL_RG, GL_UNSIGNED_BYTE, surface, 1);
-    glBindTexture(GL_TEXTURE_RECTANGLE, 0);
-}
-```
+        glBindTexture(GL_TEXTURE_RECTANGLE, textures[1]);
+        CGLTexImageIOSurface2D(ctx, GL_TEXTURE_RECTANGLE, GL_RG8, width / 2, 
+            height / 2, GL_RG, GL_UNSIGNED_BYTE, surface, 1);
+        glBindTexture(GL_TEXTURE_RECTANGLE, 0);
+    }
+    ```
 
 通过对比, 对于4K 以上分辨率的视频, 第1种方法基本上无法使用的，第2、3种方式却能保持流畅不卡。
 
@@ -47,39 +47,38 @@ void LoadFrame(CVImageBufferRef pixelBuffer, OpenGLNv12TextureFrame *nv12Texture
 1. 创建一个普通的framebuffer, 进行滤镜、美颜等渲染, 通过`glReadPixels()` 等函数将framebuffer 的颜色图像读取到cpu 中, 然后对这个图像进行编码。
 
 2. 在前面绑定VideoToolbox 硬解出来视频帧到渲染的texture第2种方式中, 我们将一个 CVPixelBuffer 绑定到了 OpenGL(ES) 或者 Metal 的texture 上, 事实上，这个texture 是可以直接绑定到framebuffer 的 attachment 作为渲染目标的, 渲染完成后，直接将这个CVPixelBuffer 进行编码。示例代码为:
+    ```c++
+    void Setup() {
+        CGLContextObj ctx = (CGLContextObj)[[NSOpenGLContext currentContext] CGLContextObj];
+        CGLPixelFormatObj pixelFmt = [NSOpenGLContext currentContext].pixelFormat.CGLPixelFormatObj;
+        CVOpenGLTextureCacheCreate(kCFAllocatorDefault, NULL, ctx, pixelFmt, NULL, &resources_->textureCache);
+        NSDictionary* cvBufferProperties = @{
+            (__bridge NSString*)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA),
+            (__bridge NSString*)kCVPixelBufferWidthKey : @(width),
+            (__bridge NSString*)kCVPixelBufferHeightKey : @(height),
+            (__bridge NSString*)kCVPixelBufferOpenGLCompatibilityKey : @YES,
+            (__bridge NSString*)kCVPixelBufferIOSurfacePropertiesKey : @{},
+        };
+        CVPixelBufferPoolCreate(kCFAllocatorDefault, NULL, (__bridge CFDictionaryRef)cvBufferProperties, &resources_->pool);
+    }
 
-```c++
-void Setup() {
-    CGLContextObj ctx = (CGLContextObj)[[NSOpenGLContext currentContext] CGLContextObj];
-    CGLPixelFormatObj pixelFmt = [NSOpenGLContext currentContext].pixelFormat.CGLPixelFormatObj;
-    CVOpenGLTextureCacheCreate(kCFAllocatorDefault, NULL, ctx, pixelFmt, NULL, &resources_->textureCache);
-    NSDictionary* cvBufferProperties = @{
-        (__bridge NSString*)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA),
-        (__bridge NSString*)kCVPixelBufferWidthKey : @(width),
-        (__bridge NSString*)kCVPixelBufferHeightKey : @(height),
-        (__bridge NSString*)kCVPixelBufferOpenGLCompatibilityKey : @YES,
-        (__bridge NSString*)kCVPixelBufferIOSurfacePropertiesKey : @{},
-    };
-    CVPixelBufferPoolCreate(kCFAllocatorDefault, NULL, (__bridge CFDictionaryRef)cvBufferProperties, &resources_->pool);
-}
+    CVPixelBufferRef ReadFrame() {
+        CVPixelBufferRef pixelBuffer;
+        CVReturn ret = CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, resources_->pool, &pixelBuffer);
+        CVOpenGLTextureRef cvTexture;
+        CVOpenGLTextureCacheCreateTextureFromImage(kCFAllocatorDefault, resources_->textureCache, pixelBuffer, NULL, &cvTexture);
 
-CVPixelBufferRef ReadFrame() {
-    CVPixelBufferRef pixelBuffer;
-    CVReturn ret = CVPixelBufferPoolCreatePixelBuffer(kCFAllocatorDefault, resources_->pool, &pixelBuffer);
-    CVOpenGLTextureRef cvTexture;
-    CVOpenGLTextureCacheCreateTextureFromImage(kCFAllocatorDefault, resources_->textureCache, pixelBuffer, NULL, &cvTexture);
+        GLuint texture = CVOpenGLTextureGetName(cvTexture);
+        
+        // TODO: bind texture to the target framebuffer
 
-    GLuint texture = CVOpenGLTextureGetName(cvTexture);
-    
-    // TODO: bind texture to the target framebuffer
+        Render();
+        glFlush();
+        CVOpenGLTextureRelease(cvTexture);
 
-    Render();
-    glFlush();
-    CVOpenGLTextureRelease(cvTexture);
-
-    return pixelBuffer;
-}
-```
+        return pixelBuffer;
+    }
+    ```
 
 同样的, 第2种方法的性能比方法1好很多, 对于4K 视频的直播也是没有问题的。
 

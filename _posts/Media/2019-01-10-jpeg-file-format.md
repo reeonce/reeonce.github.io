@@ -172,3 +172,4 @@ for (int x = 0; x < 8; ++x) {
 ### 参考
 
 [Wikipedia JPEG](https://en.wikipedia.org/wiki/JPEG)
+[JPEG File Layout and Format](http://vip.sugovica.hu/Sardi/kepnezo/JPEG%20File%20Layout%20and%20Format.htm)
