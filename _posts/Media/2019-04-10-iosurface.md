@@ -47,6 +47,7 @@ void LoadFrame(CVImageBufferRef pixelBuffer, OpenGLNv12TextureFrame *nv12Texture
 1. 创建一个普通的framebuffer, 进行滤镜、美颜等渲染, 通过`glReadPixels()` 等函数将framebuffer 的颜色图像读取到cpu 中, 然后对这个图像进行编码。
 
 2. 在前面绑定VideoToolbox 硬解出来视频帧到渲染的texture第2种方式中, 我们将一个 CVPixelBuffer 绑定到了 OpenGL(ES) 或者 Metal 的texture 上, 事实上，这个texture 是可以直接绑定到framebuffer 的 attachment 作为渲染目标的, 渲染完成后，直接将这个CVPixelBuffer 进行编码。示例代码为:
+
 ```c++
 void Setup() {
     CGLContextObj ctx = (CGLContextObj)[[NSOpenGLContext currentContext] CGLContextObj];
