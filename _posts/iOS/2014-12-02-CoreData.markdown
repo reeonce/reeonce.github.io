@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: Core Data 的使用
 category: ios

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: PNG 文件格式及编解码
 categories: Media

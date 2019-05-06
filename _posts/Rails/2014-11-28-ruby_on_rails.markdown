@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: Errors when setup Ruby on Rails on EC2
 category: rails

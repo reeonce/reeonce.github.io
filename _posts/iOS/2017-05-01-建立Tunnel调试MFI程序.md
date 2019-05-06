@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: 建立Tunnel 调试MFI 程序
 category: ios

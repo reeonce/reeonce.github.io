@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: SQLite 的主键设计
 category: Database

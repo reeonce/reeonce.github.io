@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: MEMENTO 的多处应用
 category: Design Pattern

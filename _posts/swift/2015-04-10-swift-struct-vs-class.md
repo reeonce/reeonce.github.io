@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: Swift 中 struct vs class
 category: swift

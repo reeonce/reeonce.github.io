@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title:  "事件响应 - CHAIN OF RESPONSIBILITY"
 category: Design Pattern

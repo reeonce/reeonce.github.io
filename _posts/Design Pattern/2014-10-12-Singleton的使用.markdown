@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: SINGLETON 的使用
 category: Design Pattern

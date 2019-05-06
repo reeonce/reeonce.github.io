@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: View Controller 与 MEDIATOR 模式
 category: Design Pattern

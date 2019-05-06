@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: "字符串"
 category: swift

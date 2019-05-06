@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: Stack vs Heap
 categories: c++

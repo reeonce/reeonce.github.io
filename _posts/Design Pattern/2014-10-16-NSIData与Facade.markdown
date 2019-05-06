@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: NSData 中的 FACADE
 category: Design Pattern

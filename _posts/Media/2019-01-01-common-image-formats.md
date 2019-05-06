@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: 常见的图片格式及其编解码
 categories: Media

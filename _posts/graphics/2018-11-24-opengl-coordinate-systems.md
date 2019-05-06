@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: OpenGL 坐标系统
 categories: Graphics

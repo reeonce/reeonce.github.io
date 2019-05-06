@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: IOSurface - 加速图像处理的魔法糖
 categories: Media

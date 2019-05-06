@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: 创建对象的工厂方法
 category: Design Pattern

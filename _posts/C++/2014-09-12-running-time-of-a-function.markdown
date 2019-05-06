@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title:  "C++ Running Time Of A Function"
 categories: c++

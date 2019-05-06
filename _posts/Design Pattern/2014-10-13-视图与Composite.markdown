@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: 视图与 COMPOSITE
 category: Design Pattern

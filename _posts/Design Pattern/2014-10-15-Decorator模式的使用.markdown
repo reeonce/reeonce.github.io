@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 comments: true
 title: DECORATOR 模式的使用
 category: Design Pattern
